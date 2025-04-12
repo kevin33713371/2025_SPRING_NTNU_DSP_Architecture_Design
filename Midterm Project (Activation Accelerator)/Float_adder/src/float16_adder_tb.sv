@@ -7,7 +7,7 @@ module float16_adder_tb();
     parameter EXP_LEN = 5;
     parameter MANT_LEN = 10;
 
-    parameter NUM_TEST = 500;
+    parameter NUM_TEST = 10000;
 
     // General signal
 
@@ -39,6 +39,7 @@ module float16_adder_tb();
         logic [22:0] mant_fp32;
         logic [4:0] exp_fp16;
         logic [9:0] mant_fp16;
+        // logic lsb, guard_bit, round_bit, sticky_bit, round_up;
 
         val_bits = $shortrealtobits(val);
 
@@ -74,6 +75,18 @@ module float16_adder_tb();
             exp_fp16 = exp_fp32 - 112; // 127 - 15
             mant_fp16 = mant_fp32[22:13];
         end
+
+        // // 包含第13位 → mant_fp32[12] 是 guard bit
+        // lsb = mant_fp32[13];
+        // guard_bit = mant_fp32[12];
+        // round_bit = mant_fp32[11];
+        // sticky_bit = |mant_fp32[10:0];
+
+        // round_up = ((guard_bit && round_bit) || (guard_bit && ~round_bit && sticky_bit) || (lsb && guard_bit && ~round_bit && ~sticky_bit));
+
+        // // Base truncated
+        // if (round_up)
+        //     mant_fp16 = mant_fp16 + 1;
 
         return {sign, exp_fp16, mant_fp16};
 
