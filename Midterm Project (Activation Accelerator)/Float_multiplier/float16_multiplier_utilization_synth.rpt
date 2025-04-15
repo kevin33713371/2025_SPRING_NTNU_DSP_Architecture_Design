@@ -1,10 +1,10 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Tue Apr 15 23:19:23 2025
+| Date         : Tue Apr 15 22:56:26 2025
 | Host         : ntnu6-MS-7D75 running 64-bit Ubuntu 22.04.5 LTS
-| Command      : report_utilization -file float16_adder_utilization_synth.rpt -pb float16_adder_utilization_synth.pb
-| Design       : float16_adder
+| Command      : report_utilization -file float16_multiplier_utilization_synth.rpt -pb float16_multiplier_utilization_synth.pb
+| Design       : float16_multiplier
 | Device       : xcu50-fsvh2104-2-e
 | Speed File   : -2
 | Design State : Synthesized
@@ -36,13 +36,13 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*               |  287 |     0 |          0 |    871680 |  0.03 |
-|   LUT as Logic          |  287 |     0 |          0 |    871680 |  0.03 |
+| CLB LUTs*               |  160 |     0 |          0 |    871680 |  0.02 |
+|   LUT as Logic          |  160 |     0 |          0 |    871680 |  0.02 |
 |   LUT as Memory         |    0 |     0 |          0 |    403200 |  0.00 |
 | CLB Registers           |    0 |     0 |          0 |   1743360 |  0.00 |
 |   Register as Flip Flop |    0 |     0 |          0 |   1743360 |  0.00 |
 |   Register as Latch     |    0 |     0 |          0 |   1743360 |  0.00 |
-| CARRY8                  |    4 |     0 |          0 |    108960 | <0.01 |
+| CARRY8                  |    0 |     0 |          0 |    108960 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |    435840 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |    217920 |  0.00 |
 | F9 Muxes                |    0 |     0 |          0 |    108960 |  0.00 |
@@ -87,11 +87,12 @@ Warning! LUT value is adjusted to account for LUT combining.
 3. ARITHMETIC
 -------------
 
-+-----------+------+-------+------------+-----------+-------+
-| Site Type | Used | Fixed | Prohibited | Available | Util% |
-+-----------+------+-------+------------+-----------+-------+
-| DSPs      |    0 |     0 |          0 |      5952 |  0.00 |
-+-----------+------+-------+------------+-----------+-------+
++----------------+------+-------+------------+-----------+-------+
+|    Site Type   | Used | Fixed | Prohibited | Available | Util% |
++----------------+------+-------+------------+-----------+-------+
+| DSPs           |    1 |     0 |          0 |      5952 |  0.02 |
+|   DSP48E2 only |    1 |       |            |           |       |
++----------------+------+-------+------------+-----------+-------+
 
 
 4. I/O
@@ -164,15 +165,15 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  125 |                 CLB |
-| LUT5     |  125 |                 CLB |
-| LUT4     |   54 |                 CLB |
+| LUT6     |   84 |                 CLB |
+| LUT5     |   60 |                 CLB |
 | INBUF    |   32 |                 I/O |
 | IBUFCTRL |   32 |              Others |
-| LUT3     |   24 |                 CLB |
+| LUT4     |   30 |                 CLB |
 | OBUF     |   16 |                 I/O |
-| LUT2     |    9 |                 CLB |
-| CARRY8   |    4 |                 CLB |
+| LUT2     |   13 |                 CLB |
+| LUT3     |    9 |                 CLB |
+| DSP48E2  |    1 |          Arithmetic |
 +----------+------+---------------------+
 
 

@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module float16_adder_tb();
+module float16_multiplier_tb();
 
     // Parameter
     parameter FLOAT_LEN = 16;
@@ -184,8 +184,8 @@ module float16_adder_tb();
     int seed = 1234;
     initial begin
         for(int i = 0; i < NUM_TEST; i++) begin
-            int r1 = $urandom(seed + i);
-            int r2 = $urandom(seed + i + 1000);
+            automatic int r1 = $urandom(seed + i);
+            automatic int r2 = $urandom(seed + i + 1000);
             ra_real[i] = ((r1 & 1) ? 1.0 : -1.0) * ((r1 % 100000) / 1000.0);
             rb_real[i] = ((r2 & 1) ? 1.0 : -1.0) * ((r2 % 100000) / 1000.0);
             ra[i] = ra_real[i];

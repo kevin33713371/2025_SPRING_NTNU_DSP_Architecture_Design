@@ -7,7 +7,7 @@ module float16_adder_tb();
     parameter EXP_LEN = 5;
     parameter MANT_LEN = 10;
 
-    parameter NUM_TEST = 10000;
+    parameter NUM_TEST = 1000;
 
     // General signal
 

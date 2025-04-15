@@ -54,6 +54,7 @@ logic [(MANT_LEN+7)-1:0] mant_res; // 17 bits, two 16 bits addition
 logic sign_cmp, exp_cmp_ab, exp_cmp_ba, mant_cmp;
 
 // signal for normalization
+logic [EXP_LEN-1:0] exp_norm_tmp;
 logic [EXP_LEN-1:0] exp_norm;
 
 // For Round to nearest, ties to even
@@ -191,23 +192,23 @@ end
 
 always_comb begin
     casez (mant_res)
-        17'b1????????????????: exp_norm = exp_res_base + 1;
-        17'b01???????????????: exp_norm = exp_res_base;
-        17'b001??????????????: exp_norm = exp_res_base - 1;
-        17'b0001?????????????: exp_norm = exp_res_base - 2;
-        17'b00001????????????: exp_norm = exp_res_base - 3;
-        17'b000001???????????: exp_norm = exp_res_base - 4;
-        17'b0000001??????????: exp_norm = exp_res_base - 5;
-        17'b00000001?????????: exp_norm = exp_res_base - 6;
-        17'b000000001????????: exp_norm = exp_res_base - 7;
-        17'b0000000001???????: exp_norm = exp_res_base - 8;
-        17'b00000000001??????: exp_norm = exp_res_base - 9;
-        17'b000000000001?????: exp_norm = exp_res_base - 10;
-        17'b0000000000001????: exp_norm = exp_res_base - 11;
-        17'b00000000000001???: exp_norm = exp_res_base - 12;
-        17'b000000000000001??: exp_norm = exp_res_base - 13;
-        17'b0000000000000001?: exp_norm = exp_res_base - 14;
-        default: exp_norm = 5'b0;
+        17'b1????????????????: exp_norm_tmp = exp_res_base + 1;
+        17'b01???????????????: exp_norm_tmp = exp_res_base;
+        17'b001??????????????: exp_norm_tmp = exp_res_base - 1;
+        17'b0001?????????????: exp_norm_tmp = exp_res_base - 2;
+        17'b00001????????????: exp_norm_tmp = exp_res_base - 3;
+        17'b000001???????????: exp_norm_tmp = exp_res_base - 4;
+        17'b0000001??????????: exp_norm_tmp = exp_res_base - 5;
+        17'b00000001?????????: exp_norm_tmp = exp_res_base - 6;
+        17'b000000001????????: exp_norm_tmp = exp_res_base - 7;
+        17'b0000000001???????: exp_norm_tmp = exp_res_base - 8;
+        17'b00000000001??????: exp_norm_tmp = exp_res_base - 9;
+        17'b000000000001?????: exp_norm_tmp = exp_res_base - 10;
+        17'b0000000000001????: exp_norm_tmp = exp_res_base - 11;
+        17'b00000000000001???: exp_norm_tmp = exp_res_base - 12;
+        17'b000000000000001??: exp_norm_tmp = exp_res_base - 13;
+        17'b0000000000000001?: exp_norm_tmp = exp_res_base - 14;
+        default: exp_norm_tmp = 5'b0;
     endcase
 end
 
@@ -247,6 +248,17 @@ end
 //         default: exp_norm = 5'b0;
 //     endcase
 // end
+
+// Update exp_norm from exp_norm_tmp to detect overflow/underflow
+always_comb begin
+    if(exp_norm_tmp < 0) begin
+        exp_norm = 5'd0;
+    end else if(exp_norm_tmp > 31) begin
+        exp_norm = 5'd31;
+    end else begin
+        exp_norm = exp_norm_tmp;
+    end
+end
 
 // Rounding: Round-to-Nearest-Even
 // Extract GRS(Gound bit, Round bit, Sticky bit)
