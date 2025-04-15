@@ -7,7 +7,7 @@ module float16_adder_tb();
     parameter EXP_LEN = 5;
     parameter MANT_LEN = 10;
 
-    parameter NUM_TEST = 10000;
+    parameter NUM_TEST = 5;
 
     // General signal
 
@@ -17,7 +17,7 @@ module float16_adder_tb();
     shortreal golden_out;
 
     // Module Instantiation
-    float16_adder F16_ADD_DUT(
+    float16_multiplier F16_MUL_DUT(
         .a(a_in),
         .b(b_in),
         .result(dut_out)
@@ -161,21 +161,33 @@ module float16_adder_tb();
         return $bitstoshortreal(fp32);
     endfunction
 
-    // Golden reference adder (float adder and truncate [31:16])
-    function automatic shortreal golden_adder;
+    // Golden reference multiplier
+    function automatic shortreal golden_multiplier;
         input shortreal a, b;
         shortreal sum;
-        sum = a + b;
+        sum = a * b;
         return sum;
     endfunction
 
     // Produce random input
     real ra_real[NUM_TEST], rb_real[NUM_TEST];
     shortreal ra[NUM_TEST], rb[NUM_TEST];
+    // initial begin
+    //     for(int i = 0; i < NUM_TEST; i++) begin
+    //         ra_real[i] = ($urandom_range(0, 1) ? 1.0 : -1.0) * (($urandom() % 100000) / 1000.0);
+    //         rb_real[i] = ($urandom_range(0, 1) ? 1.0 : -1.0) * (($urandom() % 100000) / 1000.0);
+    //         ra[i] = ra_real[i];
+    //         rb[i] = rb_real[i];
+    //     end
+    // end
+
+    int seed = 1234;
     initial begin
         for(int i = 0; i < NUM_TEST; i++) begin
-            ra_real[i] = ($urandom_range(0, 1) ? 1.0 : -1.0) * (($urandom() % 100000) / 1000.0);
-            rb_real[i] = ($urandom_range(0, 1) ? 1.0 : -1.0) * (($urandom() % 100000) / 1000.0);
+            int r1 = $urandom(seed + i);
+            int r2 = $urandom(seed + i + 1000);
+            ra_real[i] = ((r1 & 1) ? 1.0 : -1.0) * ((r1 % 100000) / 1000.0);
+            rb_real[i] = ((r2 & 1) ? 1.0 : -1.0) * ((r2 % 100000) / 1000.0);
             ra[i] = ra_real[i];
             rb[i] = rb_real[i];
         end
@@ -192,13 +204,13 @@ module float16_adder_tb();
                     begin
                         a_in = float_to_fp16(ra[i]);
                         b_in = float_to_fp16(rb[i]);
-                        golden_out = golden_adder(ra[i], rb[i]);
+                        golden_out = golden_multiplier(ra[i], rb[i]);
                     end
                     begin
-                        #1;
+                        #3;
                         error = fp16_to_float(dut_out) - golden_out;
                         error_abs = (error > 0) ? error : -error;
-                        if((fp16_to_float(dut_out) - golden_out) > 0.2) begin
+                        if(error_abs > 0.2) begin
                             $display("MISMATCH at %0d", i);
                             $display("  a      = %f (0x%h)", ra[i], a_in);
                             $display("  b      = %f (0x%h)", rb[i], b_in);
@@ -222,13 +234,13 @@ module float16_adder_tb();
                     begin
                         a_in = float_to_fp16(ra[i]);
                         b_in = float_to_fp16(rb[i]);
-                        golden_out = golden_adder(ra[i], rb[i]);
+                        golden_out = golden_multiplier(ra[i], rb[i]);
                     end
                     begin
-                        #1;
+                        #3;
                         error = fp16_to_float(dut_out) - golden_out;
                         error_abs = (error > 0) ? error : -error;
-                        if((fp16_to_float(dut_out) - golden_out) > 0.2) begin
+                        if(error_abs > 0.2) begin
                             $display("MISMATCH at %0d", i);
                             $display("  a      = %f (0x%h)", ra[i], a_in);
                             $display("  b      = %f (0x%h)", rb[i], b_in);
@@ -253,6 +265,7 @@ module float16_adder_tb();
         $display("\n Test Finished. Total: %0d, Failures: %0d", NUM_TEST, fail_count);
         $finish;
     end
+
 
 
 endmodule

@@ -37,24 +37,42 @@ logic [FLOAT_LEN-1:0] normal_result;
 // signal for normal process path
 logic sign_res;
 logic [EXP_LEN-1:0] exp_diff, exp_res_base;
+
+// For Round to nearest, ties to even
 // {1'b1, mantissa(10 bits), guard bit(1'b0), round bit(1'b0), sticky bits(3'b0)} => 16 bits
 logic [(MANT_LEN+6)-1:0] m1_preshift, m2_preshift; // 16 bits
 logic [(MANT_LEN+6)-1:0] m1_shifted, m2_shifted; // 16 bits
 logic [(MANT_LEN+7)-1:0] mant_res; // 17 bits, two 16 bits addition
+
+// For Round to nearest, ties away to zero
+// {1'b1, mantissa(10 bits), guard bit(1 bit)} --> 12 bits
+// logic [(MANT_LEN+2)-1:0] m1_preshift, m2_preshift; // 12 bits
+// logic [(MANT_LEN+2)-1:0] m1_shifted, m2_shifted; // 12 bits
+// logic [(MANT_LEN+3)-1:0] mant_res; // 13 bits, two 12 bits addition
 
 // internal signal for combinational logic
 logic sign_cmp, exp_cmp_ab, exp_cmp_ba, mant_cmp;
 
 // signal for normalization
 logic [EXP_LEN-1:0] exp_norm;
+
+// For Round to nearest, ties to even
 logic [(MANT_LEN+5)-1:0] mant_norm; // 15 bits, 10 bits mantissa + 5 bits GRS (3 bits for sticky bits)
 
+// For Round to nearest, ties away to zero
+// logic [(MANT_LEN+1)-1:0] mant_norm; // 11 bits, 10 bits mantissa + 1 bit guard bit
+
 // signal for rounding
+
+// For Round to nearest, ties to even
 // extract GRS(Gound bit, Round bit, Sticky bit)
 logic [MANT_LEN-1:0] mant_main;
 logic lsb, guard_bit, round_bit, sticky_bit;
 
-// signal for Round-to-Nearest-Even judge
+// For Round to nearest, ties away to zero
+// logic guard_bit;
+
+// signal for Rounding judge
 logic round_up;
 
 // signal for compute rounded mantissa
@@ -104,7 +122,12 @@ always_comb begin
 end
 
 // Normal process path
+
+// For Round to nearest, ties to even
 // {1'b1, mantissa(10 bits), guard bit(1 bit), round bit(1 bit), sticky bit(3 bits)} --> 16 bits
+
+// For Round to nearest, ties away from zero
+// {1'b1, mantissa(10 bits), guard bit(1 bit)} --> 12 bits
 assign sign_cmp = (sign_a == sign_b);
 assign exp_cmp_ab = (exp_a >= exp_b);
 assign exp_cmp_ba = (exp_b >= exp_a);
@@ -117,6 +140,8 @@ assign exp_res_base = exp_cmp_ab ? exp_a : exp_b;
 
 assign m1_preshift = (exp_a == 0) ? {1'b0, mant_a, 5'b00000} : {1'b1, mant_a, 5'b00000};
 assign m2_preshift = (exp_b == 0) ? {1'b0, mant_b, 5'b00000} : {1'b1, mant_b, 5'b00000};
+// assign m1_preshift = (exp_a == 0) ? {1'b0, mant_a, 1'b0} : {1'b1, mant_a, 1'b0};
+// assign m2_preshift = (exp_b == 0) ? {1'b0, mant_b, 1'b0} : {1'b1, mant_b, 1'b0};
 assign m1_shifted = exp_cmp_ab ? m1_preshift : m1_preshift >> exp_diff;
 assign m2_shifted = exp_cmp_ba ? m2_preshift : m2_preshift >> exp_diff;
 assign mant_res = sign_cmp ? (m1_shifted + m2_shifted) : (mant_cmp ? m1_shifted - m2_shifted : m2_shifted - m1_shifted);
@@ -140,6 +165,8 @@ assign mant_res = sign_cmp ? (m1_shifted + m2_shifted) : (mant_cmp ? m1_shifted 
     // 00.00000000000001x -> shift left 14 bit to 01.xxxxxxxxxxxxxxx and exp - 14
     // ==> extract [0] and shift left 14
 
+
+// For Round to nearest, ties to even
 always_comb begin
     casez (mant_res)
         17'b1????????????????: mant_norm = mant_res[15:1];
@@ -184,6 +211,43 @@ always_comb begin
     endcase
 end
 
+// For Round to nearest, ties away from zero
+// always_comb begin
+//     casez (mant_res)
+//         13'b1????????????: mant_norm = mant_res[11:1];
+//         13'b01???????????: mant_norm = mant_res[10:0];
+//         13'b001??????????: mant_norm = mant_res[9:0] << 1;
+//         13'b0001?????????: mant_norm = mant_res[8:0] << 2;
+//         13'b00001????????: mant_norm = mant_res[7:0] << 3;
+//         13'b000001???????: mant_norm = mant_res[6:0] << 4;
+//         13'b0000001??????: mant_norm = mant_res[5:0] << 5;
+//         13'b00000001?????: mant_norm = mant_res[4:0] << 6;
+//         13'b000000001????: mant_norm = mant_res[3:0] << 7;
+//         13'b0000000001???: mant_norm = mant_res[2:0] << 8;
+//         13'b00000000001??: mant_norm = mant_res[1:0] << 9;
+//         13'b000000000001?: mant_norm = mant_res[0] << 10;
+//         default: mant_norm = 15'b0;
+//     endcase
+// end
+
+// always_comb begin
+//     casez (mant_res)
+//         13'b1????????????: exp_norm = exp_res_base + 1;
+//         13'b01???????????: exp_norm = exp_res_base;
+//         13'b001??????????: exp_norm = exp_res_base - 1;
+//         13'b0001?????????: exp_norm = exp_res_base - 2;
+//         13'b00001????????: exp_norm = exp_res_base - 3;
+//         13'b000001???????: exp_norm = exp_res_base - 4;
+//         13'b0000001??????: exp_norm = exp_res_base - 5;
+//         13'b00000001?????: exp_norm = exp_res_base - 6;
+//         13'b000000001????: exp_norm = exp_res_base - 7;
+//         13'b0000000001???: exp_norm = exp_res_base - 8;
+//         13'b00000000001??: exp_norm = exp_res_base - 9;
+//         13'b000000000001?: exp_norm = exp_res_base - 10;
+//         default: exp_norm = 5'b0;
+//     endcase
+// end
+
 // Rounding: Round-to-Nearest-Even
 // Extract GRS(Gound bit, Round bit, Sticky bit)
 assign mant_main = mant_norm[14:5];
@@ -192,9 +256,16 @@ assign guard_bit = mant_norm[4];
 assign round_bit = mant_norm[3];
 assign sticky_bit = | mant_norm[2:0];
 
+// For Round to nearest, ties away from zero
+// assign mant_main = mant_norm[10:1];
+// assign guard_bit = mant_norm[0];
+
 // Round-to-Nearest-Even judge
 // GR = 11 or GRS = 101 or LGRS = 1100
 assign round_up = ((guard_bit && round_bit) || (guard_bit && ~round_bit && sticky_bit) || (lsb && guard_bit && ~round_bit && ~sticky_bit));
+
+// For Round to nearest, ties away from zero
+// assign round_up = guard_bit;
 
 // Compute rounded mantissa
 assign mant_round = mant_main + round_up;
@@ -203,7 +274,7 @@ assign mant_round = mant_main + round_up;
 assign exp_final = (mant_round[10]) ? exp_norm + 1 : exp_norm;
 assign mant_final = (mant_round[10]) ? mant_round[10:1] : mant_round[9:0];
 
-// nornal result output
+// normal result output
 assign normal_result = {sign_res, exp_final, mant_final};
 assign result = (is_nan_a || is_nan_b || is_inf_a || is_inf_b) ? specific_result : normal_result;
 
