@@ -1,4 +1,5 @@
 `timescale 1ns/1ps
+`define clk_period 10
 
 module float16_adder_tb();
 
@@ -12,12 +13,15 @@ module float16_adder_tb();
     // General signal
 
     // Logic Declaration for Instantiation
+    logic clk, rst_n;
     logic [FLOAT_LEN-1:0] a_in, b_in;
     logic [FLOAT_LEN-1:0] dut_out;
     shortreal golden_out;
 
     // Module Instantiation
     float16_adder F16_ADD_DUT(
+        .clk(clk),
+        .rst_n(rst_n),
         .a(a_in),
         .b(b_in),
         .result(dut_out)
@@ -26,6 +30,8 @@ module float16_adder_tb();
     //--------------------------------------------------
     //   CLK DECLARATION
     //--------------------------------------------------
+    initial clk = 1'b0;
+	always #(`clk_period/2) clk = ~clk;
 
     //--------------------------------------------------
     //   FUNCTION OR TASK DECLARATION
@@ -111,7 +117,6 @@ module float16_adder_tb();
         end
 
         return {sign, exp_fp16, mant_fp16};
-
     endfunction
 
     // function: float16 -> float
@@ -161,98 +166,109 @@ module float16_adder_tb();
         return $bitstoshortreal(fp32);
     endfunction
 
-    // Golden reference adder (float adder and truncate [31:16])
-    function automatic shortreal golden_adder;
-        input shortreal a, b;
-        shortreal sum;
-        sum = a + b;
-        return sum;
-    endfunction
-
-    // Produce random input
+    // Produce random input & output
     real ra_real[NUM_TEST], rb_real[NUM_TEST];
     shortreal ra[NUM_TEST], rb[NUM_TEST];
+    logic [FLOAT_LEN-1:0] ra_fp16[NUM_TEST], rb_fp16[NUM_TEST];
+    shortreal golden_result[NUM_TEST];
     initial begin
         for(int i = 0; i < NUM_TEST; i++) begin
             ra_real[i] = ($urandom_range(0, 1) ? 1.0 : -1.0) * (($urandom() % 100000) / 1000.0);
             rb_real[i] = ($urandom_range(0, 1) ? 1.0 : -1.0) * (($urandom() % 100000) / 1000.0);
             ra[i] = ra_real[i];
             rb[i] = rb_real[i];
+            ra_fp16[i] = float_to_fp16(ra[i]);
+            rb_fp16[i] = float_to_fp16(rb[i]);
+            golden_result[i] = ra[i] + rb[i];
         end
     end
+
+    // integer for writing data
+    integer wr_i;
+
+    // task: write data
+    task write_data;
+        begin
+            for(wr_i = 0; wr_i < NUM_TEST; wr_i = wr_i + 1) begin
+                #(`clk_period);
+                a_in = ra_fp16[wr_i];
+                b_in = rb_fp16[wr_i];
+            end
+        end
+    endtask
+
+    // integer for golden check
+    integer ch_i;
+
+    // task: golden answer check
+    task golden_check;
+        begin
+            automatic int fail_count = 0;
+            shortreal error, error_abs;
+
+            // wait two cycle for pipeline output
+            #(`clk_period);
+            #(`clk_period);
+            for(ch_i = 2; ch_i < NUM_TEST + 2; ch_i = ch_i + 1) begin
+                #(`clk_period);
+
+                error = fp16_to_float(dut_out) - golden_result[ch_i - 2];
+                error_abs = (error > 0) ? error : -error;
+
+                if(error_abs > 0.2) begin
+                    $display("MISMATCH at %0d", ch_i - 2);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
+                    $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
+                    $display("  GOLDEN = %.6f", golden_result[ch_i - 2]);
+                    $display("  ERROR = %.6f", error_abs);
+                    fail_count++;
+                end else begin
+                    $display("PASS at %0d", ch_i - 2);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
+                    $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
+                    $display("  GOLDEN = %.6f", golden_result[ch_i- 2]);
+                    $display("  ERROR = %.6f", error_abs);
+                end
+            end
+
+            #(`clk_period);
+            $display("\n Test Finished. Total: %0d, Failures: %0d", NUM_TEST, fail_count);
+        end
+    endtask
+
+
 
     // Simulation
     initial begin
-        automatic int fail_count = 0;
-        shortreal error, error_abs;
+        // Initialization of signal
+        rst_n = 1'b1;
 
-        for(int i = 0; i < NUM_TEST; i++) begin
-            if(i == 0) begin
-                fork
-                    begin
-                        a_in = float_to_fp16(ra[i]);
-                        b_in = float_to_fp16(rb[i]);
-                        golden_out = golden_adder(ra[i], rb[i]);
-                    end
-                    begin
-                        #1;
-                        error = fp16_to_float(dut_out) - golden_out;
-                        error_abs = (error > 0) ? error : -error;
-                        if((fp16_to_float(dut_out) - golden_out) > 0.2) begin
-                            $display("MISMATCH at %0d", i);
-                            $display("  a      = %f (0x%h)", ra[i], a_in);
-                            $display("  b      = %f (0x%h)", rb[i], b_in);
-                            $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                            $display("  GOLDEN = %.6f", golden_out);
-                            $display("  ERROR = %.6f", error_abs);
-                            fail_count++;
-                        end else begin
-                            $display("PASS at %0d", i);
-                            $display("  a      = %f (0x%h)", ra[i], a_in);
-                            $display("  b      = %f (0x%h)", rb[i], b_in);
-                            $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                            $display("  GOLDEN = %.6f", golden_out);
-                            $display("  ERROR = %.6f", error_abs);
-                        end
-                    end
-                join
-            end else begin
-                #10;
-                fork
-                    begin
-                        a_in = float_to_fp16(ra[i]);
-                        b_in = float_to_fp16(rb[i]);
-                        golden_out = golden_adder(ra[i], rb[i]);
-                    end
-                    begin
-                        #1;
-                        error = fp16_to_float(dut_out) - golden_out;
-                        error_abs = (error > 0) ? error : -error;
-                        if((fp16_to_float(dut_out) - golden_out) > 0.2) begin
-                            $display("MISMATCH at %0d", i);
-                            $display("  a      = %f (0x%h)", ra[i], a_in);
-                            $display("  b      = %f (0x%h)", rb[i], b_in);
-                            $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                            $display("  GOLDEN = %.6f", golden_out);
-                            $display("  ERROR = %.6f", error_abs);
-                            fail_count++;
-                        end else begin
-                            $display("PASS at %0d", i);
-                            $display("  a      = %f (0x%h)", ra[i], a_in);
-                            $display("  b      = %f (0x%h)", rb[i], b_in);
-                            $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                            $display("  GOLDEN = %.6f", golden_out);
-                            $display("  ERROR = %.6f", error_abs);
-                        end
-                    end
-                join
+        // System Reset
+		// Tip: When you create a test bench,
+		// remember that the GSR pulse occurs automatically in the post-synthesis and post-implementation timing simulation.
+		// This holds all registers in reset for the first 100 ns of the simulation.
+		#100;
+
+		//為了讓rst_n的negedge不要跟clk的posedge衝突
+		//讓rst_n在clk的第二個negedge啟動
+		// #(`clk_period/2);
+		#(`clk_period);
+		rst_n = 1'b0;
+		#(`clk_period);
+		rst_n = 1'b1;
+
+        fork
+            begin
+                write_data;
             end
-        end
+            begin
+                golden_check;
+            end
+        join
 
-        #10;
-        $display("\n Test Finished. Total: %0d, Failures: %0d", NUM_TEST, fail_count);
         $finish;
     end
-
 
 endmodule
