@@ -11,12 +11,11 @@ module float16_adder_tb();
     parameter NUM_TEST = 1000;
 
     // General signal
+    logic clk, rst_n;
 
     // Logic Declaration for Instantiation
-    logic clk, rst_n;
     logic [FLOAT_LEN-1:0] a_in, b_in;
     logic [FLOAT_LEN-1:0] dut_out;
-    shortreal golden_out;
 
     // Module Instantiation
     float16_adder F16_ADD_DUT(

@@ -78,7 +78,21 @@ logic [MANT_LEN-1:0] mant_final;
 logic [FLOAT_LEN-1:0] normal_result;
 
 // signal for specific case
-logic is_nan_a, is_nan_b, is_inf_a, is_inf_b;
+logic is_nan_a_fir_w, is_nan_a_fir_r;
+logic is_nan_a_sec_w, is_nan_a_sec_r;
+logic is_nan_a_thr_w;
+
+logic is_nan_b_fir_w, is_nan_b_fir_r;
+logic is_nan_b_sec_w, is_nan_b_sec_r;
+logic is_nan_b_thr_w;
+
+logic is_inf_a_fir_w, is_inf_a_fir_r;
+logic is_inf_a_sec_w, is_inf_a_sec_r;
+logic is_inf_a_thr_w;
+
+logic is_inf_b_fir_w, is_inf_b_fir_r;
+logic is_inf_b_sec_w, is_inf_b_sec_r;
+logic is_inf_b_thr_w;
 
 // process for specific value
 logic [FLOAT_LEN-1:0] specific_result_fir_w, specific_result_fir_r;
@@ -283,23 +297,66 @@ assign normal_result = {sign_res_sec_r, exp_final, mant_final};
 // ********** Add two pipeline register to align normal output **********
 
 // signal for specific case
-assign is_nan_a = (exp_a == 5'h1F) && (mant_a != 0);
-assign is_nan_b = (exp_b == 5'h1F) && (mant_b != 0);
-assign is_inf_a = (exp_a == 5'h1F) && (mant_a == 0);
-assign is_inf_b = (exp_b == 5'h1F) && (mant_b == 0);
+assign is_nan_a_fir_w = (exp_a == 5'h1F) && (mant_a != 0);
+assign is_nan_b_fir_w = (exp_b == 5'h1F) && (mant_b != 0);
+assign is_inf_a_fir_w = (exp_a == 5'h1F) && (mant_a == 0);
+assign is_inf_b_fir_w = (exp_b == 5'h1F) && (mant_b == 0);
 
 // process for specific value
 always_comb begin
-    if(is_nan_a || is_nan_b)
+    if(is_nan_a_fir_w || is_nan_b_fir_w)
         specific_result_fir_w = 16'h7E00; // 0, 11111, 1000000000
-    else if(is_inf_a && is_inf_b && (sign_a != sign_b))
+    else if(is_inf_a_fir_w && is_inf_b_fir_w && (sign_a != sign_b))
         specific_result_fir_w = 16'h7E00;
-    else if(is_inf_a)
+    else if(is_inf_a_fir_w)
         specific_result_fir_w = a;
-    else if(is_inf_b)
+    else if(is_inf_b_fir_w)
         specific_result_fir_w = b;
     else
         specific_result_fir_w = 16'h0000;
+end
+
+// Two stage pipeline to align normal result
+always_ff @ (posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        is_nan_a_fir_r  <= 1'b0;
+        is_nan_b_fir_r  <= 1'b0;
+        is_inf_a_fir_r  <= 1'b0;
+        is_inf_b_fir_r  <= 1'b0;
+    end else begin
+        is_nan_a_fir_r  <= is_nan_a_fir_w;
+        is_nan_b_fir_r  <= is_nan_b_fir_w;
+        is_inf_a_fir_r  <= is_inf_a_fir_w;
+        is_inf_b_fir_r  <= is_inf_b_fir_w;
+    end
+end
+
+always_comb begin
+    is_nan_a_sec_w  = is_nan_a_fir_r;
+    is_nan_b_sec_w  = is_nan_b_fir_r;
+    is_inf_a_sec_w  = is_inf_a_fir_r;
+    is_inf_b_sec_w  = is_inf_b_fir_r;
+end
+
+always_ff @ (posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        is_nan_a_sec_r  <= 1'b0;
+        is_nan_b_sec_r  <= 1'b0;
+        is_inf_a_sec_r  <= 1'b0;
+        is_inf_b_sec_r  <= 1'b0;
+    end else begin
+        is_nan_a_sec_r  <= is_nan_a_sec_w;
+        is_nan_b_sec_r  <= is_nan_b_sec_w;
+        is_inf_a_sec_r  <= is_inf_a_sec_w;
+        is_inf_b_sec_r  <= is_inf_b_sec_w;
+    end
+end
+
+always_comb begin
+    is_nan_a_thr_w  = is_nan_a_sec_r;
+    is_nan_b_thr_w  = is_nan_b_sec_r;
+    is_inf_a_thr_w  = is_inf_a_sec_r;
+    is_inf_b_thr_w  = is_inf_b_sec_r;
 end
 
 // First pipeline register
@@ -328,7 +385,7 @@ assign specific_result_thr_w = specific_result_sec_r;
 
 // &&&&&&&&&& Final Output Path &&&&&&&&&&
 
-assign result = (is_nan_a || is_nan_b || is_inf_a || is_inf_b) ? specific_result_thr_w : normal_result;
+assign result = (is_nan_a_thr_w || is_nan_b_thr_w || is_inf_a_thr_w || is_inf_b_thr_w) ? specific_result_thr_w : normal_result;
 
 
 endmodule

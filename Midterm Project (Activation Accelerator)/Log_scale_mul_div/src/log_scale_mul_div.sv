@@ -6,8 +6,7 @@ module log_scale_mul_div (
     b,
     mul_or_div,
     lut_wr_en,
-    log2_lut_data_in0,
-    log2_lut_data_in1,
+    log2_lut_data_in,
     exp2_lut_data_in,
     // Output Signals
     result
@@ -26,23 +25,22 @@ parameter LUT_SIZE = 128;
 //---------------------------------------------------------------------
 input clk, rst_n;
 
+input lut_wr_en;
+input [MANT_LEN-1:0] log2_lut_data_in
+input [FLOAT_LEN-1:0] exp2_lut_data_in;
+
 input [FLOAT_LEN-1:0] a,b;
-input mul_or_div;
+input mul_or_div; // 0 for multiply, 1 for divide
 output logic [FLOAT_LEN-1:0] result;
 
-input lut_wr_en;
-input [FLOAT_LEN-1:0] log2_lut_data_in0, log2_lut_data_in1, exp2_lut_data_in;
 //---------------------------------------------------------------------
 //   LOGIC DECLARATION
 //---------------------------------------------------------------------
 // Look Up Table for Log 2 Function
-// (* ram_style = "block", infer_ram_style = "block" *) logic [FLOAT_LEN-1:0] log2_lut0 [0:LUT_SIZE-1];
-// (* ram_style = "block", infer_ram_style = "block" *) logic [FLOAT_LEN-1:0] log2_lut1 [0:LUT_SIZE-1];
-logic [FLOAT_LEN-1:0] log2_lut0 [0:LUT_SIZE-1];
-logic [FLOAT_LEN-1:0] log2_lut1 [0:LUT_SIZE-1];
+logic [MANT_LEN-1:0] log2_lut0 [0:LUT_SIZE-1];
+logic [MANT_LEN-1:0] log2_lut1 [0:LUT_SIZE-1];
 
 // Look Up Table for 2 scale Function
-// (* ram_style = "block", infer_ram_style = "block" *) logic [FLOAT_LEN-1:0] exp2_lut [0:LUT_SIZE-1];
 logic [FLOAT_LEN-1:0] exp2_lut [0:LUT_SIZE-1];
 
 // write pointer for handling Look Up Table input
@@ -51,49 +49,83 @@ logic [$clog2(LUT_SIZE)-1:0] lut_wr_ptr;
 // Flag for Look Up Table write done
 logic lut_wr_done;
 
+// ========== First Stage ==========
 // separate each part of input
-logic sign_a, sign_b;
+logic sign_a_fir_w, sign_a_fir_r;
+logic sign_b_fir_w, sign_b_fir_r;
+logic sign_a_sec_w, sign_a_sec_r;
+logic sign_b_sec_w, sign_b_sec_r;
 logic [EXP_LEN-1:0] exp_a_raw, exp_b_raw;
 logic [MANT_LEN-1:0] mant_a, mant_b;
+
+// Exponent value of unbias exponent
+logic signed [(EXP_LEN+2)-1:0] exp_a_fir_w, exp_b_fir_w;
 
 // Logic for log2 Look Up Table Address
 logic [$clog2(LUT_SIZE)-1:0] log2_idx_a, log2_idx_b;
 
+// ********** First Stage Register **********
+// Logic for pipeline unbiased exponent
+logic signed [(EXP_LEN+2)-1:0] exp_a_fir_r, exp_b_fir_r;
+
 // Logic for log2-value after look up
-logic [FLOAT_LEN-1:0] log2_val_a, log2_val_b;
+logic [MANT_LEN-1:0] log2_mant_a, log2_mant_b;
 
-// Exponent value of unbias exponent
-logic [EXP_LEN-1:0] exp_a, exp_b;
+// ========== Second Stage ==========
+// Exponent/Mantissa value of sum exponent
+logic signed [(EXP_LEN+2)-1:0] exp_sum;
+logic signed [(MANT_LEN+2)-1:0] mant_sum;
 
-// Logic for log2 real number (w for wire, r for pipeline reg)
-logic [FLOAT_LEN-1:0] log2_a_full_w, log2_b_full_w;
-logic [FLOAT_LEN-1:0] log2_a_full_r, log2_b_full_r;
+// ********** Second Stage Register **********
+// Normalized value of exponent/mantissa sum
+logic signed [(EXP_LEN+2)-1:0] exp_norm_w ,exp_norm_r;
+logic signed [MANT_LEN-1:0] mant_norm;
 
-// Logic for log2 modified number of b
-logic [FLOAT_LEN-1:0] log2_b_modified;
+// Logic for exp2 Look Up Table Address
+logic [FLOAT_LEN-1:0] exp2_idx;
 
-// Logic for log2 computation of addition/subtraction
-logic [FLOAT_LEN-1:0] log2_combined;
+// ========== Third Stage ==========
+// Logic for final sign/exponent/mantissa
+logic sign_final;
+logic [(EXP_LEN+2)-1:0] exp_final;
+logic [MANT_LEN-1:0] mant_final;
 
-// Logic for extract the exponent after log2 computation
-logic [EXP_LEN-1:0] log2_exp;
-logic [MANT_LEN-1:0] log2_mant;
+// Logic for normal result
+logic [FLOAT_LEN-1:0] normal_result;
 
-// Logic for extract the index of exp look up
-logic [$clog2(LUT_SIZE)-1:0] exp2_idx;
+// ========== Specific Result Path ===========
+// Logic for specific condition
+logic is_nan_a_fir_w, is_nan_a_fir_r;
+logic is_nan_a_sec_w, is_nan_a_sec_r;
+logic is_nan_a_thr_w;
 
-// Logic for the value after exp2 look up
-logic [FLOAT_LEN-1:0] exp2_val;
+logic is_nan_b_fir_w, is_nan_b_fir_r;
+logic is_nan_b_sec_w, is_nan_b_sec_r;
+logic is_nan_b_thr_w;
 
-// Logic for the exponent after look up
-logic [EXP_LEN-1:0] exp2_exp_final;
+logic is_inf_a_fir_w, is_inf_a_fir_r;
+logic is_inf_a_sec_w, is_inf_a_sec_r;
+logic is_inf_a_thr_w;
 
-// Logic for the value after total computing
-logic [FLOAT_LEN-1:0] val_final;
+logic is_inf_b_fir_w, is_inf_b_fir_r;
+logic is_inf_b_sec_w, is_inf_b_sec_r;
+logic is_inf_b_thr_w;
+
+logic is_zero_a_fir_w, is_zero_a_fir_r;
+logic is_zero_a_sec_w, is_zero_a_sec_r;
+logic is_zero_a_thr_w;
+
+logic is_zero_b_fir_w, is_zero_b_fir_r;
+logic is_zero_b_sec_w, is_zero_b_sec_r;
+logic is_zero_b_thr_w;
+
+// Logic for specific result
+logic [FLOAT_LEN-1:0] specific_result;
 
 //---------------------------------------------------------------------
 //   DESIGN PART
 //---------------------------------------------------------------------
+
 // ========== Look Up Table Initialization ===========
 // procedure block for handle lut_wr_ptr
 always_ff @ (posedge clk or negedge rst_n) begin
@@ -109,7 +141,7 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         lut_wr_done <= 1'b0;
     end else begin
-        lut_wr_done <= (&lut_wr_ptr) ? 1'b1 : 1'b0;
+        lut_wr_done <= (lut_wr_en && (lut_wr_ptr == LUT_SIZE - 1)) ? 1'b1 : 1'b0;
     end
 end
 
@@ -118,7 +150,7 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         log2_lut0[lut_wr_ptr] <= 16'b0;
     end else begin
-        log2_lut0[lut_wr_ptr] <= (lut_wr_en) ? log2_lut_data_in0 : log2_lut0[lut_wr_ptr];
+        log2_lut0[lut_wr_ptr] <= (lut_wr_en) ? log2_lut_data_in : log2_lut0[lut_wr_ptr];
     end
 end
 
@@ -127,7 +159,7 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         log2_lut1[lut_wr_ptr] <= 16'b0;
     end else begin
-        log2_lut1[lut_wr_ptr] <= (lut_wr_en) ? log2_lut_data_in1 : log2_lut1[lut_wr_ptr];
+        log2_lut1[lut_wr_ptr] <= (lut_wr_en) ? log2_lut_data_in : log2_lut1[lut_wr_ptr];
     end
 end
 
@@ -140,95 +172,103 @@ always_ff @ (posedge clk or negedge rst_n) begin
     end
 end
 
-// ========== Step 1: Unpack float16 a and b ===========
+// ========== First Stage: Unpack float16 a and b ===========
+
 // separate each part of input
-assign sign_a = a[15];
-assign sign_b = b[15];
-assign exp_a_raw = a[14:10];
-assign exp_b_raw = b[14:10];
-assign mant_a = a[9:0];
-assign mant_b = b[9:0];
+// assign sign_a = a[15];
+// assign sign_b = b[15];
+// assign exp_a_raw = a[14:10];
+// assign exp_b_raw = b[14:10];
+// assign mant_a = a[9:0];
+// assign mant_b = b[9:0];
+assign {sign_a_fir_w, exp_a_raw, mant_a} = a;
+assign {sign_b_fir_w, exp_b_raw, mant_b} = b;
 
 // get the read address of log2_lut0 & log2_lut0
 assign log2_idx_a = mant_a[9:3];
 assign log2_idx_b = mant_b[9:3];
 
-// ========== Step 2: LUT Lookups ===========
-// procedure block for get the log2-value of input a
+// get the unbiased exponent
+assign exp_a_fir_w = $signed({2'b00, exp_a_raw}) - 7'sd15;
+assign exp_b_fir_w = $signed({2'b00, exp_b_raw}) - 7'sd15;
+
+// ********** First Stage Register: LUT Lookups & pipeline unbiased exponent **********
+
+// procedure block for sign_a & sign_b & unbiased exponent pipeline
 always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        log2_val_a <= 16'b0;
+        sign_a_fir_r <= 1'b0;
+        sign_b_fir_r <= 1'b0;
+        exp_a_fir_r <= 7'b0;
+        exp_b_fir_r <= 7'b0;
     end else begin
-        log2_val_a <= (lut_wr_done) ? log2_lut0[log2_idx_a] : 16'b0;
+        sign_a_fir_r <= sign_a_fir_w;
+        sign_b_fir_r <= sign_b_fir_w;
+        exp_a_fir_r <= exp_a_fir_w;
+        exp_b_fir_r <= exp_b_fir_w;
     end
 end
 
-// procedure block for get the log2-value of input b
+// procedure block for get the log2-mantissa of input a
 always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        log2_val_b <= 16'b0;
+        log2_mant_a <= 10'b0;
     end else begin
-        log2_val_b <= (lut_wr_done) ? log2_lut1[log2_idx_b] : 16'b0;
+        log2_mant_a <= (lut_wr_done) ? log2_lut0[log2_idx_a] : 10'b0;
     end
 end
 
-// ========== Step 3: Compute log2(a), log2(b) ===========
-// unbias the raw exponent
-assign exp_a = exp_a_raw - 5'd15;
-assign exp_b = exp_b_raw - 5'd15;
-
-// Instantiation of float16 adder for reducting log-2's real input
-float16_adder log_add_a(
-    .clk(clk),
-    .rst_n(rst_n),
-
-    .a({sign_a, exp_a, 10'b0}),
-    .b(log2_val_a),
-    .result(log2_a_full_w)
-);
-
-float16_adder log_add_b(
-    .clk(clk),
-    .rst_n(rst_n),
-
-    .a({sign_b, exp_b, 10'b0}),
-    .b(log2_val_b),
-    .result(log2_b_full_w)
-);
-
-// pipeline for reduce cirtical path delay
+// procedure block for get the log2-mantissa of input b
 always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        log2_a_full_r <= 16'b0;
-        log2_b_full_r <= 16'b0;
+        log2_mant_b <= 10'b0;
     end else begin
-        log2_a_full_r <= log2_a_full_w;
-        log2_b_full_r <= log2_b_full_w;
+        log2_mant_b <= (lut_wr_done) ? log2_lut1[log2_idx_b] : 10'b0;
     end
 end
 
-// ========== Step 4: Add or Sub (Corresponding to Multiplication/Division) ===========
-// modify sign of log2 real number b to fit mutiplication/division
-assign log2_b_modified = (mul_or_div) ? {~log2_b_full_r[15], log2_b_full_r[14:0]} : log2_b_full_r;
+// ========== Second Stage: Compute exponent/mantissa sum and normalize ===========
 
-// Instantiation of float16 adder for addition/subtraction (Corresponding to multiplication/division)
-float16_adder log2_combiner(
-    .clk(clk),
-    .rst_n(rst_n),
+// pipeline for sign_a & sign_b
+assign sign_a_sec_w = sign_a_fir_r;
+assign sign_b_sec_w = sign_b_fir_r;
 
-    .a(log2_a_full_r),
-    .b(log2_b_modified),
-    .result(log2_combined)
-);
+// compute exponent/mantissa sum
+assign exp_sum = exp_a_fir_r + (mul_or_div ? -exp_b_fir_r : exp_b_fir_r);
+assign mant_sum = {2'b00, log2_mant_a} + (mul_or_div ? -{2'b00, log2_mant_b} : {2'b00, log2_mant_b})
 
-// ========== Step 5: Get exp2 input ===========
-// get the exponent & mantissa after log2 computation
-assign log2_exp = log2_combined[14:10];
-assign log2_mant = log2_combined[9:0];
+// normalize the sum of exponent/mantissa
+always_comb begin
+    if(mant_sum[10]) begin
+        exp_norm_w = exp_sum + 7'sd1;
+    end else if() begin
+        exp_norm_w = exp_sum - 7'sd1;
+    end else begin
+        exp_norm_w = exp_sum;
+    end
+end
 
-// get the index for exp2 look up
-assign exp2_idx = log2_mant[9:3];
+assign mant_norm = mant_sum[9:0];
 
+// get the index of exp2 look up
+assign exp2_idx = mant_norm[9:3];
+
+// ********** Second Stage Register: LUT Lookups & pipeline normalized exponent/mantissa **********
+
+// procedure block for sign_a & sign_b & normalized exponent/mantissa pipeline
+always_ff @ (posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        sign_a_sec_r <= 1'b0;
+        sign_a_sec_r <= 1'b0;
+        exp_norm_r  <= 7'b0;
+    end else begin
+        sign_a_sec_r <= sign_a_sec_w;
+        sign_a_sec_r <= sign_a_sec_w;
+        exp_norm_r  <= exp_norm_w;
+    end
+end
+
+// procedure block for exp2 look up table look up
 always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         exp2_val <= 16'b0;
@@ -237,15 +277,106 @@ always_ff @ (posedge clk or negedge rst_n) begin
     end
 end
 
-// ========== Step 6: Final Exponent Adjust ===========
-// get the exponent after bias
-assign exp2_exp_final = exp2_val + 5'd15;
+// ========== Third Stage: Exponent adjust & concatenate ===========
 
-// get the final value after total computing
-assign val_final = {sign_a ^ sign_b, exp2_exp_final, exp2_val[9:0]};
+// get the sign of the final number
+assign sign_final = sign_a_sec_r ^ sign_b_sec_r;
 
-// ========== Step 7: Output result ===========
-assign result = val_final;
+// get the exponent of the final number
+assign exp_final = exp_norm_r + 7'sd15;
 
+// get the mantissa of the final number
+assign mant_final = exp2_val[9:0];
+
+// procedure block for normal result
+always_comb begin
+    if(exp_final[6]) begin
+        normal_result = 16'h0000;
+    end else if(exp_final[5])begin
+        normal_result = {sign_final, 5'h1F, 10'h000};
+    end else begin
+        normal_result = {sign_final, exp_final[4:0], mant_final};
+    end
+end
+
+// ========== Specific Result Path ===========
+assign is_nan_a_fir_w = (exp_a == 5'h1F) && (mant_a != 0);
+assign is_nan_b_fir_w = (exp_b == 5'h1F) && (mant_b != 0);
+assign is_inf_a_fir_w = (exp_a == 5'h1F) && (mant_a == 0);
+assign is_inf_b_fir_w = (exp_b == 5'h1F) && (mant_b == 0);
+assign is_zero_a_fir_w = (exp_a == 5'h00) && (mant_a == 0);
+assign is_zero_b_fir_w = (exp_b == 5'h00) && (mant_b == 0);
+
+// Two stage pipeline to align normal result
+always_ff @ (posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        is_nan_a_fir_r  <= 1'b0;
+        is_nan_b_fir_r  <= 1'b0;
+        is_inf_a_fir_r  <= 1'b0;
+        is_inf_b_fir_r  <= 1'b0;
+        is_zero_a_fir_r <= 1'b0;
+        is_zero_b_fir_r <= 1'b0;
+    end else begin
+        is_nan_a_fir_r  <= is_nan_a_fir_w;
+        is_nan_b_fir_r  <= is_nan_b_fir_w;
+        is_inf_a_fir_r  <= is_inf_a_fir_w;
+        is_inf_b_fir_r  <= is_inf_b_fir_w;
+        is_zero_a_fir_r <= is_zero_a_fir_w;
+        is_zero_b_fir_r <= is_zero_b_fir_w;
+    end
+end
+
+always_comb begin
+    is_nan_a_sec_w  = is_nan_a_fir_r;
+    is_nan_b_sec_w  = is_nan_b_fir_r;
+    is_inf_a_sec_w  = is_inf_a_fir_r;
+    is_inf_b_sec_w  = is_inf_b_fir_r;
+    is_zero_a_sec_w = is_zero_a_fir_r;
+    is_zero_b_sec_w = is_zero_b_fir_r;
+end
+
+always_ff @ (posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        is_nan_a_sec_r  <= 1'b0;
+        is_nan_b_sec_r  <= 1'b0;
+        is_inf_a_sec_r  <= 1'b0;
+        is_inf_b_sec_r  <= 1'b0;
+        is_zero_a_sec_r <= 1'b0;
+        is_zero_b_sec_r <= 1'b0;
+    end else begin
+        is_nan_a_sec_r  <= is_nan_a_sec_w;
+        is_nan_b_sec_r  <= is_nan_b_sec_w;
+        is_inf_a_sec_r  <= is_inf_a_sec_w;
+        is_inf_b_sec_r  <= is_inf_b_sec_w;
+        is_zero_a_sec_r <= is_zero_a_sec_w;
+        is_zero_b_sec_r <= is_zero_b_sec_w;
+    end
+end
+
+always_comb begin
+    is_nan_a_thr_w  = is_nan_a_sec_r;
+    is_nan_b_thr_w  = is_nan_b_sec_r;
+    is_inf_a_thr_w  = is_inf_a_sec_r;
+    is_inf_b_thr_w  = is_inf_b_sec_r;
+    is_zero_a_thr_w = is_zero_a_sec_r;
+    is_zero_b_thr_w = is_zero_b_sec_r;
+end
+
+// procedure block for specific result
+always_comb begin
+    if(is_nan_a_thr_w || is_nan_b_thr_w || (is_inf_a_thr_w && is_zero_b_thr_w) || (is_zero_a_thr_w && is_inf_b_thr_w)) begin
+        specific_result = {sign_final, 5'h1F, 10'h200}; // NaN
+    end else if(is_inf_a_thr_w || is_inf_b_thr_w) begin
+        specific_result = {sign_final, 5'h1F, 10'h000}; // Inf
+    end else if(is_zero_a_thr_w || is_zero_b_thr_w) begin
+        specific_result = {sign_final, 5'h00, 10'h000};
+    end else begin
+        specific_result = 16'h0000;
+    end
+end
+
+// &&&&&&&&&& Final Output Path &&&&&&&&&&
+
+assign result = (is_nan_a_thr_w || is_nan_b_thr_w || is_inf_a_thr_w || is_inf_b_thr_w || is_zero_a_thr_w || is_zero_b_thr_w) ? specific_result : normal_result;
 
 endmodule
