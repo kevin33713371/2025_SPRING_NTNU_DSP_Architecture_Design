@@ -1,16 +1,14 @@
-module log_scale_mul (
+module log_scale_div (
     // Input Signals
     clk,
     rst_n,
     a,
     b,
-    // mul_or_div,
     lut_wr_en,
     log2_lut_data_in,
     exp2_lut_data_in,
     // Output Signals
     result
-    // lut_wr_done
 );
 
 //---------------------------------------------------------------------
@@ -31,7 +29,6 @@ input [MANT_LEN-1:0] log2_lut_data_in;
 input [FLOAT_LEN-1:0] exp2_lut_data_in;
 
 input [FLOAT_LEN-1:0] a,b;
-// input mul_or_div; // 0 for multiply, 1 for divide
 output logic [FLOAT_LEN-1:0] result;
 
 //---------------------------------------------------------------------
@@ -74,8 +71,8 @@ logic [MANT_LEN-1:0] log2_mant_a, log2_mant_b;
 
 // ========== Second Stage ==========
 // Exponent/Mantissa value of sum exponent
-logic signed [(EXP_LEN+2)-1:0] exp_sum;
-logic signed [(MANT_LEN+2)-1:0] mant_sum;
+logic signed [(EXP_LEN+2)-1:0] exp_diff;
+logic signed [(MANT_LEN+2)-1:0] mant_diff;
 
 // ********** Second Stage Register **********
 // Normalized value of exponent/mantissa sum
@@ -239,19 +236,19 @@ assign sign_a_sec_w = sign_a_fir_r;
 assign sign_b_sec_w = sign_b_fir_r;
 
 // compute exponent/mantissa sum
-assign exp_sum = exp_a_fir_r + exp_b_fir_r;
-assign mant_sum = {2'b00, log2_mant_a} + {2'b00, log2_mant_b};
+assign exp_diff = exp_a_fir_r - exp_b_fir_r;
+assign mant_diff = {2'b00, log2_mant_a} - {2'b00, log2_mant_b};
 
 // normalize the sum of exponent/mantissa
 always_comb begin
-    if(mant_sum[10]) begin
-        exp_norm_w = exp_sum + 7'sd1;
+    if(mant_diff[11]) begin
+        exp_norm_w = exp_diff - 7'sd1;
     end else begin
-        exp_norm_w = exp_sum;
+        exp_norm_w = exp_diff;
     end
 end
 
-assign mant_norm = mant_sum[9:0];
+assign mant_norm = mant_diff[9:0];
 
 // get the index of exp2 look up
 assign exp2_idx = mant_norm[9:3];
@@ -291,6 +288,7 @@ assign exp_final = exp_norm_r + 7'sd15;
 // get the mantissa of the final number
 assign mant_final = exp2_val[9:0];
 
+// procedure block for normal result
 always_comb begin
     if(exp_final <= 0 && exp_norm_r >= -MANT_LEN) begin
         // subnormal
@@ -300,7 +298,7 @@ always_comb begin
     end else if(exp_final <= 0) begin
         // underflow to zero
         normal_result = {sign_final, 5'h00, 10'h000};
-    end else if(exp_final >= 30) begin
+    end else if(exp_final > 30) begin
         // overflow to inf
         normal_result = {sign_final, 5'h1F, 10'h000};
     end else begin
@@ -374,11 +372,27 @@ end
 
 // procedure block for specific result
 always_comb begin
-    if(is_nan_a_thr_w || is_nan_b_thr_w || (is_inf_a_thr_w && is_zero_b_thr_w) || (is_zero_a_thr_w && is_inf_b_thr_w)) begin
-        specific_result = {sign_final, 5'h1F, 10'h200}; // NaN
-    end else if(is_inf_a_thr_w || is_inf_b_thr_w) begin
-        specific_result = {sign_final, 5'h1F, 10'h000}; // Inf
-    end else if(is_zero_a_thr_w || is_zero_b_thr_w) begin
+
+    if(is_nan_a_thr_w || is_nan_b_thr_w) begin
+        // a or b NaN -> NaN
+        specific_result = {sign_final, 5'h1F, 10'h200};
+    end else if(is_inf_a_thr_w && is_zero_b_thr_w) begin
+        // Inf / 0 -> NaN
+        specific_result = {sign_final, 5'h1F, 10'h200};
+    end else if(is_zero_a_thr_w && is_zero_b_thr_w) begin
+        // 0 / 0 -> NaN
+        specific_result = {sign_final, 5'h1F, 10'h200};
+    end else if(is_inf_a_thr_w) begin
+        // Inf / (non-zero) -> Inf
+        specific_result = {sign_final, 5'h1F, 10'h000};
+    end else if(is_zero_b_thr_w) begin
+        // (non-Inf) / 0 -> Inf
+        specific_result = {sign_final, 5'h1F, 10'h000};
+    end else if(is_inf_b_thr_w) begin
+        // (non-NaN/Inf/0) / Inf -> 0
+        specific_result = {sign_final, 5'h00, 10'h000};
+    end else if(is_zero_a_thr_w) begin
+        //  0 / (non-NaN/Inf/0) -> 0
         specific_result = {sign_final, 5'h00, 10'h000};
     end else begin
         specific_result = 16'h0000;
