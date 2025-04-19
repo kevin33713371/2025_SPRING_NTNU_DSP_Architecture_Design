@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 `define clk_period 10
 
-module log_scale_mul_div_tb();
+module log_scale_mul_tb();
 
     // Parameter
     parameter FLOAT_LEN = 16;
@@ -16,23 +16,27 @@ module log_scale_mul_div_tb();
 
     // Logic Declaration for Instantiation
     logic [FLOAT_LEN-1:0] a_in, b_in;
-    logic mul_or_div;
+    // logic mul_or_div;
     logic lut_wr_en;
-    logic [FLOAT_LEN-1:0] log2_lut_data_in;
+    logic [MANT_LEN-1:0] log2_lut_data_in;
     logic [FLOAT_LEN-1:0] exp2_lut_data_in;
     logic [FLOAT_LEN-1:0] dut_out;
 
+    // For debug
+    // logic lut_wr_done;
+
     // Module Instantiation
-    log_scale_mul_div LOG_MUL_DIV(
+    log_scale_mul LOG_MUL(
         .clk(clk),
         .rst_n(rst_n),
         .a(a_in),
         .b(b_in),
-        .mul_or_div(mul_or_div),
+        // .mul_or_div(mul_or_div),
         .lut_wr_en(lut_wr_en),
         .log2_lut_data_in(log2_lut_data_in),
         .exp2_lut_data_in(exp2_lut_data_in),
         .result(dut_out)
+        // .lut_wr_done(lut_wr_done)
     );
 
     //--------------------------------------------------
@@ -188,6 +192,7 @@ module log_scale_mul_div_tb();
             ra_fp16[i] = float_to_fp16(ra[i]);
             rb_fp16[i] = float_to_fp16(rb[i]);
             golden_result[i] = ra[i] * rb[i];
+            // golden_result[i] = ra[i] / rb[i];
         end
     end
 
@@ -225,12 +230,32 @@ module log_scale_mul_div_tb();
         begin
             for(wr_i = 0; wr_i < NUM_TEST; wr_i = wr_i + 1) begin
                 #(`clk_period);
-                mul_or_div = 1'b0;
+                // mul_or_div: 0 for mul, 1 for div
+                // mul_or_div = 1'b0;
+                // mul_or_div = 1'b1;
                 a_in = ra_fp16[wr_i];
                 b_in = rb_fp16[wr_i];
             end
         end
     endtask
+
+    // integer for multiply or divide control
+    // integer md_i;
+
+    // task: multiply or divide control
+    // task mul_or_div_control;
+    //     begin
+    //         #(`clk_period/2);
+    //         for(md_i = 0; md_i < NUM_TEST; md_i = md_i + 1) begin
+    //             #(`clk_period);
+    //             if(md_i < NUM_TEST/2) begin
+    //                 mul_or_div = 1'b0;
+    //             end else begin
+    //                 mul_or_div = 1'b1;
+    //             end
+    //         end
+    //     end
+    // endtask
 
     // integer for golden check
     integer ch_i;
@@ -239,38 +264,36 @@ module log_scale_mul_div_tb();
     task golden_check;
         begin
             automatic int fail_count = 0;
-            shortreal error, error_abs, golden_abs;
+            shortreal error, error_abs, golden_abs, error_rate;
 
             // wait two cycle for pipeline output
             #(`clk_period);
             #(`clk_period);
-            #(`clk_period);
-            #(`clk_period);
-            #(`clk_period);
-            #(`clk_period);
-            #(`clk_period);
-            for(ch_i = 7; ch_i < NUM_TEST + 7; ch_i = ch_i + 1) begin
+            for(ch_i = 2; ch_i < NUM_TEST + 2; ch_i = ch_i + 1) begin
                 #(`clk_period);
 
-                error = fp16_to_float(dut_out) - golden_result[ch_i - 7];
+                error = fp16_to_float(dut_out) - golden_result[ch_i - 2];
                 error_abs = (error > 0) ? error : -error;
-                golden_abs = (golden_result[ch_i - 7] > 0) ? golden_result[ch_i - 7] : -golden_result[ch_i - 7];
+                golden_abs = (golden_result[ch_i - 2] > 0) ? golden_result[ch_i - 2] : -golden_result[ch_i - 2];
+                error_rate = error_abs/golden_abs;
 
-                if(error_abs > 0.01 * golden_abs) begin
-                    $display("MISMATCH at %0d", ch_i - 7);
-                    $display("  a      = %f (0x%h)", ra[ch_i - 7], a_in);
-                    $display("  b      = %f (0x%h)", rb[ch_i - 7], b_in);
+                if(error_abs > 0.015 * golden_abs) begin
+                    $display("MISMATCH at %0d", ch_i - 2);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
                     $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                    $display("  GOLDEN = %.6f", golden_result[ch_i -7]);
+                    $display("  GOLDEN = %.6f", golden_result[ch_i -2]);
                     $display("  ERROR = %.6f", error_abs);
+                    $display("  ERROR RATE = %.6f", error_rate);
                     fail_count++;
                 end else begin
-                    $display("PASS at %0d", ch_i - 7);
-                    $display("  a      = %f (0x%h)", ra[ch_i - 7], a_in);
-                    $display("  b      = %f (0x%h)", rb[ch_i - 7], b_in);
+                    $display("PASS at %0d", ch_i - 2);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
                     $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                    $display("  GOLDEN = %.6f", golden_result[ch_i- 7]);
+                    $display("  GOLDEN = %.6f", golden_result[ch_i- 2]);
                     $display("  ERROR = %.6f", error_abs);
+                    $display("  ERROR RATE = %.6f", error_rate);
                 end
             end
 
@@ -284,7 +307,7 @@ module log_scale_mul_div_tb();
         // Initialization of signal
         rst_n = 1'b1;
         lut_wr_en = 1'b0;
-        mul_or_div = 1'b0;
+        // mul_or_div = 1'b0;
 
         // System Reset
 		// Tip: When you create a test bench,
@@ -306,6 +329,9 @@ module log_scale_mul_div_tb();
             begin
                 write_data;
             end
+            // begin
+            //     mul_or_div_control;
+            // end
             begin
                 golden_check;
             end

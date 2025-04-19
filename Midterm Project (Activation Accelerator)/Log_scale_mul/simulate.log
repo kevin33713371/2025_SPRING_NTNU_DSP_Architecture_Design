@@ -1,0 +1,791 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sat Apr 19 23:30:54 2025
+# Process ID: 114993
+# Current directory: /home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul
+# Command line: vivado
+# Log file: /home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado.log
+# Journal file: /home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado.jou
+# Running On: ntnu6-MS-7D75, OS: Linux, CPU Frequency: 545.000 MHz, CPU Physical cores: 32, Host memory: 66469 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.3 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.3/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project {/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado_project/vivado_project.xpr}
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado_project/vivado_project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
+update_compile_order -fileset sources_1
+set_property -name {xsim.simulate.runtime} -value {100000ns} -objects [get_filesets sim_1]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'log_scale_mul_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'log_scale_mul_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj log_scale_mul_tb_vlog.prj
+/tools/Xilinx/Vivado/2023.1/bin/setupEnv.sh: line 236: [: too many arguments
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot log_scale_mul_tb_behav xil_defaultlib.log_scale_mul_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot log_scale_mul_tb_behav xil_defaultlib.log_scale_mul_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+/tools/Xilinx/Vivado/2023.1/bin/setupEnv.sh: line 236: [: too many arguments
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "log_scale_mul_tb_behav -key {Behavioral:sim_1:Functional:log_scale_mul_tb} -tclbatch {log_scale_mul_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source log_scale_mul_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+PASS at 0
+  a      = -5.421000 (0xc78a)
+  b      = -4.561000 (0x433a)
+  DUT    = 0x4e23 (24.546875)
+  GOLDEN = 24.725181
+  ERROR = 0.178306
+  ERROR RATE = 0.007212
+PASS at 1
+  a      = 2.889000 (0x4602)
+  b      = 9.172000 (0xba2f)
+  DUT    = 0x4e8c (26.187500)
+  GOLDEN = 26.497908
+  ERROR = 0.310408
+  ERROR RATE = 0.011714
+PASS at 2
+  a      = -7.541000 (0xc293)
+  b      = 3.614000 (0x3fca)
+  DUT    = 0xcec4 (-27.062500)
+  GOLDEN = -27.253174
+  ERROR = 0.190674
+  ERROR RATE = 0.006996
+PASS at 3
+  a      = 6.006000 (0xbfa3)
+  b      = -0.773000 (0xc1af)
+  DUT    = 0xc49b (-4.605469)
+  GOLDEN = -4.642638
+  ERROR = 0.037169
+  ERROR RATE = 0.008006
+PASS at 4
+  a      = -3.287000 (0x48e8)
+  b      = 1.947000 (0x447e)
+  DUT    = 0xc65f (-6.371094)
+  GOLDEN = -6.399789
+  ERROR = 0.028695
+  ERROR RATE = 0.004484
+PASS at 5
+  a      = -1.909000 (0x4447)
+  b      = -2.842000 (0x487a)
+  DUT    = 0x4563 (5.386719)
+  GOLDEN = 5.425378
+  ERROR = 0.038659
+  ERROR RATE = 0.007126
+PASS at 6
+  a      = 9.812000 (0x44d3)
+  b      = 4.491000 (0x47d8)
+  DUT    = 0x517a (43.812500)
+  GOLDEN = 44.065692
+  ERROR = 0.253192
+  ERROR RATE = 0.005746
+PASS at 7
+  a      = 4.277000 (0x42f5)
+  b      = 8.950000 (0x453a)
+  DUT    = 0x50bb (37.843750)
+  GOLDEN = 38.279150
+  ERROR = 0.435400
+  ERROR RATE = 0.011374
+PASS at 8
+  a      = 4.826000 (0xc696)
+  b      = 7.843000 (0xbde3)
+  DUT    = 0x50b5 (37.656250)
+  GOLDEN = 37.850318
+  ERROR = 0.194068
+  ERROR RATE = 0.005127
+PASS at 9
+  a      = 3.478000 (0x409e)
+  b      = 5.225000 (0x46c1)
+  DUT    = 0x4c82 (18.031250)
+  GOLDEN = 18.172550
+  ERROR = 0.141300
+  ERROR RATE = 0.007775
+PASS at 10
+  a      = -6.587000 (0xc06d)
+  b      = -1.472000 (0xc20d)
+  DUT    = 0x48cf (9.617188)
+  GOLDEN = 9.696064
+  ERROR = 0.078876
+  ERROR RATE = 0.008135
+PASS at 11
+  a      = 2.309000 (0xc8d4)
+  b      = 6.754000 (0xc8e3)
+  DUT    = 0x4bbf (15.492188)
+  GOLDEN = 15.594986
+  ERROR = 0.102799
+  ERROR RATE = 0.006592
+PASS at 12
+  a      = -2.213000 (0xc836)
+  b      = -3.026000 (0x3c85)
+  DUT    = 0x469e (6.617188)
+  GOLDEN = 6.696538
+  ERROR = 0.079350
+  ERROR RATE = 0.011849
+PASS at 13
+  a      = -9.659000 (0x4750)
+  b      = -9.771000 (0x44b0)
+  DUT    = 0x55d8 (93.500000)
+  GOLDEN = 94.378089
+  ERROR = 0.878089
+  ERROR RATE = 0.009304
+PASS at 14
+  a      = -8.422000 (0x441d)
+  b      = 1.130000 (0x4847)
+  DUT    = 0xc8b5 (-9.414062)
+  GOLDEN = -9.516860
+  ERROR = 0.102797
+  ERROR RATE = 0.010802
+PASS at 15
+  a      = 7.313000 (0x451b)
+  b      = 4.689000 (0x4794)
+  DUT    = 0x5045 (34.156250)
+  GOLDEN = 34.290657
+  ERROR = 0.134407
+  ERROR RATE = 0.003920
+PASS at 16
+  a      = 4.114000 (0x3e08)
+  b      = 8.552000 (0xbc41)
+  DUT    = 0x5057 (34.718750)
+  GOLDEN = 35.182928
+  ERROR = 0.464178
+  ERROR RATE = 0.013193
+PASS at 17
+  a      = 5.105000 (0x3f47)
+  b      = 7.578000 (0x4438)
+  DUT    = 0x50cf (38.468750)
+  GOLDEN = 38.685690
+  ERROR = 0.216940
+  ERROR RATE = 0.005608
+PASS at 18
+  a      = 1.508000 (0xc8c1)
+  b      = -1.063000 (0xbfe4)
+  DUT    = 0xbe68 (-1.601562)
+  GOLDEN = -1.603004
+  ERROR = 0.001441
+  ERROR RATE = 0.000899
+PASS at 19
+  a      = 1.819000 (0x4854)
+  b      = 4.217000 (0xbc07)
+  DUT    = 0x479f (7.621094)
+  GOLDEN = 7.670723
+  ERROR = 0.049629
+  ERROR RATE = 0.006470
+PASS at 20
+  a      = -9.508000 (0x3f8b)
+  b      = -1.973000 (0x3148)
+  DUT    = 0x4ca8 (18.625000)
+  GOLDEN = 18.759284
+  ERROR = 0.134284
+  ERROR RATE = 0.007158
+MISMATCH at 21
+  a      = 8.657000 (0xc3d0)
+  b      = -1.007000 (0xbda7)
+  DUT    = 0xc84b (-8.585938)
+  GOLDEN = -8.717599
+  ERROR = 0.131661
+  ERROR RATE = 0.015103
+PASS at 22
+  a      = 1.886000 (0xc872)
+  b      = 0.165000 (0xc703)
+  DUT    = 0x34f8 (0.310547)
+  GOLDEN = 0.311190
+  ERROR = 0.000643
+  ERROR RATE = 0.002067
+PASS at 23
+  a      = -3.907000 (0x477d)
+  b      = -1.413000 (0x44f1)
+  DUT    = 0x457a (5.476562)
+  GOLDEN = 5.520591
+  ERROR = 0.044029
+  ERROR RATE = 0.007975
+PASS at 24
+  a      = -8.889000 (0xb6b0)
+  b      = -7.010000 (0x478f)
+  DUT    = 0x53bf (61.968750)
+  GOLDEN = 62.311890
+  ERROR = 0.343140
+  ERROR RATE = 0.005507
+PASS at 25
+  a      = 7.487000 (0x3a56)
+  b      = 4.943000 (0xc4b2)
+  DUT    = 0x509b (36.843750)
+  GOLDEN = 37.008241
+  ERROR = 0.164491
+  ERROR RATE = 0.004445
+PASS at 26
+  a      = -0.418000 (0xc898)
+  b      = 7.557000 (0x4780)
+  DUT    = 0xc245 (-3.134766)
+  GOLDEN = -3.158826
+  ERROR = 0.024060
+  ERROR RATE = 0.007617
+PASS at 27
+  a      = 0.792000 (0xc776)
+  b      = -4.697000 (0x478b)
+  DUT    = 0xc360 (-3.687500)
+  GOLDEN = -3.720024
+  ERROR = 0.032524
+  ERROR RATE = 0.008743
+PASS at 28
+  a      = -9.189000 (0x3a6f)
+  b      = 7.499000 (0xc6a2)
+  DUT    = 0xd44b (-68.687500)
+  GOLDEN = -68.908311
+  ERROR = 0.220811
+  ERROR RATE = 0.003204
+PASS at 29
+  a      = -7.459000 (0x47ea)
+  b      = 7.544000 (0x44e9)
+  DUT    = 0xd2fd (-55.906250)
+  GOLDEN = -56.270696
+  ERROR = 0.364446
+  ERROR RATE = 0.006477
+PASS at 30
+  a      = 0.804000 (0x3fb1)
+  b      = -6.631000 (0x455d)
+  DUT    = 0xc54d (-5.300781)
+  GOLDEN = -5.331324
+  ERROR = 0.030543
+  ERROR RATE = 0.005729
+PASS at 31
+  a      = 7.913000 (0xc17c)
+  b      = 4.912000 (0x487c)
+  DUT    = 0x50d6 (38.687500)
+  GOLDEN = 38.868656
+  ERROR = 0.181156
+  ERROR RATE = 0.004661
+PASS at 32
+  a      = 1.923000 (0xbb02)
+  b      = 5.364000 (0xc4eb)
+  DUT    = 0x4922 (10.265625)
+  GOLDEN = 10.314972
+  ERROR = 0.049347
+  ERROR RATE = 0.004784
+PASS at 33
+  a      = -2.743000 (0x3e8a)
+  b      = 8.969000 (0xc6ac)
+  DUT    = 0xce1a (-24.406250)
+  GOLDEN = -24.601967
+  ERROR = 0.195717
+  ERROR RATE = 0.007955
+PASS at 34
+  a      = -0.876000 (0x4747)
+  b      = -4.919000 (0x4815)
+  DUT    = 0x444b (4.292969)
+  GOLDEN = 4.309044
+  ERROR = 0.016075
+  ERROR RATE = 0.003731
+PASS at 35
+  a      = 1.635000 (0x32d1)
+  b      = -6.670000 (0x457d)
+  DUT    = 0xc96b (-10.835938)
+  GOLDEN = -10.905450
+  ERROR = 0.069513
+  ERROR RATE = 0.006374
+PASS at 36
+  a      = 7.278000 (0xc6d7)
+  b      = 8.163000 (0xc4ca)
+  DUT    = 0x5356 (58.687500)
+  GOLDEN = 59.410314
+  ERROR = 0.722814
+  ERROR RATE = 0.012166
+PASS at 37
+  a      = 0.213000 (0x4873)
+  b      = 5.489000 (0xc8a4)
+  DUT    = 0x3ca8 (1.164062)
+  GOLDEN = 1.169157
+  ERROR = 0.005095
+  ERROR RATE = 0.004357
+PASS at 38
+  a      = -6.838000 (0x4855)
+  b      = -4.789000 (0x453d)
+  DUT    = 0x5011 (32.531250)
+  GOLDEN = 32.747182
+  ERROR = 0.215932
+  ERROR RATE = 0.006594
+PASS at 39
+  a      = 8.901000 (0x470d)
+  b      = -9.279000 (0xc5c1)
+  DUT    = 0xd51b (-81.687500)
+  GOLDEN = -82.592379
+  ERROR = 0.904879
+  ERROR RATE = 0.010956
+PASS at 40
+  a      = 8.666000 (0xbd2a)
+  b      = 5.238000 (0x3ead)
+  DUT    = 0x51a0 (45.000000)
+  GOLDEN = 45.392508
+  ERROR = 0.392508
+  ERROR RATE = 0.008647
+PASS at 41
+  a      = 7.051000 (0xc62f)
+  b      = -5.754000 (0xb698)
+  DUT    = 0xd10c (-40.375000)
+  GOLDEN = -40.571454
+  ERROR = 0.196454
+  ERROR RATE = 0.004842
+PASS at 42
+  a      = -1.291000 (0xc179)
+  b      = 1.669000 (0xc433)
+  DUT    = 0xc045 (-2.134766)
+  GOLDEN = -2.154679
+  ERROR = 0.019913
+  ERROR RATE = 0.009242
+PASS at 43
+  a      = -6.183000 (0xc5dc)
+  b      = -0.412000 (0x40fb)
+  DUT    = 0x410c (2.523438)
+  GOLDEN = 2.547396
+  ERROR = 0.023958
+  ERROR RATE = 0.009405
+PASS at 44
+  a      = -2.737000 (0x48b3)
+  b      = -4.200000 (0xc339)
+  DUT    = 0x49b8 (11.437500)
+  GOLDEN = 11.495400
+  ERROR = 0.057900
+  ERROR RATE = 0.005037
+PASS at 45
+  a      = -5.858000 (0x35be)
+  b      = 2.490000 (0x468e)
+  DUT    = 0xcb42 (-14.515625)
+  GOLDEN = -14.586420
+  ERROR = 0.070795
+  ERROR RATE = 0.004853
+PASS at 46
+  a      = 9.399000 (0xbf63)
+  b      = -3.611000 (0x47b8)
+  DUT    = 0xd039 (-33.781250)
+  GOLDEN = -33.939789
+  ERROR = 0.158539
+  ERROR RATE = 0.004671
+PASS at 47
+  a      = 0.359000 (0x3c04)
+  b      = 6.556000 (0x4829)
+  DUT    = 0x40a8 (2.328125)
+  GOLDEN = 2.353604
+  ERROR = 0.025479
+  ERROR RATE = 0.010826
+PASS at 48
+  a      = -1.847000 (0x44dc)
+  b      = 7.719000 (0x47c3)
+  DUT    = 0xcb1a (-14.203125)
+  GOLDEN = -14.256993
+  ERROR = 0.053868
+  ERROR RATE = 0.003778
+PASS at 49
+  a      = 1.004000 (0xc859)
+  b      = 8.317000 (0xc5bd)
+  DUT    = 0x4828 (8.312500)
+  GOLDEN = 8.350268
+  ERROR = 0.037768
+  ERROR RATE = 0.004523
+PASS at 50
+  a      = 4.858000 (0x483c)
+  b      = 7.762000 (0xc03e)
+  DUT    = 0x50ae (37.437500)
+  GOLDEN = 37.707796
+  ERROR = 0.270296
+  ERROR RATE = 0.007168
+PASS at 51
+  a      = -8.696000 (0x3e73)
+  b      = -5.738000 (0x42d9)
+  DUT    = 0x5234 (49.625000)
+  GOLDEN = 49.897648
+  ERROR = 0.272648
+  ERROR RATE = 0.005464
+PASS at 52
+  a      = 8.469000 (0x456d)
+  b      = -2.121000 (0xc445)
+  DUT    = 0xcc6f (-17.734375)
+  GOLDEN = -17.962749
+  ERROR = 0.228374
+  ERROR RATE = 0.012714
+PASS at 53
+  a      = 1.612000 (0xc812)
+  b      = 3.424000 (0x462d)
+  DUT    = 0x4581 (5.503906)
+  GOLDEN = 5.519488
+  ERROR = 0.015582
+  ERROR RATE = 0.002823
+PASS at 54
+  a      = 5.424000 (0x47fa)
+  b      = -4.271000 (0x47a0)
+  DUT    = 0xcdb8 (-22.875000)
+  GOLDEN = -23.165904
+  ERROR = 0.290904
+  ERROR RATE = 0.012557
+PASS at 55
+  a      = -8.141000 (0x4847)
+  b      = 6.174000 (0xc0c7)
+  DUT    = 0xd23c (-49.875000)
+  GOLDEN = -50.262534
+  ERROR = 0.387534
+  ERROR RATE = 0.007710
+PASS at 56
+  a      = 7.977000 (0xc4a9)
+  b      = 7.626000 (0xc55b)
+  DUT    = 0x5394 (60.625000)
+  GOLDEN = 60.832602
+  ERROR = 0.207602
+  ERROR RATE = 0.003413
+PASS at 57
+  a      = 8.556000 (0x443b)
+  b      = -2.388000 (0x4867)
+  DUT    = 0xcd0c (-20.187500)
+  GOLDEN = -20.431728
+  ERROR = 0.244228
+  ERROR RATE = 0.011953
+PASS at 58
+  a      = -4.661000 (0x376d)
+  b      = -5.357000 (0xc891)
+  DUT    = 0x4e34 (24.812500)
+  GOLDEN = 24.968977
+  ERROR = 0.156477
+  ERROR RATE = 0.006267
+PASS at 59
+  a      = 4.230000 (0xc822)
+  b      = 8.807000 (0xc829)
+  DUT    = 0x509b (36.843750)
+  GOLDEN = 37.253610
+  ERROR = 0.409860
+  ERROR RATE = 0.011002
+PASS at 60
+  a      = 0.464000 (0xc83a)
+  b      = -9.133000 (0x43ac)
+  DUT    = 0xc439 (-4.222656)
+  GOLDEN = -4.237712
+  ERROR = 0.015056
+  ERROR RATE = 0.003553
+PASS at 61
+  a      = -8.262000 (0x45d0)
+  b      = -8.322000 (0xc5dc)
+  DUT    = 0x5445 (68.312500)
+  GOLDEN = 68.756364
+  ERROR = 0.443864
+  ERROR RATE = 0.006456
+PASS at 62
+  a      = -8.457000 (0xc459)
+  b      = 3.836000 (0x3d9d)
+  DUT    = 0xd006 (-32.187500)
+  GOLDEN = -32.441052
+  ERROR = 0.253552
+  ERROR RATE = 0.007816
+PASS at 63
+  a      = 5.811000 (0x4871)
+  b      = -5.861000 (0xc1a0)
+  DUT    = 0xd03f (-33.968750)
+  GOLDEN = -34.058271
+  ERROR = 0.089521
+  ERROR RATE = 0.002628
+PASS at 64
+  a      = -4.349000 (0x43f9)
+  b      = 1.403000 (0x456c)
+  DUT    = 0xc612 (-6.070312)
+  GOLDEN = -6.101647
+  ERROR = 0.031335
+  ERROR RATE = 0.005135
+PASS at 65
+  a      = 8.880000 (0xc42f)
+  b      = -2.813000 (0xc062)
+  DUT    = 0xce3c (-24.937500)
+  GOLDEN = -24.979440
+  ERROR = 0.041940
+  ERROR RATE = 0.001679
+PASS at 66
+  a      = 3.986000 (0x4867)
+  b      = 5.422000 (0xc722)
+  DUT    = 0x4d5c (21.437500)
+  GOLDEN = 21.612092
+  ERROR = 0.174592
+  ERROR RATE = 0.008078
+PASS at 67
+  a      = -4.185000 (0xc847)
+  b      = -2.191000 (0x4263)
+  DUT    = 0x4888 (9.062500)
+  GOLDEN = 9.169335
+  ERROR = 0.106835
+  ERROR RATE = 0.011651
+PASS at 68
+  a      = 8.805000 (0x43ed)
+  b      = -7.133000 (0x46b3)
+  DUT    = 0xd3c9 (-62.281250)
+  GOLDEN = -62.806065
+  ERROR = 0.524815
+  ERROR RATE = 0.008356
+PASS at 69
+  a      = -8.554000 (0x485b)
+  b      = 3.194000 (0x4129)
+  DUT    = 0xcec4 (-27.062500)
+  GOLDEN = -27.321476
+  ERROR = 0.258976
+  ERROR RATE = 0.009479
+PASS at 70
+  a      = 3.963000 (0x48a4)
+  b      = 6.701000 (0x459b)
+  DUT    = 0x4e95 (26.328125)
+  GOLDEN = 26.556063
+  ERROR = 0.227938
+  ERROR RATE = 0.008583
+PASS at 71
+  a      = 8.708000 (0x43d3)
+  b      = 2.580000 (0xc886)
+  DUT    = 0x4d99 (22.390625)
+  GOLDEN = 22.466640
+  ERROR = 0.076015
+  ERROR RATE = 0.003383
+PASS at 72
+  a      = 9.279000 (0xc7e2)
+  b      = 5.604000 (0x43c4)
+  DUT    = 0x5271 (51.531250)
+  GOLDEN = 51.999516
+  ERROR = 0.468266
+  ERROR RATE = 0.009005
+PASS at 73
+  a      = 3.913000 (0x4589)
+  b      = -9.043000 (0xc7b1)
+  DUT    = 0xd063 (-35.093750)
+  GOLDEN = -35.385259
+  ERROR = 0.291509
+  ERROR RATE = 0.008238
+PASS at 74
+  a      = -7.882000 (0xc81f)
+  b      = 3.883000 (0xc7eb)
+  DUT    = 0xcf9f (-30.484375)
+  GOLDEN = -30.605806
+  ERROR = 0.121431
+  ERROR RATE = 0.003968
+PASS at 75
+  a      = 5.536000 (0xbad3)
+  b      = -7.691000 (0xc79e)
+  DUT    = 0xd14d (-42.406250)
+  GOLDEN = -42.577376
+  ERROR = 0.171126
+  ERROR RATE = 0.004019
+PASS at 76
+  a      = -8.246000 (0x4591)
+  b      = -7.917000 (0x487d)
+  DUT    = 0x540b (64.687500)
+  GOLDEN = 65.283582
+  ERROR = 0.596082
+  ERROR RATE = 0.009131
+PASS at 77
+  a      = -0.853000 (0x473d)
+  b      = -7.616000 (0x43ce)
+  DUT    = 0x4671 (6.441406)
+  GOLDEN = 6.496448
+  ERROR = 0.055042
+  ERROR RATE = 0.008473
+PASS at 78
+  a      = 5.566000 (0x4116)
+  b      = 8.977000 (0x48f3)
+  DUT    = 0x5234 (49.625000)
+  GOLDEN = 49.965982
+  ERROR = 0.340982
+  ERROR RATE = 0.006824
+PASS at 79
+  a      = 7.237000 (0x4435)
+  b      = 3.902000 (0x4751)
+  DUT    = 0x4efd (27.953125)
+  GOLDEN = 28.238774
+  ERROR = 0.285649
+  ERROR RATE = 0.010115
+PASS at 80
+  a      = 2.542000 (0xbda7)
+  b      = 9.895000 (0x4298)
+  DUT    = 0x4e3c (24.937500)
+  GOLDEN = 25.153090
+  ERROR = 0.215590
+  ERROR RATE = 0.008571
+PASS at 81
+  a      = 4.208000 (0x45bf)
+  b      = 7.318000 (0xba0c)
+  DUT    = 0x4f9f (30.484375)
+  GOLDEN = 30.794144
+  ERROR = 0.309769
+  ERROR RATE = 0.010059
+PASS at 82
+  a      = -1.413000 (0xc637)
+  b      = 3.297000 (0x3ca9)
+  DUT    = 0xc4a1 (-4.628906)
+  GOLDEN = -4.658661
+  ERROR = 0.029755
+  ERROR RATE = 0.006387
+PASS at 83
+  a      = 5.747000 (0xbc16)
+  b      = -0.756000 (0x48c5)
+  DUT    = 0xc44b (-4.292969)
+  GOLDEN = -4.344732
+  ERROR = 0.051763
+  ERROR RATE = 0.011914
+PASS at 84
+  a      = -6.213000 (0x4857)
+  b      = 1.165000 (0xc3dd)
+  DUT    = 0xc72e (-7.179688)
+  GOLDEN = -7.238145
+  ERROR = 0.058458
+  ERROR RATE = 0.008076
+PASS at 85
+  a      = -1.021000 (0xc554)
+  b      = 9.536000 (0xc8d2)
+  DUT    = 0xc8cf (-9.617188)
+  GOLDEN = -9.736256
+  ERROR = 0.119068
+  ERROR RATE = 0.012229
+PASS at 86
+  a      = 8.679000 (0xc4d8)
+  b      = -3.931000 (0x4669)
+  DUT    = 0xd039 (-33.781250)
+  GOLDEN = -34.117149
+  ERROR = 0.335899
+  ERROR RATE = 0.009845
+PASS at 87
+  a      = -5.327000 (0x47b6)
+  b      = -9.639000 (0xc6e1)
+  DUT    = 0x525f (50.968750)
+  GOLDEN = 51.346953
+  ERROR = 0.378203
+  ERROR RATE = 0.007366
+PASS at 88
+  a      = -4.842000 (0x40a6)
+  b      = 6.411000 (0x452c)
+  DUT    = 0xcfbf (-30.984375)
+  GOLDEN = -31.042062
+  ERROR = 0.057687
+  ERROR RATE = 0.001858
+PASS at 89
+  a      = 7.711000 (0xc414)
+  b      = -6.880000 (0xc509)
+  DUT    = 0xd295 (-52.656250)
+  GOLDEN = -53.051680
+  ERROR = 0.395430
+  ERROR RATE = 0.007454
+PASS at 90
+  a      = 2.325000 (0x4038)
+  b      = 5.170000 (0xbcb3)
+  DUT    = 0x49f0 (11.875000)
+  GOLDEN = 12.020250
+  ERROR = 0.145250
+  ERROR RATE = 0.012084
+PASS at 91
+  a      = -4.077000 (0x46fe)
+  b      = -5.037000 (0x4879)
+  DUT    = 0x4d1b (20.421875)
+  GOLDEN = 20.535849
+  ERROR = 0.113974
+  ERROR RATE = 0.005550
+PASS at 92
+  a      = 2.109000 (0xc2e4)
+  b      = -1.175000 (0x48ce)
+  DUT    = 0xc0f1 (-2.470703)
+  GOLDEN = -2.478075
+  ERROR = 0.007372
+  ERROR RATE = 0.002975
+PASS at 93
+  a      = 6.994000 (0x4884)
+  b      = 8.942000 (0x47ed)
+  DUT    = 0x53c9 (62.281250)
+  GOLDEN = 62.540348
+  ERROR = 0.259098
+  ERROR RATE = 0.004143
+PASS at 94
+  a      = -3.445000 (0x42d0)
+  b      = 9.611000 (0xc2ac)
+  DUT    = 0xd01c (-32.875000)
+  GOLDEN = -33.109895
+  ERROR = 0.234895
+  ERROR RATE = 0.007094
+PASS at 95
+  a      = 9.034000 (0x41b8)
+  b      = 7.927000 (0xc8d4)
+  DUT    = 0x546f (70.937500)
+  GOLDEN = 71.612518
+  ERROR = 0.675018
+  ERROR RATE = 0.009426
+PASS at 96
+  a      = 3.406000 (0xbe05)
+  b      = -3.335000 (0x45bb)
+  DUT    = 0xc9a8 (-11.312500)
+  GOLDEN = -11.359010
+  ERROR = 0.046510
+  ERROR RATE = 0.004095
+PASS at 97
+  a      = 2.859000 (0xc6f5)
+  b      = -9.656000 (0x4882)
+  DUT    = 0xcee0 (-27.500000)
+  GOLDEN = -27.606504
+  ERROR = 0.106504
+  ERROR RATE = 0.003858
+PASS at 98
+  a      = -1.505000 (0xc6f5)
+  b      = 5.731000 (0x4882)
+  DUT    = 0xc845 (-8.539062)
+  GOLDEN = -8.625155
+  ERROR = 0.086092
+  ERROR RATE = 0.009982
+PASS at 99
+  a      = -6.958000 (0xc6f5)
+  b      = 9.014000 (0x4882)
+  DUT    = 0xd3c9 (-62.281250)
+  GOLDEN = -62.719412
+  ERROR = 0.438162
+  ERROR RATE = 0.006986
+
+ Test Finished. Total: 100, Failures: 1
+$finish called at time : 2440 ns : File "/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_mul/src/log_scale_mul_tb.sv" Line 340
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'log_scale_mul_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns

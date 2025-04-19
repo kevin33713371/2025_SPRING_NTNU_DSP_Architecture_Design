@@ -1,15 +1,16 @@
-module log_scale_mul_div (
+module log_scale_mul (
     // Input Signals
     clk,
     rst_n,
     a,
     b,
-    mul_or_div,
+    // mul_or_div,
     lut_wr_en,
     log2_lut_data_in,
     exp2_lut_data_in,
     // Output Signals
     result
+    // lut_wr_done
 );
 
 //---------------------------------------------------------------------
@@ -26,11 +27,11 @@ parameter LUT_SIZE = 128;
 input clk, rst_n;
 
 input lut_wr_en;
-input [MANT_LEN-1:0] log2_lut_data_in
+input [MANT_LEN-1:0] log2_lut_data_in;
 input [FLOAT_LEN-1:0] exp2_lut_data_in;
 
 input [FLOAT_LEN-1:0] a,b;
-input mul_or_div; // 0 for multiply, 1 for divide
+// input mul_or_div; // 0 for multiply, 1 for divide
 output logic [FLOAT_LEN-1:0] result;
 
 //---------------------------------------------------------------------
@@ -44,7 +45,7 @@ logic [MANT_LEN-1:0] log2_lut1 [0:LUT_SIZE-1];
 logic [FLOAT_LEN-1:0] exp2_lut [0:LUT_SIZE-1];
 
 // write pointer for handling Look Up Table input
-logic [$clog2(LUT_SIZE)-1:0] lut_wr_ptr;
+logic [$clog2(LUT_SIZE):0] lut_wr_ptr;
 
 // Flag for Look Up Table write done
 logic lut_wr_done;
@@ -68,7 +69,7 @@ logic [$clog2(LUT_SIZE)-1:0] log2_idx_a, log2_idx_b;
 // Logic for pipeline unbiased exponent
 logic signed [(EXP_LEN+2)-1:0] exp_a_fir_r, exp_b_fir_r;
 
-// Logic for log2-value after look up
+// Logic for log2-mantissa after look up
 logic [MANT_LEN-1:0] log2_mant_a, log2_mant_b;
 
 // ========== Second Stage ==========
@@ -79,16 +80,26 @@ logic signed [(MANT_LEN+2)-1:0] mant_sum;
 // ********** Second Stage Register **********
 // Normalized value of exponent/mantissa sum
 logic signed [(EXP_LEN+2)-1:0] exp_norm_w ,exp_norm_r;
-logic signed [MANT_LEN-1:0] mant_norm;
+logic [MANT_LEN-1:0] mant_norm;
+
+// Logic for negative value mantissa subtraction
+// logic [(MANT_LEN + 1)-1:0] neg_diff;
 
 // Logic for exp2 Look Up Table Address
 logic [FLOAT_LEN-1:0] exp2_idx;
+
+// Logic for exp2-value after look up
+logic [FLOAT_LEN-1:0] exp2_val;
 
 // ========== Third Stage ==========
 // Logic for final sign/exponent/mantissa
 logic sign_final;
 logic [(EXP_LEN+2)-1:0] exp_final;
 logic [MANT_LEN-1:0] mant_final;
+
+// Logic for subnormal process
+logic [(MANT_LEN+1)-1:0] subnormal_imp;
+logic [MANT_LEN-1:0] subnormal_shifted;
 
 // Logic for normal result
 logic [FLOAT_LEN-1:0] normal_result;
@@ -130,7 +141,7 @@ logic [FLOAT_LEN-1:0] specific_result;
 // procedure block for handle lut_wr_ptr
 always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        lut_wr_ptr <= 7'b0;
+        lut_wr_ptr <= 8'b0;
     end else begin
         lut_wr_ptr <= (lut_wr_en) ? lut_wr_ptr + 1 : lut_wr_ptr;
     end
@@ -141,7 +152,7 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         lut_wr_done <= 1'b0;
     end else begin
-        lut_wr_done <= (lut_wr_en && (lut_wr_ptr == LUT_SIZE - 1)) ? 1'b1 : 1'b0;
+        lut_wr_done <= (lut_wr_ptr == LUT_SIZE) ? 1'b1 : 1'b0;
     end
 end
 
@@ -234,14 +245,16 @@ assign sign_a_sec_w = sign_a_fir_r;
 assign sign_b_sec_w = sign_b_fir_r;
 
 // compute exponent/mantissa sum
-assign exp_sum = exp_a_fir_r + (mul_or_div ? -exp_b_fir_r : exp_b_fir_r);
-assign mant_sum = {2'b00, log2_mant_a} + (mul_or_div ? -{2'b00, log2_mant_b} : {2'b00, log2_mant_b})
+// assign exp_sum = exp_a_fir_r + (mul_or_div ? -exp_b_fir_r : exp_b_fir_r);
+// assign mant_sum = {2'b00, log2_mant_a} + (mul_or_div ? -{2'b00, log2_mant_b} : {2'b00, log2_mant_b});
+assign exp_sum = exp_a_fir_r + exp_b_fir_r;
+assign mant_sum = {2'b00, log2_mant_a} + {2'b00, log2_mant_b};
 
 // normalize the sum of exponent/mantissa
 always_comb begin
     if(mant_sum[10]) begin
         exp_norm_w = exp_sum + 7'sd1;
-    end else if() begin
+    end else if(mant_sum[11]) begin
         exp_norm_w = exp_sum - 7'sd1;
     end else begin
         exp_norm_w = exp_sum;
@@ -249,6 +262,45 @@ always_comb begin
 end
 
 assign mant_norm = mant_sum[9:0];
+
+// always_comb begin
+//     casez(mant_sum)
+//         12'b1???????????: begin
+//             neg_diff = 11'h400 - {1'b0, mant_sum[9:0]};
+//             mant_norm = neg_diff[9:0];
+//         end
+//         12'b01??????????: mant_norm = mant_sum[9:0];
+//         12'b001?????????: mant_norm = mant_sum[9:0];
+//         12'b0001????????: mant_norm = mant_sum[8:0] << 1;
+//         12'b00001???????: mant_norm = mant_sum[7:0] << 2;
+//         12'b000001??????: mant_norm = mant_sum[6:0] << 3;
+//         12'b0000001?????: mant_norm = mant_sum[5:0] << 4;
+//         12'b00000001????: mant_norm = mant_sum[4:0] << 5;
+//         12'b000000001???: mant_norm = mant_sum[3:0] << 6;
+//         12'b0000000001??: mant_norm = mant_sum[2:0] << 7;
+//         12'b00000000001?: mant_norm = mant_sum[1:0] << 8;
+//         12'b000000000001: mant_norm = mant_sum[0] << 9;
+//         default: mant_norm = 10'b0;
+//     endcase
+// end
+
+// always_comb begin
+//     casez(mant_sum)
+//         12'b1???????????: exp_norm_w = exp_sum - 7'sd1;
+//         12'b01??????????: exp_norm_w = exp_sum + 7'sd1;
+//         12'b001?????????: exp_norm_w = exp_sum;
+//         12'b0001????????: exp_norm_w = exp_sum - 7'sd1;
+//         12'b00001???????: exp_norm_w = exp_sum - 7'sd2;
+//         12'b000001??????: exp_norm_w = exp_sum - 7'sd3;
+//         12'b0000001?????: exp_norm_w = exp_sum - 7'sd4;
+//         12'b00000001????: exp_norm_w = exp_sum - 7'sd5;
+//         12'b000000001???: exp_norm_w = exp_sum - 7'sd6;
+//         12'b0000000001??: exp_norm_w = exp_sum - 7'sd7;
+//         12'b00000000001?: exp_norm_w = exp_sum - 7'sd8;
+//         12'b000000000001: exp_norm_w = exp_sum - 7'sd9;
+//         default: exp_norm_w = exp_sum;
+//     endcase
+// end
 
 // get the index of exp2 look up
 assign exp2_idx = mant_norm[9:3];
@@ -259,11 +311,11 @@ assign exp2_idx = mant_norm[9:3];
 always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         sign_a_sec_r <= 1'b0;
-        sign_a_sec_r <= 1'b0;
+        sign_b_sec_r <= 1'b0;
         exp_norm_r  <= 7'b0;
     end else begin
         sign_a_sec_r <= sign_a_sec_w;
-        sign_a_sec_r <= sign_a_sec_w;
+        sign_b_sec_r <= sign_b_sec_w;
         exp_norm_r  <= exp_norm_w;
     end
 end
@@ -289,23 +341,41 @@ assign exp_final = exp_norm_r + 7'sd15;
 assign mant_final = exp2_val[9:0];
 
 // procedure block for normal result
+// always_comb begin
+//     if(exp_final[6]) begin
+//         normal_result = 16'h0000;
+//     end else if(exp_final[5])begin
+//         normal_result = {sign_final, 5'h1F, 10'h000};
+//     end else begin
+//         normal_result = {sign_final, exp_final[4:0], mant_final};
+//     end
+// end
+
 always_comb begin
-    if(exp_final[6]) begin
-        normal_result = 16'h0000;
-    end else if(exp_final[5])begin
+    if(exp_final <= 0 && exp_norm_r >= -MANT_LEN) begin
+        // subnormal
+        subnormal_imp = {1'b1, mant_final};
+        subnormal_shifted = subnormal_imp >> (1 - exp_final);
+        normal_result = {sign_final, 5'h00, subnormal_shifted};
+    end else if(exp_final <= 0) begin
+        // underflow to zero
+        normal_result = {sign_final, 5'h00, 10'h000};
+    end else if(exp_final >= 30) begin
+        // overflow to inf
         normal_result = {sign_final, 5'h1F, 10'h000};
     end else begin
+        // normal
         normal_result = {sign_final, exp_final[4:0], mant_final};
     end
 end
 
 // ========== Specific Result Path ===========
-assign is_nan_a_fir_w = (exp_a == 5'h1F) && (mant_a != 0);
-assign is_nan_b_fir_w = (exp_b == 5'h1F) && (mant_b != 0);
-assign is_inf_a_fir_w = (exp_a == 5'h1F) && (mant_a == 0);
-assign is_inf_b_fir_w = (exp_b == 5'h1F) && (mant_b == 0);
-assign is_zero_a_fir_w = (exp_a == 5'h00) && (mant_a == 0);
-assign is_zero_b_fir_w = (exp_b == 5'h00) && (mant_b == 0);
+assign is_nan_a_fir_w = (exp_a_raw == 5'h1F) && (mant_a != 0);
+assign is_nan_b_fir_w = (exp_b_raw == 5'h1F) && (mant_b != 0);
+assign is_inf_a_fir_w = (exp_a_raw == 5'h1F) && (mant_a == 0);
+assign is_inf_b_fir_w = (exp_b_raw == 5'h1F) && (mant_b == 0);
+assign is_zero_a_fir_w = (exp_a_raw == 5'h00) && (mant_a == 0);
+assign is_zero_b_fir_w = (exp_b_raw == 5'h00) && (mant_b == 0);
 
 // Two stage pipeline to align normal result
 always_ff @ (posedge clk or negedge rst_n) begin
