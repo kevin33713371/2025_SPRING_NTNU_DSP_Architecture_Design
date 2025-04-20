@@ -4,7 +4,6 @@ module log_scale_mul (
     rst_n,
     a,
     b,
-    // mul_or_div,
     lut_wr_en,
     log2_lut_data_in,
     exp2_lut_data_in,
@@ -81,9 +80,6 @@ logic signed [(MANT_LEN+2)-1:0] mant_sum;
 logic signed [(EXP_LEN+2)-1:0] exp_norm_w ,exp_norm_r;
 logic [MANT_LEN-1:0] mant_norm;
 
-// Logic for negative value mantissa subtraction
-// logic [(MANT_LEN + 1)-1:0] neg_diff;
-
 // Logic for exp2 Look Up Table Address
 logic [FLOAT_LEN-1:0] exp2_idx;
 
@@ -145,15 +141,6 @@ always_ff @ (posedge clk or negedge rst_n) begin
         lut_wr_ptr <= (lut_wr_en) ? lut_wr_ptr + 1 : lut_wr_ptr;
     end
 end
-
-// procedure block for handle lut_wr_done
-// always_ff @ (posedge clk or negedge rst_n) begin
-//     if(!rst_n) begin
-//         lut_wr_done <= 1'b0;
-//     end else begin
-//         lut_wr_done <= (lut_wr_ptr == LUT_SIZE) ? 1'b1 : 1'b0;
-//     end
-// end
 
 // procedure block for handle log2_lut0
 always_ff @ (posedge clk or negedge rst_n) begin
