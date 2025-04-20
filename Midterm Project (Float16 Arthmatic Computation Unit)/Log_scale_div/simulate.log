@@ -1,0 +1,7102 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sun Apr 20 18:05:28 2025
+# Process ID: 154366
+# Current directory: /home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div
+# Command line: vivado
+# Log file: /home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado.log
+# Journal file: /home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado.jou
+# Running On: ntnu6-MS-7D75, OS: Linux, CPU Frequency: 4948.129 MHz, CPU Physical cores: 32, Host memory: 66469 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.3 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.3/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.1 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project {/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado_project/vivado_project.xpr}
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado_project/vivado_project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'log_scale_div_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'log_scale_div_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj log_scale_div_tb_vlog.prj
+/tools/Xilinx/Vivado/2023.1/bin/setupEnv.sh: line 236: [: too many arguments
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/src/log_scale_div.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module log_scale_div
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/src/log_scale_div_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module log_scale_div_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot log_scale_div_tb_behav xil_defaultlib.log_scale_div_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot log_scale_div_tb_behav xil_defaultlib.log_scale_div_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/src/log_scale_div.sv" Line 1. Module log_scale_div doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/src/log_scale_div.sv" Line 1. Module log_scale_div doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.log_scale_div
+Compiling module xil_defaultlib.log_scale_div_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot log_scale_div_tb_behav
+/tools/Xilinx/Vivado/2023.1/bin/setupEnv.sh: line 236: [: too many arguments
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/vivado_project/vivado_project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "log_scale_div_tb_behav -key {Behavioral:sim_1:Functional:log_scale_div_tb} -tclbatch {log_scale_div_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source log_scale_div_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+PASS at 0
+  a      = 8.438000 (0x3d9a)
+  b      = -5.401000 (0x4825)
+  DUT    = 0xbe45 (-1.567383)
+  GOLDEN = -1.562303
+  ERROR = 0.005080
+  ERROR RATE = 0.003251
+PASS at 1
+  a      = 0.085000 (0x48ed)
+  b      = 6.476000 (0x44bf)
+  DUT    = 0x22ba (0.013138)
+  GOLDEN = 0.013125
+  ERROR = 0.000012
+  ERROR RATE = 0.000947
+PASS at 2
+  a      = 1.400000 (0x4856)
+  b      = 8.288000 (0x3f2d)
+  DUT    = 0x316b (0.169312)
+  GOLDEN = 0.168919
+  ERROR = 0.000393
+  ERROR RATE = 0.002324
+PASS at 3
+  a      = 9.853000 (0x4426)
+  b      = 4.745000 (0x40f8)
+  DUT    = 0x4028 (2.078125)
+  GOLDEN = 2.076502
+  ERROR = 0.001623
+  ERROR RATE = 0.000782
+PASS at 4
+  a      = 8.674000 (0x33d7)
+  b      = 1.794000 (0x440e)
+  DUT    = 0x44cf (4.808594)
+  GOLDEN = 4.835006
+  ERROR = 0.026412
+  ERROR RATE = 0.005463
+PASS at 5
+  a      = 4.150000 (0x430b)
+  b      = 2.484000 (0x3fd3)
+  DUT    = 0x3e9e (1.654297)
+  GOLDEN = 1.670692
+  ERROR = 0.016396
+  ERROR RATE = 0.009814
+PASS at 6
+  a      = 0.245000 (0x430c)
+  b      = 4.056000 (0x468c)
+  DUT    = 0x2bbf (0.060516)
+  GOLDEN = 0.060404
+  ERROR = 0.000112
+  ERROR RATE = 0.001854
+PASS at 7
+  a      = 3.522000 (0xc542)
+  b      = 1.956000 (0x41b1)
+  DUT    = 0x3f2e (1.794922)
+  GOLDEN = 1.800613
+  ERROR = 0.005692
+  ERROR RATE = 0.003161
+PASS at 8
+  a      = 3.524000 (0xc1cd)
+  b      = 6.547000 (0x405c)
+  DUT    = 0x384b (0.536621)
+  GOLDEN = 0.538262
+  ERROR = 0.001641
+  ERROR RATE = 0.003048
+PASS at 9
+  a      = -5.258000 (0xc828)
+  b      = 2.846000 (0xc8d2)
+  DUT    = 0xbf60 (-1.843750)
+  GOLDEN = -1.847505
+  ERROR = 0.003755
+  ERROR RATE = 0.002033
+PASS at 10
+  a      = -2.900000 (0x4894)
+  b      = 2.180000 (0x4026)
+  DUT    = 0xbd4d (-1.325195)
+  GOLDEN = -1.330275
+  ERROR = 0.005080
+  ERROR RATE = 0.003819
+PASS at 11
+  a      = -8.312000 (0xc5e8)
+  b      = -9.644000 (0xbd8a)
+  DUT    = 0x3ae9 (0.863770)
+  GOLDEN = 0.861883
+  ERROR = 0.001886
+  ERROR RATE = 0.002189
+PASS at 12
+  a      = 9.155000 (0x388d)
+  b      = 2.075000 (0xc53c)
+  DUT    = 0x4469 (4.410156)
+  GOLDEN = 4.412048
+  ERROR = 0.001892
+  ERROR RATE = 0.000429
+PASS at 13
+  a      = -5.907000 (0xc7e2)
+  b      = -1.385000 (0xc646)
+  DUT    = 0x4445 (4.269531)
+  GOLDEN = 4.264982
+  ERROR = 0.004549
+  ERROR RATE = 0.001067
+PASS at 14
+  a      = 0.569000 (0x4191)
+  b      = -5.235000 (0xc2a1)
+  DUT    = 0xaee9 (-0.107971)
+  GOLDEN = -0.108691
+  ERROR = 0.000720
+  ERROR RATE = 0.006627
+PASS at 15
+  a      = -7.884000 (0x3aac)
+  b      = -6.275000 (0x4782)
+  DUT    = 0x3d06 (1.255859)
+  GOLDEN = 1.256414
+  ERROR = 0.000555
+  ERROR RATE = 0.000442
+PASS at 16
+  a      = 2.784000 (0x4774)
+  b      = -3.314000 (0xc4f6)
+  DUT    = 0xbab1 (-0.836426)
+  GOLDEN = -0.840072
+  ERROR = 0.003647
+  ERROR RATE = 0.004341
+PASS at 17
+  a      = 0.834000 (0xc479)
+  b      = 7.506000 (0xc6a4)
+  DUT    = 0x2f10 (0.110352)
+  GOLDEN = 0.111111
+  ERROR = 0.000760
+  ERROR RATE = 0.006836
+PASS at 18
+  a      = 7.452000 (0xc75a)
+  b      = -4.960000 (0x3906)
+  DUT    = 0xbe01 (-1.500977)
+  GOLDEN = -1.502419
+  ERROR = 0.001443
+  ERROR RATE = 0.000960
+PASS at 19
+  a      = -4.474000 (0x40e7)
+  b      = -6.641000 (0xc83e)
+  DUT    = 0x3963 (0.673340)
+  GOLDEN = 0.673694
+  ERROR = 0.000354
+  ERROR RATE = 0.000525
+PASS at 20
+  a      = -7.351000 (0x4741)
+  b      = 0.628000 (0x465d)
+  DUT    = 0xc9e0 (-11.750000)
+  GOLDEN = -11.705414
+  ERROR = 0.044586
+  ERROR RATE = 0.003809
+PASS at 21
+  a      = 2.452000 (0x488b)
+  b      = -8.487000 (0x48f7)
+  DUT    = 0xb49b (-0.287842)
+  GOLDEN = -0.288912
+  ERROR = 0.001071
+  ERROR RATE = 0.003706
+PASS at 22
+  a      = 7.255000 (0x46ac)
+  b      = 6.364000 (0xba4e)
+  DUT    = 0x3c8e (1.138672)
+  GOLDEN = 1.140006
+  ERROR = 0.001334
+  ERROR RATE = 0.001171
+PASS at 23
+  a      = 9.089000 (0xc3b1)
+  b      = 9.926000 (0x44cf)
+  DUT    = 0x3b56 (0.916992)
+  GOLDEN = 0.915676
+  ERROR = 0.001316
+  ERROR RATE = 0.001437
+PASS at 24
+  a      = 6.670000 (0xc8db)
+  b      = -0.788000 (0x487d)
+  DUT    = 0xc839 (-8.445312)
+  GOLDEN = -8.464467
+  ERROR = 0.019155
+  ERROR RATE = 0.002263
+PASS at 25
+  a      = -3.845000 (0x4882)
+  b      = 4.809000 (0x3c61)
+  DUT    = 0xba68 (-0.800781)
+  GOLDEN = -0.799543
+  ERROR = 0.001239
+  ERROR RATE = 0.001549
+PASS at 26
+  a      = -9.709000 (0xc02e)
+  b      = 8.980000 (0x48a7)
+  DUT    = 0xbc51 (-1.079102)
+  GOLDEN = -1.081180
+  ERROR = 0.002079
+  ERROR RATE = 0.001923
+PASS at 27
+  a      = 9.016000 (0x484d)
+  b      = 1.095000 (0xc6db)
+  DUT    = 0x481c (8.218750)
+  GOLDEN = 8.233790
+  ERROR = 0.015040
+  ERROR RATE = 0.001827
+PASS at 28
+  a      = -2.090000 (0xbb21)
+  b      = 9.305000 (0xbad3)
+  DUT    = 0xb32e (-0.224365)
+  GOLDEN = -0.224610
+  ERROR = 0.000245
+  ERROR RATE = 0.001092
+PASS at 29
+  a      = 8.600000 (0x44b1)
+  b      = -6.857000 (0xc4eb)
+  DUT    = 0xbcff (-1.249023)
+  GOLDEN = -1.254193
+  ERROR = 0.005169
+  ERROR RATE = 0.004122
+PASS at 30
+  a      = -0.891000 (0x48fc)
+  b      = -0.853000 (0x48e7)
+  DUT    = 0x3c2d (1.043945)
+  GOLDEN = 1.044549
+  ERROR = 0.000603
+  ERROR RATE = 0.000578
+PASS at 31
+  a      = 4.690000 (0xc583)
+  b      = -4.917000 (0x44fa)
+  DUT    = 0xbb9f (-0.952637)
+  GOLDEN = -0.953834
+  ERROR = 0.001197
+  ERROR RATE = 0.001255
+PASS at 32
+  a      = 9.968000 (0xc10e)
+  b      = 9.808000 (0x41b0)
+  DUT    = 0x3c11 (1.016602)
+  GOLDEN = 1.016313
+  ERROR = 0.000288
+  ERROR RATE = 0.000284
+PASS at 33
+  a      = -5.513000 (0xc7e5)
+  b      = 4.975000 (0xc432)
+  DUT    = 0xbc69 (-1.102539)
+  GOLDEN = -1.108141
+  ERROR = 0.005602
+  ERROR RATE = 0.005055
+PASS at 34
+  a      = -2.528000 (0x4757)
+  b      = 2.844000 (0xc6d9)
+  DUT    = 0xbb10 (-0.882812)
+  GOLDEN = -0.888889
+  ERROR = 0.006076
+  ERROR RATE = 0.006836
+PASS at 35
+  a      = -7.893000 (0xc8cc)
+  b      = -4.196000 (0x48dc)
+  DUT    = 0x3f7f (1.874023)
+  GOLDEN = 1.881077
+  ERROR = 0.007054
+  ERROR RATE = 0.003750
+PASS at 36
+  a      = 7.339000 (0xc840)
+  b      = -6.847000 (0x4433)
+  DUT    = 0xbc45 (-1.067383)
+  GOLDEN = -1.071856
+  ERROR = 0.004473
+  ERROR RATE = 0.004174
+PASS at 37
+  a      = -9.596000 (0xc0b1)
+  b      = 9.718000 (0xbd89)
+  DUT    = 0xbbdf (-0.983887)
+  GOLDEN = -0.987446
+  ERROR = 0.003559
+  ERROR RATE = 0.003605
+PASS at 38
+  a      = -8.500000 (0x4782)
+  b      = 4.200000 (0x3e94)
+  DUT    = 0xc00b (-2.021484)
+  GOLDEN = -2.023810
+  ERROR = 0.002325
+  ERROR RATE = 0.001149
+PASS at 39
+  a      = -2.345000 (0x4848)
+  b      = -1.384000 (0xc2ce)
+  DUT    = 0x3ec4 (1.691406)
+  GOLDEN = 1.694364
+  ERROR = 0.002958
+  ERROR RATE = 0.001746
+PASS at 40
+  a      = 7.508000 (0x48a5)
+  b      = 1.645000 (0x4656)
+  DUT    = 0x448e (4.554688)
+  GOLDEN = 4.564134
+  ERROR = 0.009446
+  ERROR RATE = 0.002070
+PASS at 41
+  a      = 8.559000 (0xc676)
+  b      = -3.402000 (0xc099)
+  DUT    = 0xc10c (-2.523438)
+  GOLDEN = -2.515873
+  ERROR = 0.007564
+  ERROR RATE = 0.003007
+PASS at 42
+  a      = 9.287000 (0xc257)
+  b      = 6.336000 (0xbfea)
+  DUT    = 0x3dd8 (1.460938)
+  GOLDEN = 1.465751
+  ERROR = 0.004814
+  ERROR RATE = 0.003284
+PASS at 43
+  a      = -6.461000 (0x4865)
+  b      = -2.298000 (0x45cc)
+  DUT    = 0x4199 (2.798828)
+  GOLDEN = 2.811575
+  ERROR = 0.012747
+  ERROR RATE = 0.004534
+PASS at 44
+  a      = -3.170000 (0x455c)
+  b      = -1.979000 (0x482e)
+  DUT    = 0x3e5f (1.592773)
+  GOLDEN = 1.601819
+  ERROR = 0.009046
+  ERROR RATE = 0.005647
+PASS at 45
+  a      = 8.789000 (0xc480)
+  b      = 5.796000 (0xbabe)
+  DUT    = 0x3e09 (1.508789)
+  GOLDEN = 1.516391
+  ERROR = 0.007602
+  ERROR RATE = 0.005013
+PASS at 46
+  a      = 5.359000 (0x3502)
+  b      = 8.358000 (0xbc21)
+  DUT    = 0x3922 (0.641602)
+  GOLDEN = 0.641182
+  ERROR = 0.000419
+  ERROR RATE = 0.000654
+PASS at 47
+  a      = -4.500000 (0x48db)
+  b      = -0.843000 (0x4375)
+  DUT    = 0x455c (5.359375)
+  GOLDEN = 5.338078
+  ERROR = 0.021297
+  ERROR RATE = 0.003990
+PASS at 48
+  a      = 0.313000 (0xc5d0)
+  b      = -1.032000 (0x43c8)
+  DUT    = 0xb4d6 (-0.302246)
+  GOLDEN = -0.303295
+  ERROR = 0.001048
+  ERROR RATE = 0.003457
+PASS at 49
+  a      = 9.708000 (0xc2cf)
+  b      = 3.729000 (0xc123)
+  DUT    = 0x4130 (2.593750)
+  GOLDEN = 2.603379
+  ERROR = 0.009629
+  ERROR RATE = 0.003699
+PASS at 50
+  a      = -5.813000 (0xc71e)
+  b      = 3.891000 (0x4772)
+  DUT    = 0xbdf9 (-1.493164)
+  GOLDEN = -1.493960
+  ERROR = 0.000796
+  ERROR RATE = 0.000533
+PASS at 51
+  a      = -3.404000 (0xc6c9)
+  b      = -2.568000 (0xc618)
+  DUT    = 0x3d46 (1.318359)
+  GOLDEN = 1.325545
+  ERROR = 0.007186
+  ERROR RATE = 0.005421
+PASS at 52
+  a      = -7.117000 (0x46e3)
+  b      = 7.444000 (0xc19d)
+  DUT    = 0xbb9f (-0.952637)
+  GOLDEN = -0.956072
+  ERROR = 0.003435
+  ERROR RATE = 0.003593
+PASS at 53
+  a      = -6.784000 (0x4641)
+  b      = -6.092000 (0x45f5)
+  DUT    = 0x3c6f (1.108398)
+  GOLDEN = 1.113592
+  ERROR = 0.005193
+  ERROR RATE = 0.004663
+PASS at 54
+  a      = 6.887000 (0x4524)
+  b      = -2.807000 (0xc73a)
+  DUT    = 0xc0ea (-2.457031)
+  GOLDEN = -2.453509
+  ERROR = 0.003522
+  ERROR RATE = 0.001436
+PASS at 55
+  a      = 6.252000 (0x4404)
+  b      = 5.957000 (0xc4f2)
+  DUT    = 0x3c33 (1.049805)
+  GOLDEN = 1.049522
+  ERROR = 0.000283
+  ERROR RATE = 0.000270
+PASS at 56
+  a      = 5.139000 (0x4603)
+  b      = -7.227000 (0xc877)
+  DUT    = 0xb9a8 (-0.707031)
+  GOLDEN = -0.711083
+  ERROR = 0.004052
+  ERROR RATE = 0.005699
+PASS at 57
+  a      = 4.016000 (0xc808)
+  b      = -4.947000 (0xc8cd)
+  DUT    = 0xba7a (-0.809570)
+  GOLDEN = -0.811805
+  ERROR = 0.002235
+  ERROR RATE = 0.002753
+PASS at 58
+  a      = 6.012000 (0xba4e)
+  b      = -8.931000 (0x486b)
+  DUT    = 0xb963 (-0.673340)
+  GOLDEN = -0.673161
+  ERROR = 0.000179
+  ERROR RATE = 0.000266
+PASS at 59
+  a      = -8.062000 (0xc1a6)
+  b      = -9.600000 (0x48d9)
+  DUT    = 0x3aba (0.840820)
+  GOLDEN = 0.839792
+  ERROR = 0.001029
+  ERROR RATE = 0.001225
+PASS at 60
+  a      = -0.788000 (0x4763)
+  b      = 8.839000 (0x452b)
+  DUT    = 0xadb0 (-0.088867)
+  GOLDEN = -0.089150
+  ERROR = 0.000283
+  ERROR RATE = 0.003176
+PASS at 61
+  a      = -2.825000 (0x4763)
+  b      = 9.692000 (0x3ac9)
+  DUT    = 0xb4a1 (-0.289307)
+  GOLDEN = -0.291478
+  ERROR = 0.002171
+  ERROR RATE = 0.007448
+PASS at 62
+  a      = 7.386000 (0xbf1a)
+  b      = 5.167000 (0x440a)
+  DUT    = 0x3db8 (1.429688)
+  GOLDEN = 1.429456
+  ERROR = 0.000231
+  ERROR RATE = 0.000162
+PASS at 63
+  a      = 7.386000 (0x42a5)
+  b      = 0.848000 (0x40a3)
+  DUT    = 0x4857 (8.679688)
+  GOLDEN = 8.709906
+  ERROR = 0.030218
+  ERROR RATE = 0.003469
+PASS at 64
+  a      = -1.775000 (0x46ff)
+  b      = 4.039000 (0x4829)
+  DUT    = 0xb706 (-0.438965)
+  GOLDEN = -0.439465
+  ERROR = 0.000500
+  ERROR RATE = 0.001139
+PASS at 65
+  a      = 3.322000 (0x4799)
+  b      = 2.318000 (0x439b)
+  DUT    = 0x3db8 (1.429688)
+  GOLDEN = 1.433132
+  ERROR = 0.003445
+  ERROR RATE = 0.002403
+PASS at 66
+  a      = 6.998000 (0x48da)
+  b      = 8.323000 (0x48d3)
+  DUT    = 0x3ab1 (0.836426)
+  GOLDEN = 0.840803
+  ERROR = 0.004377
+  ERROR RATE = 0.005206
+PASS at 67
+  a      = 7.597000 (0x4578)
+  b      = 3.802000 (0x3477)
+  DUT    = 0x4000 (2.000000)
+  GOLDEN = 1.998159
+  ERROR = 0.001841
+  ERROR RATE = 0.000921
+PASS at 68
+  a      = 9.702000 (0x4824)
+  b      = 9.652000 (0x3ad9)
+  DUT    = 0x3c06 (1.005859)
+  GOLDEN = 1.005180
+  ERROR = 0.000679
+  ERROR RATE = 0.000676
+PASS at 69
+  a      = 5.470000 (0x3f14)
+  b      = 0.279000 (0x3e87)
+  DUT    = 0x4cea (19.656250)
+  GOLDEN = 19.605735
+  ERROR = 0.050515
+  ERROR RATE = 0.002577
+PASS at 70
+  a      = 8.284000 (0x3def)
+  b      = 0.856000 (0xb12f)
+  DUT    = 0x48cf (9.617188)
+  GOLDEN = 9.677570
+  ERROR = 0.060383
+  ERROR RATE = 0.006239
+PASS at 71
+  a      = 1.770000 (0x4654)
+  b      = 1.632000 (0xc8d4)
+  DUT    = 0x3c57 (1.084961)
+  GOLDEN = 1.084559
+  ERROR = 0.000402
+  ERROR RATE = 0.000371
+PASS at 72
+  a      = 1.483000 (0x46fc)
+  b      = -0.162000 (0xc5cd)
+  DUT    = 0xc894 (-9.156250)
+  GOLDEN = -9.154321
+  ERROR = 0.001929
+  ERROR RATE = 0.000211
+PASS at 73
+  a      = 6.328000 (0xb960)
+  b      = -9.660000 (0x47e5)
+  DUT    = 0xb93e (-0.655273)
+  GOLDEN = -0.655072
+  ERROR = 0.000201
+  ERROR RATE = 0.000307
+PASS at 74
+  a      = 6.986000 (0x47fd)
+  b      = -5.800000 (0xc8ae)
+  DUT    = 0xbccf (-1.202148)
+  GOLDEN = -1.204483
+  ERROR = 0.002334
+  ERROR RATE = 0.001938
+PASS at 75
+  a      = -0.672000 (0xc2f3)
+  b      = 7.893000 (0x391d)
+  DUT    = 0xad72 (-0.085083)
+  GOLDEN = -0.085139
+  ERROR = 0.000056
+  ERROR RATE = 0.000654
+PASS at 76
+  a      = 7.987000 (0xbb8f)
+  b      = -9.357000 (0xc841)
+  DUT    = 0xbad6 (-0.854492)
+  GOLDEN = -0.853586
+  ERROR = 0.000907
+  ERROR RATE = 0.001062
+PASS at 77
+  a      = -3.475000 (0xc5a2)
+  b      = 0.639000 (0x414d)
+  DUT    = 0xc572 (-5.445312)
+  GOLDEN = -5.438185
+  ERROR = 0.007128
+  ERROR RATE = 0.001311
+PASS at 78
+  a      = -0.945000 (0xc8c7)
+  b      = -8.506000 (0x45bb)
+  DUT    = 0x2f10 (0.110352)
+  GOLDEN = 0.111098
+  ERROR = 0.000746
+  ERROR RATE = 0.006719
+PASS at 79
+  a      = -5.631000 (0x4858)
+  b      = 2.650000 (0x4478)
+  DUT    = 0xc03f (-2.123047)
+  GOLDEN = -2.124906
+  ERROR = 0.001859
+  ERROR RATE = 0.000875
+PASS at 80
+  a      = -9.558000 (0xc5e4)
+  b      = 5.732000 (0xc41b)
+  DUT    = 0xbe9e (-1.654297)
+  GOLDEN = -1.667481
+  ERROR = 0.013184
+  ERROR RATE = 0.007906
+PASS at 81
+  a      = 8.686000 (0xbd28)
+  b      = 4.470000 (0xc2fd)
+  DUT    = 0x3fbf (1.936523)
+  GOLDEN = 1.943177
+  ERROR = 0.006653
+  ERROR RATE = 0.003424
+PASS at 82
+  a      = -5.892000 (0x48ef)
+  b      = -4.106000 (0x4477)
+  DUT    = 0x3db8 (1.429688)
+  GOLDEN = 1.434973
+  ERROR = 0.005286
+  ERROR RATE = 0.003683
+PASS at 83
+  a      = -1.289000 (0xc850)
+  b      = -3.495000 (0x3c2a)
+  DUT    = 0x35e8 (0.369141)
+  GOLDEN = 0.368813
+  ERROR = 0.000328
+  ERROR RATE = 0.000889
+PASS at 84
+  a      = 9.866000 (0x45fa)
+  b      = 4.464000 (0x40b4)
+  DUT    = 0x4069 (2.205078)
+  GOLDEN = 2.210125
+  ERROR = 0.005047
+  ERROR RATE = 0.002284
+PASS at 85
+  a      = -8.625000 (0x481a)
+  b      = 1.041000 (0x47d4)
+  DUT    = 0xc822 (-8.265625)
+  GOLDEN = -8.285303
+  ERROR = 0.019678
+  ERROR RATE = 0.002375
+PASS at 86
+  a      = 5.976000 (0xbe68)
+  b      = 2.351000 (0xc899)
+  DUT    = 0x4114 (2.539062)
+  GOLDEN = 2.541897
+  ERROR = 0.002835
+  ERROR RATE = 0.001115
+PASS at 87
+  a      = 8.200000 (0x48f6)
+  b      = 7.828000 (0xc603)
+  DUT    = 0x3c2d (1.043945)
+  GOLDEN = 1.047522
+  ERROR = 0.003576
+  ERROR RATE = 0.003414
+PASS at 88
+  a      = -1.602000 (0x4734)
+  b      = -9.193000 (0x47af)
+  DUT    = 0x3191 (0.173950)
+  GOLDEN = 0.174263
+  ERROR = 0.000313
+  ERROR RATE = 0.001795
+PASS at 89
+  a      = 9.925000 (0x468c)
+  b      = -6.011000 (0xbd6f)
+  DUT    = 0xbe95 (-1.645508)
+  GOLDEN = -1.651140
+  ERROR = 0.005632
+  ERROR RATE = 0.003411
+PASS at 90
+  a      = 7.202000 (0x48c9)
+  b      = 7.682000 (0x459d)
+  DUT    = 0x3b7f (0.937012)
+  GOLDEN = 0.937516
+  ERROR = 0.000505
+  ERROR RATE = 0.000538
+PASS at 91
+  a      = 6.547000 (0xc8e1)
+  b      = -1.358000 (0xc0a1)
+  DUT    = 0xc4cf (-4.808594)
+  GOLDEN = -4.821060
+  ERROR = 0.012467
+  ERROR RATE = 0.002586
+PASS at 92
+  a      = 9.571000 (0xc511)
+  b      = 5.612000 (0x47e5)
+  DUT    = 0x3ed6 (1.708984)
+  GOLDEN = 1.705453
+  ERROR = 0.003532
+  ERROR RATE = 0.002071
+PASS at 93
+  a      = -9.759000 (0xc3e8)
+  b      = -2.315000 (0x3408)
+  DUT    = 0x4433 (4.199219)
+  GOLDEN = 4.215551
+  ERROR = 0.016332
+  ERROR RATE = 0.003874
+PASS at 94
+  a      = -5.067000 (0x41bf)
+  b      = 7.896000 (0xc076)
+  DUT    = 0xb922 (-0.641602)
+  GOLDEN = -0.641717
+  ERROR = 0.000116
+  ERROR RATE = 0.000180
+PASS at 95
+  a      = -3.953000 (0x4521)
+  b      = 0.252000 (0xc847)
+  DUT    = 0xcbd4 (-15.656250)
+  GOLDEN = -15.686508
+  ERROR = 0.030258
+  ERROR RATE = 0.001929
+PASS at 96
+  a      = 2.874000 (0x455e)
+  b      = -2.231000 (0xc580)
+  DUT    = 0xbd22 (-1.283203)
+  GOLDEN = -1.288212
+  ERROR = 0.005008
+  ERROR RATE = 0.003888
+PASS at 97
+  a      = 5.127000 (0xc8cf)
+  b      = -8.552000 (0x44d9)
+  DUT    = 0xb8cf (-0.601074)
+  GOLDEN = -0.599509
+  ERROR = 0.001565
+  ERROR RATE = 0.002611
+PASS at 98
+  a      = 5.368000 (0xc6de)
+  b      = -5.501000 (0xbf58)
+  DUT    = 0xbbbf (-0.968262)
+  GOLDEN = -0.975823
+  ERROR = 0.007561
+  ERROR RATE = 0.007748
+PASS at 99
+  a      = -9.620000 (0x483c)
+  b      = 4.849000 (0xc04d)
+  DUT    = 0xbfdf (-1.967773)
+  GOLDEN = -1.983914
+  ERROR = 0.016141
+  ERROR RATE = 0.008136
+PASS at 100
+  a      = -6.869000 (0x456c)
+  b      = -1.836000 (0xc488)
+  DUT    = 0x436a (3.707031)
+  GOLDEN = 3.741285
+  ERROR = 0.034254
+  ERROR RATE = 0.009156
+PASS at 101
+  a      = 8.468000 (0xc887)
+  b      = -2.150000 (0x4640)
+  DUT    = 0xc3df (-3.935547)
+  GOLDEN = -3.938605
+  ERROR = 0.003058
+  ERROR RATE = 0.000776
+PASS at 102
+  a      = 5.420000 (0x3c55)
+  b      = -4.531000 (0x476c)
+  DUT    = 0xbcc2 (-1.189453)
+  GOLDEN = -1.196204
+  ERROR = 0.006751
+  ERROR RATE = 0.005644
+PASS at 103
+  a      = -9.056000 (0xc065)
+  b      = 6.250000 (0x4359)
+  DUT    = 0xbdc0 (-1.437500)
+  GOLDEN = -1.448960
+  ERROR = 0.011460
+  ERROR RATE = 0.007909
+PASS at 104
+  a      = 1.083000 (0x44de)
+  b      = 7.421000 (0xc482)
+  DUT    = 0x30a8 (0.145508)
+  GOLDEN = 0.145937
+  ERROR = 0.000429
+  ERROR RATE = 0.002942
+PASS at 105
+  a      = -2.198000 (0xc24d)
+  b      = 3.673000 (0xc516)
+  DUT    = 0xb8c2 (-0.594727)
+  GOLDEN = -0.598421
+  ERROR = 0.003694
+  ERROR RATE = 0.006173
+PASS at 106
+  a      = 4.868000 (0xc5a1)
+  b      = -4.509000 (0x4424)
+  DUT    = 0xbc4b (-1.073242)
+  GOLDEN = -1.079619
+  ERROR = 0.006376
+  ERROR RATE = 0.005906
+PASS at 107
+  a      = -3.150000 (0x4421)
+  b      = -5.084000 (0x45da)
+  DUT    = 0x38f1 (0.617676)
+  GOLDEN = 0.619591
+  ERROR = 0.001915
+  ERROR RATE = 0.003091
+PASS at 108
+  a      = -5.629000 (0x44ea)
+  b      = 4.141000 (0xc28b)
+  DUT    = 0xbd72 (-1.361328)
+  GOLDEN = -1.359333
+  ERROR = 0.001995
+  ERROR RATE = 0.001467
+PASS at 109
+  a      = 4.128000 (0xc551)
+  b      = 5.853000 (0x489c)
+  DUT    = 0x39a0 (0.703125)
+  GOLDEN = 0.705279
+  ERROR = 0.002154
+  ERROR RATE = 0.003055
+PASS at 110
+  a      = 4.914000 (0xc579)
+  b      = -3.272000 (0x4402)
+  DUT    = 0xbe01 (-1.500977)
+  GOLDEN = -1.501834
+  ERROR = 0.000857
+  ERROR RATE = 0.000571
+PASS at 111
+  a      = -5.315000 (0x4092)
+  b      = 9.215000 (0xc036)
+  DUT    = 0xb89b (-0.575684)
+  GOLDEN = -0.576777
+  ERROR = 0.001093
+  ERROR RATE = 0.001896
+PASS at 112
+  a      = -5.472000 (0x44c4)
+  b      = 4.008000 (0xc758)
+  DUT    = 0xbd72 (-1.361328)
+  GOLDEN = -1.365269
+  ERROR = 0.003941
+  ERROR RATE = 0.002887
+PASS at 113
+  a      = 2.285000 (0xc016)
+  b      = -2.105000 (0xc742)
+  DUT    = 0xbc57 (-1.084961)
+  GOLDEN = -1.085511
+  ERROR = 0.000550
+  ERROR RATE = 0.000506
+PASS at 114
+  a      = 4.767000 (0x48f1)
+  b      = -7.344000 (0xc5e5)
+  DUT    = 0xb929 (-0.645020)
+  GOLDEN = -0.649101
+  ERROR = 0.004082
+  ERROR RATE = 0.006288
+PASS at 115
+  a      = -2.042000 (0xc40d)
+  b      = -7.257000 (0x471e)
+  DUT    = 0x347b (0.280029)
+  GOLDEN = 0.281383
+  ERROR = 0.001354
+  ERROR RATE = 0.004813
+PASS at 116
+  a      = 9.884000 (0xc41b)
+  b      = -5.894000 (0x443f)
+  DUT    = 0xbeb1 (-1.672852)
+  GOLDEN = -1.676960
+  ERROR = 0.004108
+  ERROR RATE = 0.002450
+PASS at 117
+  a      = -4.052000 (0x46d6)
+  b      = 7.119000 (0x37a2)
+  DUT    = 0xb888 (-0.566406)
+  GOLDEN = -0.569181
+  ERROR = 0.002775
+  ERROR RATE = 0.004875
+PASS at 118
+  a      = -4.105000 (0xb9d9)
+  b      = 4.246000 (0x477c)
+  DUT    = 0xbbbf (-0.968262)
+  GOLDEN = -0.966792
+  ERROR = 0.001469
+  ERROR RATE = 0.001520
+PASS at 119
+  a      = 6.837000 (0xc479)
+  b      = 0.477000 (0x3baa)
+  DUT    = 0x4b24 (14.281250)
+  GOLDEN = 14.333333
+  ERROR = 0.052083
+  ERROR RATE = 0.003634
+PASS at 120
+  a      = -0.731000 (0xc564)
+  b      = 7.484000 (0xc538)
+  DUT    = 0xae3c (-0.097412)
+  GOLDEN = -0.097675
+  ERROR = 0.000263
+  ERROR RATE = 0.002692
+PASS at 121
+  a      = -4.473000 (0xc713)
+  b      = 0.958000 (0xc263)
+  DUT    = 0xc4a8 (-4.656250)
+  GOLDEN = -4.669102
+  ERROR = 0.012852
+  ERROR RATE = 0.002753
+PASS at 122
+  a      = -5.389000 (0x3bc9)
+  b      = -5.220000 (0xc4c6)
+  DUT    = 0x3c1c (1.027344)
+  GOLDEN = 1.032375
+  ERROR = 0.005032
+  ERROR RATE = 0.004874
+PASS at 123
+  a      = -7.076000 (0x4502)
+  b      = -3.194000 (0x44fe)
+  DUT    = 0x4069 (2.205078)
+  GOLDEN = 2.215404
+  ERROR = 0.010326
+  ERROR RATE = 0.004661
+PASS at 124
+  a      = 0.973000 (0x46cd)
+  b      = -4.775000 (0x467a)
+  DUT    = 0xb28c (-0.204590)
+  GOLDEN = -0.203770
+  ERROR = 0.000820
+  ERROR RATE = 0.004025
+PASS at 125
+  a      = 5.008000 (0x461f)
+  b      = 4.994000 (0xb7e3)
+  DUT    = 0x3c06 (1.005859)
+  GOLDEN = 1.002803
+  ERROR = 0.003056
+  ERROR RATE = 0.003047
+PASS at 126
+  a      = 6.799000 (0x48d0)
+  b      = 6.478000 (0x48bb)
+  DUT    = 0x3c2d (1.043945)
+  GOLDEN = 1.049552
+  ERROR = 0.005607
+  ERROR RATE = 0.005342
+PASS at 127
+  a      = 6.122000 (0x3c98)
+  b      = -0.493000 (0x4570)
+  DUT    = 0xca2b (-12.335938)
+  GOLDEN = -12.417850
+  ERROR = 0.081912
+  ERROR RATE = 0.006596
+PASS at 128
+  a      = 9.625000 (0x4758)
+  b      = 9.464000 (0x3d07)
+  DUT    = 0x3c11 (1.016602)
+  GOLDEN = 1.017012
+  ERROR = 0.000410
+  ERROR RATE = 0.000403
+PASS at 129
+  a      = 1.148000 (0x48cc)
+  b      = 5.436000 (0x4609)
+  DUT    = 0x32ba (0.210205)
+  GOLDEN = 0.211185
+  ERROR = 0.000980
+  ERROR RATE = 0.004639
+PASS at 130
+  a      = 7.345000 (0x48fd)
+  b      = 1.257000 (0x3160)
+  DUT    = 0x45e0 (5.875000)
+  GOLDEN = 5.843278
+  ERROR = 0.031722
+  ERROR RATE = 0.005429
+PASS at 131
+  a      = 9.594000 (0x40bd)
+  b      = 6.034000 (0x41ba)
+  DUT    = 0x3e57 (1.584961)
+  GOLDEN = 1.589990
+  ERROR = 0.005029
+  ERROR RATE = 0.003163
+PASS at 132
+  a      = 9.978000 (0x4587)
+  b      = 0.168000 (0x46a8)
+  DUT    = 0x5360 (59.000000)
+  GOLDEN = 59.392857
+  ERROR = 0.392857
+  ERROR RATE = 0.006615
+PASS at 133
+  a      = 2.369000 (0x431d)
+  b      = 2.864000 (0x44fb)
+  DUT    = 0x3a95 (0.822754)
+  GOLDEN = 0.827165
+  ERROR = 0.004411
+  ERROR RATE = 0.005333
+PASS at 134
+  a      = 5.526000 (0xc274)
+  b      = 6.656000 (0x3edb)
+  DUT    = 0x3a95 (0.822754)
+  GOLDEN = 0.830228
+  ERROR = 0.007474
+  ERROR RATE = 0.009003
+PASS at 135
+  a      = 3.556000 (0xc8c5)
+  b      = 4.979000 (0x4828)
+  DUT    = 0x39b0 (0.710938)
+  GOLDEN = 0.714200
+  ERROR = 0.003262
+  ERROR RATE = 0.004568
+PASS at 136
+  a      = -3.226000 (0xba35)
+  b      = 1.714000 (0xc5a5)
+  DUT    = 0xbf7f (-1.874023)
+  GOLDEN = -1.882147
+  ERROR = 0.008124
+  ERROR RATE = 0.004316
+PASS at 137
+  a      = -9.540000 (0x41a1)
+  b      = 8.312000 (0x3dde)
+  DUT    = 0xbc8e (-1.138672)
+  GOLDEN = -1.147738
+  ERROR = 0.009066
+  ERROR RATE = 0.007899
+PASS at 138
+  a      = -0.776000 (0xc0bc)
+  b      = -5.644000 (0xb42d)
+  DUT    = 0x3063 (0.137085)
+  GOLDEN = 0.137491
+  ERROR = 0.000406
+  ERROR RATE = 0.002954
+PASS at 139
+  a      = 2.815000 (0x438c)
+  b      = 1.467000 (0xc521)
+  DUT    = 0x3fb4 (1.925781)
+  GOLDEN = 1.918882
+  ERROR = 0.006899
+  ERROR RATE = 0.003595
+PASS at 140
+  a      = -2.367000 (0xc7e5)
+  b      = -0.261000 (0xc407)
+  DUT    = 0x4888 (9.062500)
+  GOLDEN = 9.068966
+  ERROR = 0.006466
+  ERROR RATE = 0.000713
+PASS at 141
+  a      = 3.773000 (0x462c)
+  b      = -5.127000 (0xb81d)
+  DUT    = 0xb9e0 (-0.734375)
+  GOLDEN = -0.735908
+  ERROR = 0.001533
+  ERROR RATE = 0.002083
+PASS at 142
+  a      = -7.896000 (0x473f)
+  b      = -4.027000 (0x4839)
+  DUT    = 0x3fdf (1.967773)
+  GOLDEN = 1.960765
+  ERROR = 0.007009
+  ERROR RATE = 0.003574
+PASS at 143
+  a      = 6.172000 (0x2a25)
+  b      = -0.514000 (0xbf3b)
+  DUT    = 0xca01 (-12.007812)
+  GOLDEN = -12.007782
+  ERROR = 0.000030
+  ERROR RATE = 0.000003
+PASS at 144
+  a      = 7.246000 (0xc7d1)
+  b      = 8.442000 (0xc711)
+  DUT    = 0x3ad6 (0.854492)
+  GOLDEN = 0.858327
+  ERROR = 0.003835
+  ERROR RATE = 0.004468
+PASS at 145
+  a      = 0.048000 (0xc58f)
+  b      = -1.808000 (0x4317)
+  DUT    = 0xa6c4 (-0.026428)
+  GOLDEN = -0.026549
+  ERROR = 0.000120
+  ERROR RATE = 0.004537
+PASS at 146
+  a      = -7.818000 (0x4782)
+  b      = -7.065000 (0xc362)
+  DUT    = 0x3c69 (1.102539)
+  GOLDEN = 1.106582
+  ERROR = 0.004043
+  ERROR RATE = 0.003653
+PASS at 147
+  a      = -5.559000 (0x4438)
+  b      = 3.544000 (0x3b64)
+  DUT    = 0xbe3c (-1.558594)
+  GOLDEN = -1.568567
+  ERROR = 0.009973
+  ERROR RATE = 0.006358
+PASS at 148
+  a      = 7.508000 (0x46e7)
+  b      = -3.691000 (0x473e)
+  DUT    = 0xc011 (-2.033203)
+  GOLDEN = -2.034137
+  ERROR = 0.000934
+  ERROR RATE = 0.000459
+PASS at 149
+  a      = 4.219000 (0x448e)
+  b      = 0.924000 (0xbcee)
+  DUT    = 0x448e (4.554688)
+  GOLDEN = 4.566017
+  ERROR = 0.011330
+  ERROR RATE = 0.002481
+PASS at 150
+  a      = 6.901000 (0xc57c)
+  b      = 7.242000 (0x4877)
+  DUT    = 0x3b9f (0.952637)
+  GOLDEN = 0.952914
+  ERROR = 0.000277
+  ERROR RATE = 0.000291
+PASS at 151
+  a      = 4.554000 (0xc8ac)
+  b      = -1.232000 (0x4433)
+  DUT    = 0xc360 (-3.687500)
+  GOLDEN = -3.696429
+  ERROR = 0.008929
+  ERROR RATE = 0.002415
+PASS at 152
+  a      = -5.485000 (0x3d5c)
+  b      = 8.929000 (0x458b)
+  DUT    = 0xb8ea (-0.614258)
+  GOLDEN = -0.614291
+  ERROR = 0.000033
+  ERROR RATE = 0.000053
+PASS at 153
+  a      = -9.345000 (0xc5fe)
+  b      = 4.200000 (0x48eb)
+  DUT    = 0xc06f (-2.216797)
+  GOLDEN = -2.225000
+  ERROR = 0.008203
+  ERROR RATE = 0.003687
+PASS at 154
+  a      = 1.340000 (0x3d06)
+  b      = 5.543000 (0xc45f)
+  DUT    = 0x33b4 (0.240723)
+  GOLDEN = 0.241746
+  ERROR = 0.001024
+  ERROR RATE = 0.004235
+PASS at 155
+  a      = -5.994000 (0xbce0)
+  b      = 9.837000 (0xc74a)
+  DUT    = 0xb8dc (-0.607422)
+  GOLDEN = -0.609332
+  ERROR = 0.001910
+  ERROR RATE = 0.003135
+PASS at 156
+  a      = 1.256000 (0x1e25)
+  b      = -4.373000 (0xc864)
+  DUT    = 0xb49b (-0.287842)
+  GOLDEN = -0.287217
+  ERROR = 0.000625
+  ERROR RATE = 0.002175
+PASS at 157
+  a      = -1.219000 (0x4442)
+  b      = -7.289000 (0x4183)
+  DUT    = 0x3154 (0.166504)
+  GOLDEN = 0.167238
+  ERROR = 0.000734
+  ERROR RATE = 0.004391
+PASS at 158
+  a      = 0.006000 (0xc416)
+  b      = -8.781000 (0x4083)
+  DUT    = 0x9199 (-0.000683)
+  GOLDEN = -0.000683
+  ERROR = 0.000000
+  ERROR RATE = 0.000021
+PASS at 159
+  a      = 4.256000 (0xc5fe)
+  b      = 2.756000 (0x4362)
+  DUT    = 0x3e2b (1.541992)
+  GOLDEN = 1.544267
+  ERROR = 0.002275
+  ERROR RATE = 0.001473
+PASS at 160
+  a      = -4.085000 (0xc4ef)
+  b      = 2.255000 (0xc88c)
+  DUT    = 0xbf38 (-1.804688)
+  GOLDEN = -1.811530
+  ERROR = 0.006842
+  ERROR RATE = 0.003777
+PASS at 161
+  a      = -5.992000 (0x48ac)
+  b      = 3.692000 (0xc8b2)
+  DUT    = 0xbe71 (-1.610352)
+  GOLDEN = -1.622969
+  ERROR = 0.012617
+  ERROR RATE = 0.007774
+PASS at 162
+  a      = -4.933000 (0xc71e)
+  b      = -9.092000 (0x48a2)
+  DUT    = 0x3851 (0.539551)
+  GOLDEN = 0.542565
+  ERROR = 0.003014
+  ERROR RATE = 0.005555
+PASS at 163
+  a      = 9.343000 (0xc8d3)
+  b      = -9.387000 (0x488f)
+  DUT    = 0xbbea (-0.989258)
+  GOLDEN = -0.995313
+  ERROR = 0.006055
+  ERROR RATE = 0.006083
+PASS at 164
+  a      = -7.116000 (0xc584)
+  b      = 9.266000 (0xbe6f)
+  DUT    = 0xba23 (-0.767090)
+  GOLDEN = -0.767969
+  ERROR = 0.000879
+  ERROR RATE = 0.001145
+PASS at 165
+  a      = -9.648000 (0x47b6)
+  b      = 9.120000 (0x45fe)
+  DUT    = 0xbc3f (-1.061523)
+  GOLDEN = -1.057895
+  ERROR = 0.003629
+  ERROR RATE = 0.003430
+PASS at 166
+  a      = -5.517000 (0x4578)
+  b      = -1.608000 (0xc6c7)
+  DUT    = 0x42d6 (3.417969)
+  GOLDEN = 3.430970
+  ERROR = 0.013001
+  ERROR RATE = 0.003789
+PASS at 167
+  a      = 7.712000 (0x414d)
+  b      = 5.993000 (0x46d3)
+  DUT    = 0x3d22 (1.283203)
+  GOLDEN = 1.286835
+  ERROR = 0.003632
+  ERROR RATE = 0.002822
+PASS at 168
+  a      = 5.467000 (0xc51c)
+  b      = -6.778000 (0xc609)
+  DUT    = 0xba7a (-0.809570)
+  GOLDEN = -0.806580
+  ERROR = 0.002990
+  ERROR RATE = 0.003707
+PASS at 169
+  a      = 2.651000 (0xc249)
+  b      = 6.824000 (0xc64c)
+  DUT    = 0x3634 (0.387695)
+  GOLDEN = 0.388482
+  ERROR = 0.000787
+  ERROR RATE = 0.002025
+PASS at 170
+  a      = -5.109000 (0x3cca)
+  b      = -6.034000 (0x4465)
+  DUT    = 0x3aba (0.840820)
+  GOLDEN = 0.846702
+  ERROR = 0.005882
+  ERROR RATE = 0.006947
+PASS at 171
+  a      = -3.142000 (0x3fd2)
+  b      = -6.295000 (0x4753)
+  DUT    = 0x3800 (0.500000)
+  GOLDEN = 0.499126
+  ERROR = 0.000874
+  ERROR RATE = 0.001750
+PASS at 172
+  a      = 1.197000 (0xc7c2)
+  b      = 4.396000 (0xc442)
+  DUT    = 0x345d (0.272705)
+  GOLDEN = 0.272293
+  ERROR = 0.000412
+  ERROR RATE = 0.001513
+PASS at 173
+  a      = 1.955000 (0x451e)
+  b      = 7.326000 (0xc591)
+  DUT    = 0x3445 (0.266846)
+  GOLDEN = 0.266858
+  ERROR = 0.000012
+  ERROR RATE = 0.000045
+PASS at 174
+  a      = -7.756000 (0x429e)
+  b      = -4.259000 (0x454a)
+  DUT    = 0x3f42 (1.814453)
+  GOLDEN = 1.821085
+  ERROR = 0.006632
+  ERROR RATE = 0.003642
+PASS at 175
+  a      = 5.117000 (0xc2e4)
+  b      = -5.568000 (0x4401)
+  DUT    = 0xbb4c (-0.912109)
+  GOLDEN = -0.919001
+  ERROR = 0.006892
+  ERROR RATE = 0.007500
+PASS at 176
+  a      = 3.308000 (0xbc66)
+  b      = 5.289000 (0xc5da)
+  DUT    = 0x38f8 (0.621094)
+  GOLDEN = 0.625449
+  ERROR = 0.004355
+  ERROR RATE = 0.006963
+PASS at 177
+  a      = -3.445000 (0xc844)
+  b      = 4.003000 (0x47a7)
+  DUT    = 0xbae0 (-0.859375)
+  GOLDEN = -0.860605
+  ERROR = 0.001230
+  ERROR RATE = 0.001429
+PASS at 178
+  a      = -1.100000 (0xc788)
+  b      = -5.852000 (0xb842)
+  DUT    = 0x31f9 (0.186646)
+  GOLDEN = 0.187970
+  ERROR = 0.001324
+  ERROR RATE = 0.007046
+PASS at 179
+  a      = -8.533000 (0x438d)
+  b      = 7.652000 (0xc834)
+  DUT    = 0xbc75 (-1.114258)
+  GOLDEN = -1.115133
+  ERROR = 0.000875
+  ERROR RATE = 0.000785
+PASS at 180
+  a      = -7.532000 (0x4464)
+  b      = -0.532000 (0x4466)
+  DUT    = 0x4b10 (14.125000)
+  GOLDEN = 14.157895
+  ERROR = 0.032895
+  ERROR RATE = 0.002323
+PASS at 181
+  a      = 3.775000 (0x48e9)
+  b      = -8.403000 (0xc05c)
+  DUT    = 0xb72e (-0.448730)
+  GOLDEN = -0.449244
+  ERROR = 0.000514
+  ERROR RATE = 0.001144
+PASS at 182
+  a      = 4.392000 (0x4471)
+  b      = 4.397000 (0xba23)
+  DUT    = 0x3c00 (1.000000)
+  GOLDEN = 0.998863
+  ERROR = 0.001137
+  ERROR RATE = 0.001138
+PASS at 183
+  a      = 9.823000 (0x3f4c)
+  b      = -2.179000 (0xc873)
+  DUT    = 0xc482 (-4.507812)
+  GOLDEN = -4.508031
+  ERROR = 0.000219
+  ERROR RATE = 0.000049
+PASS at 184
+  a      = 4.440000 (0xc7a6)
+  b      = -0.767000 (0xc875)
+  DUT    = 0xc5c8 (-5.781250)
+  GOLDEN = -5.788787
+  ERROR = 0.007537
+  ERROR RATE = 0.001302
+PASS at 185
+  a      = 1.824000 (0xc50e)
+  b      = -8.895000 (0x441f)
+  DUT    = 0xb28c (-0.204590)
+  GOLDEN = -0.205059
+  ERROR = 0.000469
+  ERROR RATE = 0.002288
+PASS at 186
+  a      = -7.650000 (0xc7e3)
+  b      = -8.912000 (0x44e2)
+  DUT    = 0x3ae0 (0.859375)
+  GOLDEN = 0.858393
+  ERROR = 0.000982
+  ERROR RATE = 0.001144
+PASS at 187
+  a      = -5.056000 (0x3d08)
+  b      = 4.123000 (0x482d)
+  DUT    = 0xbcea (-1.228516)
+  GOLDEN = -1.226292
+  ERROR = 0.002224
+  ERROR RATE = 0.001814
+PASS at 188
+  a      = -7.885000 (0x46c7)
+  b      = 4.884000 (0x44ca)
+  DUT    = 0xbe71 (-1.610352)
+  GOLDEN = -1.614455
+  ERROR = 0.004104
+  ERROR RATE = 0.002542
+PASS at 189
+  a      = 1.258000 (0xc4f2)
+  b      = 8.351000 (0x48f1)
+  DUT    = 0x30d6 (0.151123)
+  GOLDEN = 0.150641
+  ERROR = 0.000482
+  ERROR RATE = 0.003202
+PASS at 190
+  a      = 6.778000 (0x456e)
+  b      = 4.788000 (0x36f2)
+  DUT    = 0x3da0 (1.406250)
+  GOLDEN = 1.415622
+  ERROR = 0.009372
+  ERROR RATE = 0.006621
+PASS at 191
+  a      = -4.947000 (0x381d)
+  b      = 9.883000 (0x418d)
+  DUT    = 0xb800 (-0.500000)
+  GOLDEN = -0.500557
+  ERROR = 0.000557
+  ERROR RATE = 0.001112
+PASS at 192
+  a      = 5.430000 (0x42bf)
+  b      = 0.434000 (0x4883)
+  DUT    = 0x4a3c (12.468750)
+  GOLDEN = 12.511521
+  ERROR = 0.042771
+  ERROR RATE = 0.003419
+PASS at 193
+  a      = 0.514000 (0x45f9)
+  b      = 2.775000 (0x4872)
+  DUT    = 0x31e8 (0.184570)
+  GOLDEN = 0.185225
+  ERROR = 0.000655
+  ERROR RATE = 0.003536
+PASS at 194
+  a      = 3.373000 (0x4775)
+  b      = 9.026000 (0x45f0)
+  DUT    = 0x35f9 (0.373291)
+  GOLDEN = 0.373698
+  ERROR = 0.000407
+  ERROR RATE = 0.001090
+PASS at 195
+  a      = 5.974000 (0x480d)
+  b      = 8.888000 (0x4891)
+  DUT    = 0x395c (0.669922)
+  GOLDEN = 0.672142
+  ERROR = 0.002220
+  ERROR RATE = 0.003303
+PASS at 196
+  a      = 7.458000 (0x488c)
+  b      = 5.939000 (0x42a0)
+  DUT    = 0x3cff (1.249023)
+  GOLDEN = 1.255767
+  ERROR = 0.006744
+  ERROR RATE = 0.005370
+PASS at 197
+  a      = 8.100000 (0x4438)
+  b      = 9.132000 (0xc713)
+  DUT    = 0x3b10 (0.882812)
+  GOLDEN = 0.886991
+  ERROR = 0.004178
+  ERROR RATE = 0.004711
+PASS at 198
+  a      = 9.094000 (0x48c6)
+  b      = 3.312000 (0xc114)
+  DUT    = 0x4172 (2.722656)
+  GOLDEN = 2.745773
+  ERROR = 0.023117
+  ERROR RATE = 0.008419
+PASS at 199
+  a      = 4.219000 (0x4877)
+  b      = -7.074000 (0xc77f)
+  DUT    = 0xb8c2 (-0.594727)
+  GOLDEN = -0.596409
+  ERROR = 0.001683
+  ERROR RATE = 0.002822
+PASS at 200
+  a      = 9.548000 (0xc0e5)
+  b      = -2.540000 (0x46fa)
+  DUT    = 0xc37f (-3.748047)
+  GOLDEN = -3.759055
+  ERROR = 0.011008
+  ERROR RATE = 0.002928
+PASS at 201
+  a      = 8.926000 (0x4463)
+  b      = -7.496000 (0xc11b)
+  DUT    = 0xbcbb (-1.182617)
+  GOLDEN = -1.190768
+  ERROR = 0.008151
+  ERROR RATE = 0.006845
+PASS at 202
+  a      = -2.448000 (0xbe24)
+  b      = 6.977000 (0x4490)
+  DUT    = 0xb599 (-0.349854)
+  GOLDEN = -0.350867
+  ERROR = 0.001014
+  ERROR RATE = 0.002889
+PASS at 203
+  a      = 4.387000 (0xc4ad)
+  b      = -2.553000 (0xc77e)
+  DUT    = 0xbed6 (-1.708984)
+  GOLDEN = -1.718371
+  ERROR = 0.009386
+  ERROR RATE = 0.005462
+PASS at 204
+  a      = -1.535000 (0xc1ff)
+  b      = 4.563000 (0x4495)
+  DUT    = 0xb55c (-0.334961)
+  GOLDEN = -0.336401
+  ERROR = 0.001441
+  ERROR RATE = 0.004282
+PASS at 205
+  a      = -4.677000 (0xc8ec)
+  b      = -7.494000 (0x4656)
+  DUT    = 0x38f8 (0.621094)
+  GOLDEN = 0.624099
+  ERROR = 0.003006
+  ERROR RATE = 0.004816
+PASS at 206
+  a      = -2.999000 (0x46d7)
+  b      = 4.582000 (0x3b81)
+  DUT    = 0xb937 (-0.651855)
+  GOLDEN = -0.654518
+  ERROR = 0.002662
+  ERROR RATE = 0.004067
+PASS at 207
+  a      = -9.846000 (0xc751)
+  b      = 6.336000 (0xc8f9)
+  DUT    = 0xbe34 (-1.550781)
+  GOLDEN = -1.553977
+  ERROR = 0.003196
+  ERROR RATE = 0.002057
+PASS at 208
+  a      = 6.838000 (0xc48c)
+  b      = 0.938000 (0xc89d)
+  DUT    = 0x4742 (7.257812)
+  GOLDEN = 7.289979
+  ERROR = 0.032166
+  ERROR RATE = 0.004412
+PASS at 209
+  a      = -7.316000 (0x3ae5)
+  b      = -9.946000 (0x466f)
+  DUT    = 0x39e0 (0.734375)
+  GOLDEN = 0.735572
+  ERROR = 0.001197
+  ERROR RATE = 0.001627
+PASS at 210
+  a      = -4.545000 (0xc4ca)
+  b      = -9.223000 (0x45a7)
+  DUT    = 0x37df (0.491943)
+  GOLDEN = 0.492790
+  ERROR = 0.000846
+  ERROR RATE = 0.001718
+PASS at 211
+  a      = 0.862000 (0x48c8)
+  b      = 6.432000 (0x4769)
+  DUT    = 0x304b (0.134155)
+  GOLDEN = 0.134017
+  ERROR = 0.000138
+  ERROR RATE = 0.001029
+PASS at 212
+  a      = -4.789000 (0x4620)
+  b      = 5.653000 (0x4831)
+  DUT    = 0xbacd (-0.850098)
+  GOLDEN = -0.847161
+  ERROR = 0.002937
+  ERROR RATE = 0.003467
+PASS at 213
+  a      = 9.560000 (0xbe02)
+  b      = 7.411000 (0xb72f)
+  DUT    = 0x3d29 (1.290039)
+  GOLDEN = 1.289974
+  ERROR = 0.000065
+  ERROR RATE = 0.000050
+PASS at 214
+  a      = 6.124000 (0x48c4)
+  b      = 8.384000 (0xc806)
+  DUT    = 0x39d8 (0.730469)
+  GOLDEN = 0.730439
+  ERROR = 0.000030
+  ERROR RATE = 0.000041
+PASS at 215
+  a      = -1.502000 (0x4756)
+  b      = -0.449000 (0x42cc)
+  DUT    = 0x42b1 (3.345703)
+  GOLDEN = 3.345212
+  ERROR = 0.000492
+  ERROR RATE = 0.000147
+PASS at 216
+  a      = 9.533000 (0x287b)
+  b      = -8.047000 (0xc829)
+  DUT    = 0xbcbb (-1.182617)
+  GOLDEN = -1.184665
+  ERROR = 0.002048
+  ERROR RATE = 0.001729
+PASS at 217
+  a      = 7.334000 (0x38ec)
+  b      = 3.398000 (0x487c)
+  DUT    = 0x404b (2.146484)
+  GOLDEN = 2.158328
+  ERROR = 0.011844
+  ERROR RATE = 0.005488
+PASS at 218
+  a      = 0.035000 (0xc77c)
+  b      = -8.318000 (0xc183)
+  DUT    = 0x9c4b (-0.004192)
+  GOLDEN = -0.004208
+  ERROR = 0.000015
+  ERROR RATE = 0.003658
+PASS at 219
+  a      = 0.615000 (0xc55c)
+  b      = 8.972000 (0x4895)
+  DUT    = 0x2c63 (0.068542)
+  GOLDEN = 0.068547
+  ERROR = 0.000004
+  ERROR RATE = 0.000060
+PASS at 220
+  a      = -7.483000 (0xbee2)
+  b      = -2.755000 (0x42c7)
+  DUT    = 0x416b (2.708984)
+  GOLDEN = 2.716152
+  ERROR = 0.007168
+  ERROR RATE = 0.002639
+PASS at 221
+  a      = -5.359000 (0x465a)
+  b      = 9.164000 (0xc4a9)
+  DUT    = 0xb8ae (-0.584961)
+  GOLDEN = -0.584788
+  ERROR = 0.000173
+  ERROR RATE = 0.000295
+PASS at 222
+  a      = -1.721000 (0x3cf5)
+  b      = 3.388000 (0xc312)
+  DUT    = 0xb811 (-0.508301)
+  GOLDEN = -0.507969
+  ERROR = 0.000331
+  ERROR RATE = 0.000653
+PASS at 223
+  a      = 6.350000 (0x487e)
+  b      = -4.659000 (0xc8dd)
+  DUT    = 0xbd72 (-1.361328)
+  GOLDEN = -1.362953
+  ERROR = 0.001625
+  ERROR RATE = 0.001192
+PASS at 224
+  a      = 1.239000 (0xb883)
+  b      = -3.536000 (0x4632)
+  DUT    = 0xb591 (-0.347900)
+  GOLDEN = -0.350396
+  ERROR = 0.002496
+  ERROR RATE = 0.007122
+PASS at 225
+  a      = 8.984000 (0xc429)
+  b      = -9.725000 (0xc814)
+  DUT    = 0xbb60 (-0.921875)
+  GOLDEN = -0.923805
+  ERROR = 0.001930
+  ERROR RATE = 0.002089
+PASS at 226
+  a      = -0.564000 (0x48ee)
+  b      = 6.197000 (0xc4b1)
+  DUT    = 0xadd0 (-0.090820)
+  GOLDEN = -0.091012
+  ERROR = 0.000191
+  ERROR RATE = 0.002104
+PASS at 227
+  a      = -4.161000 (0x46a1)
+  b      = -8.156000 (0xc19d)
+  DUT    = 0x3816 (0.510742)
+  GOLDEN = 0.510177
+  ERROR = 0.000566
+  ERROR RATE = 0.001109
+PASS at 228
+  a      = 9.856000 (0xc8f4)
+  b      = -4.690000 (0x3b58)
+  DUT    = 0xc02d (-2.087891)
+  GOLDEN = -2.101493
+  ERROR = 0.013602
+  ERROR RATE = 0.006473
+PASS at 229
+  a      = 6.628000 (0x48b3)
+  b      = -2.807000 (0x47c1)
+  DUT    = 0xc0bb (-2.365234)
+  GOLDEN = -2.361240
+  ERROR = 0.003995
+  ERROR RATE = 0.001692
+PASS at 230
+  a      = -9.904000 (0xc81f)
+  b      = 0.918000 (0x4845)
+  DUT    = 0xc95c (-10.718750)
+  GOLDEN = -10.788671
+  ERROR = 0.069921
+  ERROR RATE = 0.006481
+PASS at 231
+  a      = 9.399000 (0x451a)
+  b      = 7.753000 (0xc555)
+  DUT    = 0x3cd6 (1.208984)
+  GOLDEN = 1.212305
+  ERROR = 0.003321
+  ERROR RATE = 0.002739
+PASS at 232
+  a      = -8.246000 (0xc5a3)
+  b      = 8.541000 (0xc8b0)
+  DUT    = 0xbbb4 (-0.962891)
+  GOLDEN = -0.965461
+  ERROR = 0.002570
+  ERROR RATE = 0.002662
+PASS at 233
+  a      = 5.100000 (0xbaba)
+  b      = -5.333000 (0x4480)
+  DUT    = 0xbba9 (-0.957520)
+  GOLDEN = -0.956310
+  ERROR = 0.001210
+  ERROR RATE = 0.001265
+PASS at 234
+  a      = -5.638000 (0x46f8)
+  b      = -9.376000 (0x48d5)
+  DUT    = 0x38c8 (0.597656)
+  GOLDEN = 0.601323
+  ERROR = 0.003666
+  ERROR RATE = 0.006097
+PASS at 235
+  a      = -0.841000 (0x4880)
+  b      = 4.501000 (0xc4b4)
+  DUT    = 0xb1f9 (-0.186646)
+  GOLDEN = -0.186847
+  ERROR = 0.000202
+  ERROR RATE = 0.001080
+PASS at 236
+  a      = 6.968000 (0xc18f)
+  b      = 9.665000 (0x4053)
+  DUT    = 0x39c8 (0.722656)
+  GOLDEN = 0.720952
+  ERROR = 0.001704
+  ERROR RATE = 0.002364
+PASS at 237
+  a      = 9.002000 (0xc6ec)
+  b      = -4.704000 (0x374c)
+  DUT    = 0xbfa9 (-1.915039)
+  GOLDEN = -1.913690
+  ERROR = 0.001349
+  ERROR RATE = 0.000705
+PASS at 238
+  a      = -2.779000 (0x3e9d)
+  b      = 2.163000 (0xc42f)
+  DUT    = 0xbd22 (-1.283203)
+  GOLDEN = -1.284790
+  ERROR = 0.001587
+  ERROR RATE = 0.001235
+PASS at 239
+  a      = -6.920000 (0x4439)
+  b      = 0.456000 (0xbbcf)
+  DUT    = 0xcb94 (-15.156250)
+  GOLDEN = -15.175439
+  ERROR = 0.019189
+  ERROR RATE = 0.001264
+PASS at 240
+  a      = 1.653000 (0xbe54)
+  b      = -4.185000 (0xc727)
+  DUT    = 0xb657 (-0.396240)
+  GOLDEN = -0.394982
+  ERROR = 0.001258
+  ERROR RATE = 0.003185
+PASS at 241
+  a      = 4.223000 (0x4420)
+  b      = -0.976000 (0xac39)
+  DUT    = 0xc457 (-4.339844)
+  GOLDEN = -4.326844
+  ERROR = 0.012999
+  ERROR RATE = 0.003004
+PASS at 242
+  a      = -1.582000 (0xc3ee)
+  b      = -7.153000 (0x43eb)
+  DUT    = 0x3310 (0.220703)
+  GOLDEN = 0.221166
+  ERROR = 0.000463
+  ERROR RATE = 0.002093
+PASS at 243
+  a      = 4.124000 (0xc807)
+  b      = -0.066000 (0x4823)
+  DUT    = 0xd3c9 (-62.281250)
+  GOLDEN = -62.484848
+  ERROR = 0.203598
+  ERROR RATE = 0.003258
+PASS at 244
+  a      = -3.964000 (0x3fab)
+  b      = 3.959000 (0x411b)
+  DUT    = 0xbc00 (-1.000000)
+  GOLDEN = -1.001263
+  ERROR = 0.001263
+  ERROR RATE = 0.001261
+PASS at 245
+  a      = -8.053000 (0xc87b)
+  b      = 8.274000 (0x40cf)
+  DUT    = 0xbbbf (-0.968262)
+  GOLDEN = -0.973290
+  ERROR = 0.005028
+  ERROR RATE = 0.005166
+PASS at 246
+  a      = 1.917000 (0xad71)
+  b      = 2.553000 (0x3d10)
+  DUT    = 0x3a01 (0.750488)
+  GOLDEN = 0.750881
+  ERROR = 0.000393
+  ERROR RATE = 0.000523
+PASS at 247
+  a      = -8.963000 (0xc19e)
+  b      = 2.404000 (0xb581)
+  DUT    = 0xc375 (-3.728516)
+  GOLDEN = -3.728369
+  ERROR = 0.000146
+  ERROR RATE = 0.000039
+PASS at 248
+  a      = -0.085000 (0xc7af)
+  b      = 1.266000 (0xc0b7)
+  DUT    = 0xac4b (-0.067078)
+  GOLDEN = -0.067141
+  ERROR = 0.000063
+  ERROR RATE = 0.000938
+PASS at 249
+  a      = -2.809000 (0x409c)
+  b      = -0.344000 (0xc5d6)
+  DUT    = 0x4811 (8.132812)
+  GOLDEN = 8.165698
+  ERROR = 0.032885
+  ERROR RATE = 0.004027
+PASS at 250
+  a      = -7.684000 (0x4886)
+  b      = -2.358000 (0x3b2f)
+  DUT    = 0x4283 (3.255859)
+  GOLDEN = 3.258694
+  ERROR = 0.002834
+  ERROR RATE = 0.000870
+PASS at 251
+  a      = 2.305000 (0x3d3e)
+  b      = -5.835000 (0x3f08)
+  DUT    = 0xb64e (-0.394043)
+  GOLDEN = -0.395030
+  ERROR = 0.000987
+  ERROR RATE = 0.002499
+PASS at 252
+  a      = 9.048000 (0x47a1)
+  b      = 0.898000 (0xc37d)
+  DUT    = 0x4906 (10.046875)
+  GOLDEN = 10.075724
+  ERROR = 0.028849
+  ERROR RATE = 0.002863
+PASS at 253
+  a      = 1.311000 (0x4030)
+  b      = 1.758000 (0x47af)
+  DUT    = 0x39f0 (0.742188)
+  GOLDEN = 0.745734
+  ERROR = 0.003546
+  ERROR RATE = 0.004755
+PASS at 254
+  a      = 7.630000 (0x4483)
+  b      = -3.745000 (0x488a)
+  DUT    = 0xc011 (-2.033203)
+  GOLDEN = -2.037383
+  ERROR = 0.004180
+  ERROR RATE = 0.002052
+PASS at 255
+  a      = 2.093000 (0x479b)
+  b      = 7.684000 (0x44b7)
+  DUT    = 0x345d (0.272705)
+  GOLDEN = 0.272384
+  ERROR = 0.000321
+  ERROR RATE = 0.001178
+PASS at 256
+  a      = 4.512000 (0x3b2f)
+  b      = 9.080000 (0x471b)
+  DUT    = 0x37ea (0.494629)
+  GOLDEN = 0.496916
+  ERROR = 0.002287
+  ERROR RATE = 0.004603
+PASS at 257
+  a      = 7.605000 (0x46e9)
+  b      = 4.713000 (0x3c25)
+  DUT    = 0x3e7a (1.619141)
+  GOLDEN = 1.613622
+  ERROR = 0.005519
+  ERROR RATE = 0.003420
+PASS at 258
+  a      = 0.898000 (0x4649)
+  b      = 7.106000 (0x482c)
+  DUT    = 0x3006 (0.125732)
+  GOLDEN = 0.126372
+  ERROR = 0.000640
+  ERROR RATE = 0.005062
+PASS at 259
+  a      = 6.910000 (0x4155)
+  b      = 1.036000 (0x48b2)
+  DUT    = 0x46b1 (6.691406)
+  GOLDEN = 6.669884
+  ERROR = 0.021522
+  ERROR RATE = 0.003227
+PASS at 260
+  a      = 6.285000 (0x43c1)
+  b      = 8.344000 (0x46e2)
+  DUT    = 0x3a09 (0.754395)
+  GOLDEN = 0.753236
+  ERROR = 0.001159
+  ERROR RATE = 0.001538
+PASS at 261
+  a      = 2.666000 (0xc8e9)
+  b      = 9.388000 (0x4819)
+  DUT    = 0x3488 (0.283203)
+  GOLDEN = 0.283980
+  ERROR = 0.000776
+  ERROR RATE = 0.002734
+PASS at 262
+  a      = 3.876000 (0xc85f)
+  b      = 6.883000 (0x41e1)
+  DUT    = 0x3882 (0.563477)
+  GOLDEN = 0.563127
+  ERROR = 0.000350
+  ERROR RATE = 0.000622
+PASS at 263
+  a      = -9.818000 (0xc39a)
+  b      = 8.198000 (0xc4f5)
+  DUT    = 0xbcc8 (-1.195312)
+  GOLDEN = -1.197609
+  ERROR = 0.002297
+  ERROR RATE = 0.001918
+PASS at 264
+  a      = -8.740000 (0x4855)
+  b      = 2.940000 (0x4773)
+  DUT    = 0xc1e8 (-2.953125)
+  GOLDEN = -2.972789
+  ERROR = 0.019664
+  ERROR RATE = 0.006615
+PASS at 265
+  a      = -3.800000 (0xc38b)
+  b      = -4.956000 (0xc502)
+  DUT    = 0x3a23 (0.767090)
+  GOLDEN = 0.766747
+  ERROR = 0.000342
+  ERROR RATE = 0.000447
+PASS at 266
+  a      = 8.667000 (0x3bd1)
+  b      = 7.451000 (0xc1c0)
+  DUT    = 0x3ca1 (1.157227)
+  GOLDEN = 1.163200
+  ERROR = 0.005973
+  ERROR RATE = 0.005135
+PASS at 267
+  a      = -3.771000 (0xc792)
+  b      = -5.009000 (0xc89c)
+  DUT    = 0x3a01 (0.750488)
+  GOLDEN = 0.752845
+  ERROR = 0.002357
+  ERROR RATE = 0.003130
+PASS at 268
+  a      = 0.977000 (0x4514)
+  b      = -2.875000 (0xbeba)
+  DUT    = 0xb56b (-0.338623)
+  GOLDEN = -0.339826
+  ERROR = 0.001203
+  ERROR RATE = 0.003540
+PASS at 269
+  a      = -7.572000 (0x46bf)
+  b      = -9.219000 (0x48cb)
+  DUT    = 0x3a95 (0.822754)
+  GOLDEN = 0.821347
+  ERROR = 0.001407
+  ERROR RATE = 0.001713
+PASS at 270
+  a      = 5.080000 (0x47bb)
+  b      = -1.682000 (0xc47b)
+  DUT    = 0xc201 (-3.001953)
+  GOLDEN = -3.020214
+  ERROR = 0.018261
+  ERROR RATE = 0.006046
+PASS at 271
+  a      = 6.746000 (0xc12c)
+  b      = 9.586000 (0xc82b)
+  DUT    = 0x3999 (0.699707)
+  GOLDEN = 0.703735
+  ERROR = 0.004028
+  ERROR RATE = 0.005723
+PASS at 272
+  a      = 7.732000 (0xbebf)
+  b      = -4.480000 (0x4536)
+  DUT    = 0xbee0 (-1.718750)
+  GOLDEN = -1.725893
+  ERROR = 0.007143
+  ERROR RATE = 0.004139
+PASS at 273
+  a      = -2.586000 (0x4279)
+  b      = -8.337000 (0xc8aa)
+  DUT    = 0x34f1 (0.308838)
+  GOLDEN = 0.310184
+  ERROR = 0.001346
+  ERROR RATE = 0.004338
+PASS at 274
+  a      = -1.687000 (0x4170)
+  b      = 5.212000 (0x43dd)
+  DUT    = 0xb529 (-0.322510)
+  GOLDEN = -0.323676
+  ERROR = 0.001166
+  ERROR RATE = 0.003603
+PASS at 275
+  a      = 3.236000 (0x4679)
+  b      = -9.327000 (0x459d)
+  DUT    = 0xb589 (-0.345947)
+  GOLDEN = -0.346950
+  ERROR = 0.001002
+  ERROR RATE = 0.002889
+PASS at 276
+  a      = 2.719000 (0x43ca)
+  b      = 3.932000 (0xc7da)
+  DUT    = 0x3989 (0.691895)
+  GOLDEN = 0.691506
+  ERROR = 0.000389
+  ERROR RATE = 0.000562
+PASS at 277
+  a      = 6.473000 (0xc873)
+  b      = 5.614000 (0x43c3)
+  DUT    = 0x3c9b (1.151367)
+  GOLDEN = 1.153010
+  ERROR = 0.001643
+  ERROR RATE = 0.001425
+PASS at 278
+  a      = 3.894000 (0xbd97)
+  b      = -7.852000 (0x48c2)
+  DUT    = 0xb7ea (-0.494629)
+  GOLDEN = -0.495925
+  ERROR = 0.001296
+  ERROR RATE = 0.002613
+PASS at 279
+  a      = -8.901000 (0x473b)
+  b      = 3.881000 (0x4389)
+  DUT    = 0xc094 (-2.289062)
+  GOLDEN = -2.293481
+  ERROR = 0.004419
+  ERROR RATE = 0.001927
+PASS at 280
+  a      = -1.397000 (0xc899)
+  b      = 9.516000 (0x48cd)
+  DUT    = 0xb0ae (-0.146240)
+  GOLDEN = -0.146805
+  ERROR = 0.000565
+  ERROR RATE = 0.003850
+PASS at 281
+  a      = 7.232000 (0x4510)
+  b      = 3.767000 (0xc029)
+  DUT    = 0x3fa9 (1.915039)
+  GOLDEN = 1.919830
+  ERROR = 0.004791
+  ERROR RATE = 0.002496
+PASS at 282
+  a      = -9.194000 (0xc17e)
+  b      = 9.601000 (0xbf18)
+  DUT    = 0xbba9 (-0.957520)
+  GOLDEN = -0.957609
+  ERROR = 0.000089
+  ERROR RATE = 0.000093
+PASS at 283
+  a      = 5.064000 (0x425b)
+  b      = -2.081000 (0xc86b)
+  DUT    = 0xc0dc (-2.429688)
+  GOLDEN = -2.433445
+  ERROR = 0.003758
+  ERROR RATE = 0.001544
+PASS at 284
+  a      = -2.747000 (0x3e87)
+  b      = -1.773000 (0x4196)
+  DUT    = 0x3e2b (1.541992)
+  GOLDEN = 1.549351
+  ERROR = 0.007359
+  ERROR RATE = 0.004750
+PASS at 285
+  a      = 3.178000 (0xc1b3)
+  b      = -8.837000 (0x48e5)
+  DUT    = 0xb5c0 (-0.359375)
+  GOLDEN = -0.359624
+  ERROR = 0.000249
+  ERROR RATE = 0.000693
+PASS at 286
+  a      = 1.632000 (0xb8fe)
+  b      = 2.792000 (0x3ffc)
+  DUT    = 0x38a8 (0.582031)
+  GOLDEN = 0.584527
+  ERROR = 0.002496
+  ERROR RATE = 0.004270
+PASS at 287
+  a      = -2.849000 (0xc132)
+  b      = 9.791000 (0xc08d)
+  DUT    = 0xb4a8 (-0.291016)
+  GOLDEN = -0.290982
+  ERROR = 0.000034
+  ERROR RATE = 0.000117
+PASS at 288
+  a      = -0.624000 (0x488e)
+  b      = 1.996000 (0xc85d)
+  DUT    = 0xb4f8 (-0.310547)
+  GOLDEN = -0.312625
+  ERROR = 0.002078
+  ERROR RATE = 0.006648
+PASS at 289
+  a      = -2.597000 (0xba5e)
+  b      = -2.276000 (0x429f)
+  DUT    = 0x3c94 (1.144531)
+  GOLDEN = 1.141037
+  ERROR = 0.003494
+  ERROR RATE = 0.003062
+PASS at 290
+  a      = 9.107000 (0xc5b1)
+  b      = -8.727000 (0x4348)
+  DUT    = 0xbc28 (-1.039062)
+  GOLDEN = -1.043543
+  ERROR = 0.004481
+  ERROR RATE = 0.004294
+PASS at 291
+  a      = -0.796000 (0xc7c7)
+  b      = 3.310000 (0xc17d)
+  DUT    = 0xb3a9 (-0.239380)
+  GOLDEN = -0.240483
+  ERROR = 0.001104
+  ERROR RATE = 0.004589
+PASS at 292
+  a      = -5.692000 (0x4373)
+  b      = 3.640000 (0x44b1)
+  DUT    = 0xbe3c (-1.558594)
+  GOLDEN = -1.563736
+  ERROR = 0.005143
+  ERROR RATE = 0.003289
+PASS at 293
+  a      = -7.777000 (0x4809)
+  b      = -2.744000 (0xc76b)
+  DUT    = 0x41a8 (2.828125)
+  GOLDEN = 2.834184
+  ERROR = 0.006059
+  ERROR RATE = 0.002138
+PASS at 294
+  a      = 3.724000 (0x447f)
+  b      = 4.693000 (0x45be)
+  DUT    = 0x3a57 (0.792480)
+  GOLDEN = 0.793522
+  ERROR = 0.001042
+  ERROR RATE = 0.001313
+PASS at 295
+  a      = 8.071000 (0xc082)
+  b      = -7.418000 (0xc4c7)
+  DUT    = 0xbc57 (-1.084961)
+  GOLDEN = -1.088029
+  ERROR = 0.003068
+  ERROR RATE = 0.002820
+PASS at 296
+  a      = 4.495000 (0xc099)
+  b      = 5.744000 (0xc8de)
+  DUT    = 0x3a3c (0.779297)
+  GOLDEN = 0.782556
+  ERROR = 0.003259
+  ERROR RATE = 0.004164
+PASS at 297
+  a      = -2.253000 (0x39ac)
+  b      = -4.778000 (0x48d8)
+  DUT    = 0x3794 (0.473633)
+  GOLDEN = 0.471536
+  ERROR = 0.002097
+  ERROR RATE = 0.004446
+PASS at 298
+  a      = -2.298000 (0x4416)
+  b      = -9.731000 (0x434f)
+  DUT    = 0x3394 (0.236816)
+  GOLDEN = 0.236153
+  ERROR = 0.000664
+  ERROR RATE = 0.002811
+PASS at 299
+  a      = 0.709000 (0xc854)
+  b      = 9.684000 (0xc3cc)
+  DUT    = 0x2ca8 (0.072754)
+  GOLDEN = 0.073214
+  ERROR = 0.000460
+  ERROR RATE = 0.006278
+PASS at 300
+  a      = 4.087000 (0x48c3)
+  b      = 3.654000 (0xc8ca)
+  DUT    = 0x3c75 (1.114258)
+  GOLDEN = 1.118500
+  ERROR = 0.004242
+  ERROR RATE = 0.003793
+PASS at 301
+  a      = -8.660000 (0x48a3)
+  b      = -3.899000 (0x4748)
+  DUT    = 0x406f (2.216797)
+  GOLDEN = 2.221082
+  ERROR = 0.004285
+  ERROR RATE = 0.001929
+PASS at 302
+  a      = 9.521000 (0xc762)
+  b      = -9.576000 (0x42a9)
+  DUT    = 0xbbea (-0.989258)
+  GOLDEN = -0.994256
+  ERROR = 0.004999
+  ERROR RATE = 0.005028
+PASS at 303
+  a      = 9.276000 (0xc212)
+  b      = 7.281000 (0xc814)
+  DUT    = 0x3d14 (1.269531)
+  GOLDEN = 1.274001
+  ERROR = 0.004470
+  ERROR RATE = 0.003508
+PASS at 304
+  a      = -7.381000 (0xc686)
+  b      = 3.331000 (0x4622)
+  DUT    = 0xc06f (-2.216797)
+  GOLDEN = -2.215851
+  ERROR = 0.000946
+  ERROR RATE = 0.000427
+PASS at 305
+  a      = -3.036000 (0xc890)
+  b      = -8.160000 (0xc15e)
+  DUT    = 0x35f0 (0.371094)
+  GOLDEN = 0.372059
+  ERROR = 0.000965
+  ERROR RATE = 0.002594
+PASS at 306
+  a      = -6.525000 (0x483e)
+  b      = 6.132000 (0xc333)
+  DUT    = 0xbc3f (-1.061523)
+  GOLDEN = -1.064090
+  ERROR = 0.002567
+  ERROR RATE = 0.002412
+PASS at 307
+  a      = -9.128000 (0x45d0)
+  b      = -2.684000 (0x3e9d)
+  DUT    = 0x42cd (3.400391)
+  GOLDEN = 3.400894
+  ERROR = 0.000504
+  ERROR RATE = 0.000148
+PASS at 308
+  a      = 8.487000 (0x47ce)
+  b      = -3.599000 (0xc49e)
+  DUT    = 0xc0ae (-2.339844)
+  GOLDEN = -2.358155
+  ERROR = 0.018311
+  ERROR RATE = 0.007765
+PASS at 309
+  a      = 5.812000 (0x47e3)
+  b      = 1.653000 (0xb8f4)
+  DUT    = 0x4306 (3.511719)
+  GOLDEN = 3.516031
+  ERROR = 0.004313
+  ERROR RATE = 0.001227
+PASS at 310
+  a      = 7.803000 (0x479f)
+  b      = -4.619000 (0xc7b1)
+  DUT    = 0xbec4 (-1.691406)
+  GOLDEN = -1.689327
+  ERROR = 0.002080
+  ERROR RATE = 0.001231
+PASS at 311
+  a      = 7.888000 (0xc3ea)
+  b      = -0.619000 (0xbe77)
+  DUT    = 0xca5f (-12.742188)
+  GOLDEN = -12.743134
+  ERROR = 0.000947
+  ERROR RATE = 0.000074
+PASS at 312
+  a      = 7.620000 (0xc824)
+  b      = -7.691000 (0x3f4b)
+  DUT    = 0xbbdf (-0.983887)
+  GOLDEN = -0.990768
+  ERROR = 0.006882
+  ERROR RATE = 0.006946
+PASS at 313
+  a      = -3.958000 (0xb523)
+  b      = -1.616000 (0x4686)
+  DUT    = 0x40ea (2.457031)
+  GOLDEN = 2.449257
+  ERROR = 0.007774
+  ERROR RATE = 0.003174
+PASS at 314
+  a      = -8.284000 (0x4573)
+  b      = 1.823000 (0x3e13)
+  DUT    = 0xc488 (-4.531250)
+  GOLDEN = -4.544158
+  ERROR = 0.012908
+  ERROR RATE = 0.002841
+PASS at 315
+  a      = -0.321000 (0x447d)
+  b      = 6.524000 (0x450c)
+  DUT    = 0xaa4e (-0.049255)
+  GOLDEN = -0.049203
+  ERROR = 0.000052
+  ERROR RATE = 0.001066
+PASS at 316
+  a      = 5.450000 (0xbc82)
+  b      = 1.519000 (0x4835)
+  DUT    = 0x432e (3.589844)
+  GOLDEN = 3.587887
+  ERROR = 0.001957
+  ERROR RATE = 0.000545
+PASS at 317
+  a      = 4.490000 (0x470f)
+  b      = 5.048000 (0x412a)
+  DUT    = 0x3b1a (0.887695)
+  GOLDEN = 0.889461
+  ERROR = 0.001766
+  ERROR RATE = 0.001985
+PASS at 318
+  a      = -1.127000 (0x40f5)
+  b      = 8.415000 (0x3a9e)
+  DUT    = 0xb04b (-0.134155)
+  GOLDEN = -0.133928
+  ERROR = 0.000228
+  ERROR RATE = 0.001701
+PASS at 319
+  a      = 7.058000 (0x41b1)
+  b      = 2.582000 (0x36d1)
+  DUT    = 0x4172 (2.722656)
+  GOLDEN = 2.733540
+  ERROR = 0.010884
+  ERROR RATE = 0.003982
+PASS at 320
+  a      = 2.478000 (0x3804)
+  b      = 0.827000 (0x427d)
+  DUT    = 0x41f9 (2.986328)
+  GOLDEN = 2.996372
+  ERROR = 0.010044
+  ERROR RATE = 0.003352
+PASS at 321
+  a      = 2.845000 (0x471c)
+  b      = 0.426000 (0x470e)
+  DUT    = 0x46a8 (6.656250)
+  GOLDEN = 6.678404
+  ERROR = 0.022154
+  ERROR RATE = 0.003317
+PASS at 322
+  a      = 0.502000 (0x48d4)
+  b      = 3.244000 (0x45b2)
+  DUT    = 0x30f1 (0.154419)
+  GOLDEN = 0.154747
+  ERROR = 0.000328
+  ERROR RATE = 0.002121
+PASS at 323
+  a      = 7.110000 (0x40b5)
+  b      = 7.055000 (0x3da2)
+  DUT    = 0x3c06 (1.005859)
+  GOLDEN = 1.007796
+  ERROR = 0.001937
+  ERROR RATE = 0.001922
+PASS at 324
+  a      = 9.660000 (0x3dbd)
+  b      = 5.696000 (0xc8bb)
+  DUT    = 0x3ec4 (1.691406)
+  GOLDEN = 1.695927
+  ERROR = 0.004521
+  ERROR RATE = 0.002666
+PASS at 325
+  a      = 2.354000 (0x345a)
+  b      = 1.408000 (0xc430)
+  DUT    = 0x3ea8 (1.664062)
+  GOLDEN = 1.671875
+  ERROR = 0.007813
+  ERROR RATE = 0.004673
+PASS at 326
+  a      = 1.435000 (0x36b0)
+  b      = -9.458000 (0xc5e9)
+  DUT    = 0xb0d6 (-0.151123)
+  GOLDEN = -0.151723
+  ERROR = 0.000600
+  ERROR RATE = 0.003957
+PASS at 327
+  a      = 0.272000 (0xc6f6)
+  b      = -4.188000 (0x3a3f)
+  DUT    = 0xac22 (-0.064575)
+  GOLDEN = -0.064947
+  ERROR = 0.000372
+  ERROR RATE = 0.005732
+PASS at 328
+  a      = 0.418000 (0x483e)
+  b      = -5.912000 (0xc46c)
+  DUT    = 0xac82 (-0.070435)
+  GOLDEN = -0.070704
+  ERROR = 0.000269
+  ERROR RATE = 0.003806
+PASS at 329
+  a      = -6.960000 (0xc778)
+  b      = 0.781000 (0x4896)
+  DUT    = 0xc875 (-8.914062)
+  GOLDEN = -8.911652
+  ERROR = 0.002411
+  ERROR RATE = 0.000271
+PASS at 330
+  a      = 8.483000 (0xc123)
+  b      = -4.421000 (0xc8e4)
+  DUT    = 0xbfa9 (-1.915039)
+  GOLDEN = -1.918797
+  ERROR = 0.003758
+  ERROR RATE = 0.001958
+PASS at 331
+  a      = -7.467000 (0xbe03)
+  b      = 9.175000 (0x402a)
+  DUT    = 0xba8c (-0.818359)
+  GOLDEN = -0.813842
+  ERROR = 0.004517
+  ERROR RATE = 0.005551
+PASS at 332
+  a      = -2.569000 (0xc8c9)
+  b      = -9.778000 (0x468e)
+  DUT    = 0x3433 (0.262451)
+  GOLDEN = 0.262733
+  ERROR = 0.000281
+  ERROR RATE = 0.001071
+PASS at 333
+  a      = -1.503000 (0x4309)
+  b      = 2.082000 (0x4591)
+  DUT    = 0xb9c0 (-0.718750)
+  GOLDEN = -0.721902
+  ERROR = 0.003152
+  ERROR RATE = 0.004366
+PASS at 334
+  a      = -9.574000 (0xc6da)
+  b      = 6.556000 (0xc11c)
+  DUT    = 0xbdd8 (-1.460938)
+  GOLDEN = -1.460342
+  ERROR = 0.000596
+  ERROR RATE = 0.000408
+PASS at 335
+  a      = 3.518000 (0xc71d)
+  b      = 5.566000 (0xbf63)
+  DUT    = 0x390c (0.630859)
+  GOLDEN = 0.632052
+  ERROR = 0.001192
+  ERROR RATE = 0.001887
+PASS at 336
+  a      = -6.852000 (0x44fa)
+  b      = -2.554000 (0x4502)
+  DUT    = 0x415c (2.679688)
+  GOLDEN = 2.682850
+  ERROR = 0.003163
+  ERROR RATE = 0.001179
+PASS at 337
+  a      = -7.113000 (0xc742)
+  b      = -1.847000 (0x4861)
+  DUT    = 0x43a9 (3.830078)
+  GOLDEN = 3.851110
+  ERROR = 0.021032
+  ERROR RATE = 0.005461
+PASS at 338
+  a      = 4.978000 (0x3eb0)
+  b      = 5.008000 (0x416c)
+  DUT    = 0x3bea (0.989258)
+  GOLDEN = 0.994010
+  ERROR = 0.004752
+  ERROR RATE = 0.004780
+PASS at 339
+  a      = -7.257000 (0x3c29)
+  b      = 8.761000 (0x3e52)
+  DUT    = 0xba9e (-0.827148)
+  GOLDEN = -0.828330
+  ERROR = 0.001182
+  ERROR RATE = 0.001427
+PASS at 340
+  a      = 1.672000 (0xc8fd)
+  b      = 2.711000 (0xc175)
+  DUT    = 0x38f1 (0.617676)
+  GOLDEN = 0.616747
+  ERROR = 0.000929
+  ERROR RATE = 0.001507
+PASS at 341
+  a      = 1.040000 (0x4194)
+  b      = 1.580000 (0xc193)
+  DUT    = 0x393e (0.655273)
+  GOLDEN = 0.658228
+  ERROR = 0.002954
+  ERROR RATE = 0.004488
+PASS at 342
+  a      = -9.978000 (0x3d39)
+  b      = -2.729000 (0x4843)
+  DUT    = 0x434c (3.648438)
+  GOLDEN = 3.656284
+  ERROR = 0.007847
+  ERROR RATE = 0.002146
+PASS at 343
+  a      = 2.789000 (0x4426)
+  b      = -2.787000 (0xc747)
+  DUT    = 0xbc00 (-1.000000)
+  GOLDEN = -1.000718
+  ERROR = 0.000718
+  ERROR RATE = 0.000717
+PASS at 344
+  a      = 1.306000 (0x46d4)
+  b      = 8.522000 (0x4449)
+  DUT    = 0x30e3 (0.152710)
+  GOLDEN = 0.153250
+  ERROR = 0.000540
+  ERROR RATE = 0.003527
+PASS at 345
+  a      = 4.147000 (0xbdb9)
+  b      = -7.278000 (0xbca7)
+  DUT    = 0xb888 (-0.566406)
+  GOLDEN = -0.569799
+  ERROR = 0.003393
+  ERROR RATE = 0.005955
+PASS at 346
+  a      = 6.827000 (0xc5bf)
+  b      = 4.284000 (0x43f0)
+  DUT    = 0x3e57 (1.584961)
+  GOLDEN = 1.593604
+  ERROR = 0.008643
+  ERROR RATE = 0.005424
+PASS at 347
+  a      = -1.431000 (0xc8ba)
+  b      = -1.163000 (0x45da)
+  DUT    = 0x3cf1 (1.235352)
+  GOLDEN = 1.230439
+  ERROR = 0.004913
+  ERROR RATE = 0.003993
+PASS at 348
+  a      = -5.747000 (0x420d)
+  b      = 3.968000 (0xba23)
+  DUT    = 0xbdc0 (-1.437500)
+  GOLDEN = -1.448337
+  ERROR = 0.010837
+  ERROR RATE = 0.007482
+PASS at 349
+  a      = -9.457000 (0x4766)
+  b      = 5.852000 (0xc612)
+  DUT    = 0xbe71 (-1.610352)
+  GOLDEN = -1.616029
+  ERROR = 0.005677
+  ERROR RATE = 0.003513
+PASS at 350
+  a      = 3.026000 (0x3cb4)
+  b      = -0.767000 (0xbd2c)
+  DUT    = 0xc3df (-3.935547)
+  GOLDEN = -3.945241
+  ERROR = 0.009694
+  ERROR RATE = 0.002457
+PASS at 351
+  a      = 7.399000 (0xc422)
+  b      = -6.072000 (0x4379)
+  DUT    = 0xbcdc (-1.214844)
+  GOLDEN = -1.218544
+  ERROR = 0.003700
+  ERROR RATE = 0.003037
+PASS at 352
+  a      = 1.176000 (0xc63d)
+  b      = -1.293000 (0xc84f)
+  DUT    = 0xbb42 (-0.907227)
+  GOLDEN = -0.909513
+  ERROR = 0.002286
+  ERROR RATE = 0.002514
+PASS at 353
+  a      = -4.132000 (0x446e)
+  b      = 3.737000 (0xc618)
+  DUT    = 0xbc69 (-1.102539)
+  GOLDEN = -1.105700
+  ERROR = 0.003161
+  ERROR RATE = 0.002859
+PASS at 354
+  a      = -6.237000 (0x48b6)
+  b      = -8.620000 (0xc5c5)
+  DUT    = 0x39d0 (0.726562)
+  GOLDEN = 0.723550
+  ERROR = 0.003013
+  ERROR RATE = 0.004164
+PASS at 355
+  a      = 4.428000 (0xc712)
+  b      = -6.094000 (0x48a0)
+  DUT    = 0xb9c8 (-0.722656)
+  GOLDEN = -0.726616
+  ERROR = 0.003960
+  ERROR RATE = 0.005450
+PASS at 356
+  a      = 9.420000 (0x44f7)
+  b      = -5.771000 (0x4514)
+  DUT    = 0xbe83 (-1.627930)
+  GOLDEN = -1.632299
+  ERROR = 0.004370
+  ERROR RATE = 0.002677
+PASS at 357
+  a      = -7.072000 (0xc1f7)
+  b      = 9.250000 (0x3cef)
+  DUT    = 0xba1a (-0.762695)
+  GOLDEN = -0.764541
+  ERROR = 0.001845
+  ERROR RATE = 0.002414
+PASS at 358
+  a      = 4.963000 (0x3f2f)
+  b      = 5.077000 (0xc15f)
+  DUT    = 0x3bc9 (0.973145)
+  GOLDEN = 0.977546
+  ERROR = 0.004401
+  ERROR RATE = 0.004502
+PASS at 359
+  a      = -2.982000 (0xc2af)
+  b      = 1.233000 (0xc2cb)
+  DUT    = 0xc0d6 (-2.417969)
+  GOLDEN = -2.418491
+  ERROR = 0.000523
+  ERROR RATE = 0.000216
+PASS at 360
+  a      = 1.796000 (0xc1de)
+  b      = -2.685000 (0x4645)
+  DUT    = 0xb954 (-0.666016)
+  GOLDEN = -0.668901
+  ERROR = 0.002886
+  ERROR RATE = 0.004314
+PASS at 361
+  a      = -3.342000 (0x4831)
+  b      = -3.396000 (0x3f51)
+  DUT    = 0x3bd4 (0.978516)
+  GOLDEN = 0.984099
+  ERROR = 0.005583
+  ERROR RATE = 0.005674
+PASS at 362
+  a      = -2.933000 (0x3f5e)
+  b      = 6.269000 (0xb4bc)
+  DUT    = 0xb775 (-0.466064)
+  GOLDEN = -0.467858
+  ERROR = 0.001793
+  ERROR RATE = 0.003833
+PASS at 363
+  a      = 8.384000 (0xb2c1)
+  b      = 1.829000 (0x443f)
+  DUT    = 0x4494 (4.578125)
+  GOLDEN = 4.583926
+  ERROR = 0.005801
+  ERROR RATE = 0.001265
+PASS at 364
+  a      = 1.842000 (0xc84e)
+  b      = -0.296000 (0x44fc)
+  DUT    = 0xc634 (-6.203125)
+  GOLDEN = -6.222973
+  ERROR = 0.019848
+  ERROR RATE = 0.003189
+PASS at 365
+  a      = -0.211000 (0x4716)
+  b      = 4.247000 (0xc8a1)
+  DUT    = 0xaa5f (-0.049774)
+  GOLDEN = -0.049682
+  ERROR = 0.000092
+  ERROR RATE = 0.001853
+PASS at 366
+  a      = -8.608000 (0x4841)
+  b      = 4.984000 (0xc4ee)
+  DUT    = 0xbee0 (-1.718750)
+  GOLDEN = -1.727127
+  ERROR = 0.008377
+  ERROR RATE = 0.004850
+PASS at 367
+  a      = 7.085000 (0xc62e)
+  b      = -9.257000 (0xc606)
+  DUT    = 0xba1a (-0.762695)
+  GOLDEN = -0.765367
+  ERROR = 0.002671
+  ERROR RATE = 0.003490
+PASS at 368
+  a      = 8.511000 (0x488d)
+  b      = -4.928000 (0xc1fb)
+  DUT    = 0xbee9 (-1.727539)
+  GOLDEN = -1.727070
+  ERROR = 0.000469
+  ERROR RATE = 0.000272
+PASS at 369
+  a      = -6.178000 (0xc7d8)
+  b      = -6.025000 (0x44b4)
+  DUT    = 0x3c16 (1.021484)
+  GOLDEN = 1.025394
+  ERROR = 0.003910
+  ERROR RATE = 0.003813
+PASS at 370
+  a      = 9.100000 (0xc883)
+  b      = -2.990000 (0x4147)
+  DUT    = 0xc212 (-3.035156)
+  GOLDEN = -3.043478
+  ERROR = 0.008322
+  ERROR RATE = 0.002734
+PASS at 371
+  a      = -7.844000 (0x4377)
+  b      = 4.703000 (0x4065)
+  DUT    = 0xbeb1 (-1.672852)
+  GOLDEN = -1.667872
+  ERROR = 0.004980
+  ERROR RATE = 0.002986
+PASS at 372
+  a      = -9.025000 (0xc7bd)
+  b      = 2.638000 (0x45fb)
+  DUT    = 0xc2d6 (-3.417969)
+  GOLDEN = -3.421152
+  ERROR = 0.003184
+  ERROR RATE = 0.000931
+PASS at 373
+  a      = 3.733000 (0xc89a)
+  b      = 2.197000 (0x44a5)
+  DUT    = 0x3ecd (1.700195)
+  GOLDEN = 1.699135
+  ERROR = 0.001060
+  ERROR RATE = 0.000624
+PASS at 374
+  a      = -7.739000 (0xc7c0)
+  b      = 5.980000 (0xc6cc)
+  DUT    = 0xbd29 (-1.290039)
+  GOLDEN = -1.294147
+  ERROR = 0.004108
+  ERROR RATE = 0.003174
+PASS at 375
+  a      = -9.201000 (0xc730)
+  b      = 4.646000 (0xc44e)
+  DUT    = 0xbfea (-1.978516)
+  GOLDEN = -1.980413
+  ERROR = 0.001898
+  ERROR RATE = 0.000958
+PASS at 376
+  a      = -7.749000 (0x4622)
+  b      = -6.796000 (0xc09b)
+  DUT    = 0x3c8e (1.138672)
+  GOLDEN = 1.140230
+  ERROR = 0.001558
+  ERROR RATE = 0.001366
+PASS at 377
+  a      = -7.188000 (0x41ec)
+  b      = -4.306000 (0x4856)
+  DUT    = 0x3eb1 (1.672852)
+  GOLDEN = 1.669299
+  ERROR = 0.003553
+  ERROR RATE = 0.002128
+PASS at 378
+  a      = 6.133000 (0x40e5)
+  b      = -2.303000 (0x4726)
+  DUT    = 0xc154 (-2.664062)
+  GOLDEN = -2.663048
+  ERROR = 0.001014
+  ERROR RATE = 0.000381
+PASS at 379
+  a      = 2.960000 (0x449c)
+  b      = 8.674000 (0xc734)
+  DUT    = 0x357a (0.342285)
+  GOLDEN = 0.341250
+  ERROR = 0.001035
+  ERROR RATE = 0.003034
+PASS at 380
+  a      = 2.447000 (0x45db)
+  b      = 7.150000 (0x4733)
+  DUT    = 0x3572 (0.340332)
+  GOLDEN = 0.342238
+  ERROR = 0.001906
+  ERROR RATE = 0.005568
+PASS at 381
+  a      = 4.610000 (0x3ad1)
+  b      = -7.205000 (0x47f1)
+  DUT    = 0xb91b (-0.638184)
+  GOLDEN = -0.639833
+  ERROR = 0.001650
+  ERROR RATE = 0.002579
+PASS at 382
+  a      = 5.857000 (0x451d)
+  b      = 7.200000 (0x3cf7)
+  DUT    = 0x3a7a (0.809570)
+  GOLDEN = 0.813472
+  ERROR = 0.003902
+  ERROR RATE = 0.004797
+PASS at 383
+  a      = 0.852000 (0x45e6)
+  b      = 7.940000 (0x422e)
+  DUT    = 0x2ed6 (0.106812)
+  GOLDEN = 0.107305
+  ERROR = 0.000493
+  ERROR RATE = 0.004597
+PASS at 384
+  a      = 5.113000 (0x4707)
+  b      = 1.241000 (0x455c)
+  DUT    = 0x441c (4.109375)
+  GOLDEN = 4.120064
+  ERROR = 0.010689
+  ERROR RATE = 0.002594
+PASS at 385
+  a      = 5.898000 (0x442f)
+  b      = 3.090000 (0x349c)
+  DUT    = 0x3f9f (1.905273)
+  GOLDEN = 1.908738
+  ERROR = 0.003464
+  ERROR RATE = 0.001815
+PASS at 386
+  a      = 7.026000 (0x4891)
+  b      = 5.360000 (0x410a)
+  DUT    = 0x3d37 (1.303711)
+  GOLDEN = 1.310821
+  ERROR = 0.007110
+  ERROR RATE = 0.005424
+PASS at 387
+  a      = 4.185000 (0x44c6)
+  b      = 0.288000 (0x44f2)
+  DUT    = 0x4b38 (14.437500)
+  GOLDEN = 14.531250
+  ERROR = 0.093750
+  ERROR RATE = 0.006452
+PASS at 388
+  a      = 9.134000 (0xc891)
+  b      = 2.520000 (0x47a4)
+  DUT    = 0x4338 (3.609375)
+  GOLDEN = 3.624603
+  ERROR = 0.015228
+  ERROR RATE = 0.004201
+PASS at 389
+  a      = 4.772000 (0xc1f6)
+  b      = 4.947000 (0x3419)
+  DUT    = 0x3ba9 (0.957520)
+  GOLDEN = 0.964625
+  ERROR = 0.007105
+  ERROR RATE = 0.007366
+PASS at 390
+  a      = -9.130000 (0xc88e)
+  b      = 7.642000 (0xc83b)
+  DUT    = 0xbcc8 (-1.195312)
+  GOLDEN = -1.194713
+  ERROR = 0.000599
+  ERROR RATE = 0.000501
+PASS at 391
+  a      = -2.980000 (0x4262)
+  b      = 0.256000 (0x412d)
+  DUT    = 0xc9c8 (-11.562500)
+  GOLDEN = -11.640625
+  ERROR = 0.078125
+  ERROR RATE = 0.006711
+PASS at 392
+  a      = -9.112000 (0xc1ef)
+  b      = -8.460000 (0xc85c)
+  DUT    = 0x3c4b (1.073242)
+  GOLDEN = 1.077069
+  ERROR = 0.003826
+  ERROR RATE = 0.003553
+PASS at 393
+  a      = 3.191000 (0x48e2)
+  b      = 2.587000 (0xc4d1)
+  DUT    = 0x3cf1 (1.235352)
+  GOLDEN = 1.233475
+  ERROR = 0.001876
+  ERROR RATE = 0.001521
+PASS at 394
+  a      = -2.967000 (0xb9e3)
+  b      = -8.717000 (0xbe61)
+  DUT    = 0x356b (0.338623)
+  GOLDEN = 0.340369
+  ERROR = 0.001746
+  ERROR RATE = 0.005131
+PASS at 395
+  a      = 9.765000 (0x4541)
+  b      = -4.815000 (0xc3d0)
+  DUT    = 0xc00b (-2.021484)
+  GOLDEN = -2.028037
+  ERROR = 0.006553
+  ERROR RATE = 0.003231
+PASS at 396
+  a      = -0.736000 (0x482a)
+  b      = -1.595000 (0x4899)
+  DUT    = 0x3756 (0.458496)
+  GOLDEN = 0.461442
+  ERROR = 0.002946
+  ERROR RATE = 0.006384
+PASS at 397
+  a      = 5.252000 (0x4822)
+  b      = -3.906000 (0xc698)
+  DUT    = 0xbd5c (-1.339844)
+  GOLDEN = -1.344598
+  ERROR = 0.004754
+  ERROR RATE = 0.003536
+PASS at 398
+  a      = 8.326000 (0xc155)
+  b      = 9.194000 (0xc4e8)
+  DUT    = 0x3b38 (0.902344)
+  GOLDEN = 0.905591
+  ERROR = 0.003247
+  ERROR RATE = 0.003585
+PASS at 399
+  a      = 8.264000 (0xc745)
+  b      = -6.592000 (0x47f0)
+  DUT    = 0xbcff (-1.249023)
+  GOLDEN = -1.253641
+  ERROR = 0.004617
+  ERROR RATE = 0.003683
+PASS at 400
+  a      = -2.666000 (0x47b3)
+  b      = -4.905000 (0xbd22)
+  DUT    = 0x3851 (0.539551)
+  GOLDEN = 0.543527
+  ERROR = 0.003976
+  ERROR RATE = 0.007316
+PASS at 401
+  a      = -7.271000 (0x488a)
+  b      = 7.936000 (0x4296)
+  DUT    = 0xbb4c (-0.912109)
+  GOLDEN = -0.916205
+  ERROR = 0.004095
+  ERROR RATE = 0.004470
+PASS at 402
+  a      = 7.700000 (0x3c78)
+  b      = -1.283000 (0x3029)
+  DUT    = 0xc5f9 (-5.972656)
+  GOLDEN = -6.001559
+  ERROR = 0.028903
+  ERROR RATE = 0.004816
+PASS at 403
+  a      = 9.075000 (0x4844)
+  b      = 3.292000 (0xc8d6)
+  DUT    = 0x4181 (2.751953)
+  GOLDEN = 2.756683
+  ERROR = 0.004730
+  ERROR RATE = 0.001716
+PASS at 404
+  a      = 1.117000 (0xc4c4)
+  b      = 0.130000 (0x4429)
+  DUT    = 0x484b (8.585938)
+  GOLDEN = 8.592308
+  ERROR = 0.006370
+  ERROR RATE = 0.000741
+PASS at 405
+  a      = 8.530000 (0xc7f6)
+  b      = -9.672000 (0x41e3)
+  DUT    = 0xbb10 (-0.882812)
+  GOLDEN = -0.881927
+  ERROR = 0.000885
+  ERROR RATE = 0.001004
+PASS at 406
+  a      = -4.765000 (0x400a)
+  b      = 4.161000 (0x357d)
+  DUT    = 0xbc8e (-1.138672)
+  GOLDEN = -1.145157
+  ERROR = 0.006486
+  ERROR RATE = 0.005663
+PASS at 407
+  a      = -7.961000 (0xbd6a)
+  b      = 2.944000 (0x4707)
+  DUT    = 0xc163 (-2.693359)
+  GOLDEN = -2.704144
+  ERROR = 0.010785
+  ERROR RATE = 0.003988
+PASS at 408
+  a      = 2.020000 (0x4521)
+  b      = 0.343000 (0xc8db)
+  DUT    = 0x45e0 (5.875000)
+  GOLDEN = 5.889213
+  ERROR = 0.014213
+  ERROR RATE = 0.002413
+PASS at 409
+  a      = -1.354000 (0xbc4d)
+  b      = 7.029000 (0xc81f)
+  DUT    = 0xb22b (-0.192749)
+  GOLDEN = -0.192631
+  ERROR = 0.000118
+  ERROR RATE = 0.000615
+PASS at 410
+  a      = 5.128000 (0x468f)
+  b      = -9.709000 (0xc522)
+  DUT    = 0xb839 (-0.527832)
+  GOLDEN = -0.528170
+  ERROR = 0.000338
+  ERROR RATE = 0.000639
+PASS at 411
+  a      = -1.075000 (0x45c7)
+  b      = -8.241000 (0x4649)
+  DUT    = 0x302d (0.130493)
+  GOLDEN = 0.130445
+  ERROR = 0.000048
+  ERROR RATE = 0.000367
+PASS at 412
+  a      = 6.558000 (0xc407)
+  b      = -5.133000 (0x44b4)
+  DUT    = 0xbd14 (-1.269531)
+  GOLDEN = -1.277615
+  ERROR = 0.008084
+  ERROR RATE = 0.006328
+PASS at 413
+  a      = 5.776000 (0xbc93)
+  b      = 6.284000 (0x483f)
+  DUT    = 0x3b4c (0.912109)
+  GOLDEN = 0.919160
+  ERROR = 0.007050
+  ERROR RATE = 0.007670
+PASS at 414
+  a      = -4.029000 (0xc861)
+  b      = 4.703000 (0xc7af)
+  DUT    = 0xbacd (-0.850098)
+  GOLDEN = -0.856687
+  ERROR = 0.006590
+  ERROR RATE = 0.007692
+PASS at 415
+  a      = -1.144000 (0x3848)
+  b      = 8.492000 (0xc422)
+  DUT    = 0xb051 (-0.134888)
+  GOLDEN = -0.134715
+  ERROR = 0.000173
+  ERROR RATE = 0.001282
+PASS at 416
+  a      = -8.757000 (0xc027)
+  b      = -7.684000 (0x4820)
+  DUT    = 0x3c8e (1.138672)
+  GOLDEN = 1.139641
+  ERROR = 0.000969
+  ERROR RATE = 0.000850
+PASS at 417
+  a      = 0.535000 (0xb991)
+  b      = -4.131000 (0x449c)
+  DUT    = 0xb022 (-0.129150)
+  GOLDEN = -0.129509
+  ERROR = 0.000358
+  ERROR RATE = 0.002766
+PASS at 418
+  a      = -2.076000 (0xc4de)
+  b      = 8.250000 (0xc80b)
+  DUT    = 0xb400 (-0.250000)
+  GOLDEN = -0.251636
+  ERROR = 0.001636
+  ERROR RATE = 0.006503
+PASS at 419
+  a      = -0.696000 (0x47f2)
+  b      = 4.608000 (0x46b9)
+  DUT    = 0xb0d6 (-0.151123)
+  GOLDEN = -0.151042
+  ERROR = 0.000081
+  ERROR RATE = 0.000539
+PASS at 420
+  a      = -4.869000 (0x4821)
+  b      = -8.088000 (0xc866)
+  DUT    = 0x38cf (0.601074)
+  GOLDEN = 0.602003
+  ERROR = 0.000929
+  ERROR RATE = 0.001543
+PASS at 421
+  a      = 7.944000 (0x43b8)
+  b      = 6.721000 (0x4381)
+  DUT    = 0x3cb5 (1.176758)
+  GOLDEN = 1.181967
+  ERROR = 0.005209
+  ERROR RATE = 0.004407
+PASS at 422
+  a      = 8.259000 (0xc20f)
+  b      = -8.794000 (0xbc1b)
+  DUT    = 0xbb8a (-0.942383)
+  GOLDEN = -0.939163
+  ERROR = 0.003220
+  ERROR RATE = 0.003428
+PASS at 423
+  a      = 3.859000 (0xba21)
+  b      = 3.752000 (0xbed8)
+  DUT    = 0x3c1c (1.027344)
+  GOLDEN = 1.028518
+  ERROR = 0.001174
+  ERROR RATE = 0.001142
+PASS at 424
+  a      = -3.029000 (0x435b)
+  b      = -1.026000 (0x3d6d)
+  DUT    = 0x41e0 (2.937500)
+  GOLDEN = 2.952242
+  ERROR = 0.014742
+  ERROR RATE = 0.004993
+PASS at 425
+  a      = -0.766000 (0x3302)
+  b      = -1.711000 (0x3b89)
+  DUT    = 0x3724 (0.446289)
+  GOLDEN = 0.447691
+  ERROR = 0.001402
+  ERROR RATE = 0.003132
+PASS at 426
+  a      = 3.677000 (0xc841)
+  b      = 1.356000 (0xbc2c)
+  DUT    = 0x416b (2.708984)
+  GOLDEN = 2.711652
+  ERROR = 0.002668
+  ERROR RATE = 0.000984
+PASS at 427
+  a      = 0.219000 (0x45c8)
+  b      = 0.942000 (0xc87d)
+  DUT    = 0x336a (0.231689)
+  GOLDEN = 0.232484
+  ERROR = 0.000795
+  ERROR RATE = 0.003418
+PASS at 428
+  a      = -8.508000 (0x4156)
+  b      = -1.043000 (0x3d9b)
+  DUT    = 0x4816 (8.171875)
+  GOLDEN = 8.157239
+  ERROR = 0.014636
+  ERROR RATE = 0.001794
+PASS at 429
+  a      = 5.781000 (0xb639)
+  b      = -8.976000 (0x477a)
+  DUT    = 0xb929 (-0.645020)
+  GOLDEN = -0.644051
+  ERROR = 0.000969
+  ERROR RATE = 0.001504
+PASS at 430
+  a      = 2.668000 (0xc67e)
+  b      = 1.401000 (0xc05c)
+  DUT    = 0x3f94 (1.894531)
+  GOLDEN = 1.904354
+  ERROR = 0.009823
+  ERROR RATE = 0.005158
+PASS at 431
+  a      = -0.389000 (0xc559)
+  b      = 7.475000 (0x414a)
+  DUT    = 0xaaa8 (-0.052002)
+  GOLDEN = -0.052040
+  ERROR = 0.000038
+  ERROR RATE = 0.000734
+PASS at 432
+  a      = -6.492000 (0xc131)
+  b      = -2.180000 (0xbdb6)
+  DUT    = 0x41f0 (2.968750)
+  GOLDEN = 2.977982
+  ERROR = 0.009232
+  ERROR RATE = 0.003100
+PASS at 433
+  a      = -5.349000 (0x44e5)
+  b      = 2.644000 (0xc0fb)
+  DUT    = 0xc00b (-2.021484)
+  GOLDEN = -2.023071
+  ERROR = 0.001587
+  ERROR RATE = 0.000784
+PASS at 434
+  a      = -2.596000 (0x3e66)
+  b      = -1.428000 (0x3f28)
+  DUT    = 0x3f4c (1.824219)
+  GOLDEN = 1.817927
+  ERROR = 0.006292
+  ERROR RATE = 0.003461
+PASS at 435
+  a      = 4.895000 (0x398f)
+  b      = -2.491000 (0xb56d)
+  DUT    = 0xbfd4 (-1.957031)
+  GOLDEN = -1.965074
+  ERROR = 0.008043
+  ERROR RATE = 0.004093
+PASS at 436
+  a      = 1.600000 (0x4870)
+  b      = 1.789000 (0xc72d)
+  DUT    = 0x3b1a (0.887695)
+  GOLDEN = 0.894354
+  ERROR = 0.006659
+  ERROR RATE = 0.007446
+PASS at 437
+  a      = 0.695000 (0x3c93)
+  b      = -0.339000 (0xc08f)
+  DUT    = 0xc016 (-2.042969)
+  GOLDEN = -2.050147
+  ERROR = 0.007179
+  ERROR RATE = 0.003502
+PASS at 438
+  a      = 8.872000 (0xc669)
+  b      = -7.175000 (0xc7f8)
+  DUT    = 0xbcf1 (-1.235352)
+  GOLDEN = -1.236516
+  ERROR = 0.001164
+  ERROR RATE = 0.000941
+PASS at 439
+  a      = 1.144000 (0xc379)
+  b      = -2.279000 (0x3e8a)
+  DUT    = 0xb806 (-0.502930)
+  GOLDEN = -0.501975
+  ERROR = 0.000955
+  ERROR RATE = 0.001903
+PASS at 440
+  a      = -6.410000 (0xc470)
+  b      = -7.968000 (0x4398)
+  DUT    = 0x3a68 (0.800781)
+  GOLDEN = 0.804468
+  ERROR = 0.003687
+  ERROR RATE = 0.004583
+PASS at 441
+  a      = -3.736000 (0x469e)
+  b      = 1.635000 (0x446a)
+  DUT    = 0xc08e (-2.277344)
+  GOLDEN = -2.285015
+  ERROR = 0.007672
+  ERROR RATE = 0.003357
+PASS at 442
+  a      = -4.437000 (0x48e3)
+  b      = 3.796000 (0x48d2)
+  DUT    = 0xbca8 (-1.164062)
+  GOLDEN = -1.168862
+  ERROR = 0.004799
+  ERROR RATE = 0.004106
+PASS at 443
+  a      = 6.618000 (0xc659)
+  b      = 4.415000 (0x405c)
+  DUT    = 0x3df9 (1.493164)
+  GOLDEN = 1.498981
+  ERROR = 0.005817
+  ERROR RATE = 0.003880
+PASS at 444
+  a      = 9.770000 (0x44b8)
+  b      = 9.644000 (0x4536)
+  DUT    = 0x3c0b (1.010742)
+  GOLDEN = 1.013065
+  ERROR = 0.002323
+  ERROR RATE = 0.002293
+PASS at 445
+  a      = -6.347000 (0x3fe9)
+  b      = 2.179000 (0x4799)
+  DUT    = 0xc1d0 (-2.906250)
+  GOLDEN = -2.912804
+  ERROR = 0.006554
+  ERROR RATE = 0.002250
+PASS at 446
+  a      = 4.718000 (0x4799)
+  b      = 5.210000 (0x4625)
+  DUT    = 0x3b42 (0.907227)
+  GOLDEN = 0.905566
+  ERROR = 0.001660
+  ERROR RATE = 0.001833
+PASS at 447
+  a      = 1.978000 (0x38e9)
+  b      = 7.599000 (0x3c08)
+  DUT    = 0x3428 (0.259766)
+  GOLDEN = 0.260297
+  ERROR = 0.000532
+  ERROR RATE = 0.002043
+PASS at 448
+  a      = 7.597000 (0x3d29)
+  b      = 6.146000 (0x410c)
+  DUT    = 0x3cf1 (1.235352)
+  GOLDEN = 1.236089
+  ERROR = 0.000737
+  ERROR RATE = 0.000596
+PASS at 449
+  a      = 0.614000 (0x4335)
+  b      = 1.008000 (0x44da)
+  DUT    = 0x38dc (0.607422)
+  GOLDEN = 0.609127
+  ERROR = 0.001705
+  ERROR RATE = 0.002799
+PASS at 450
+  a      = 1.290000 (0x4889)
+  b      = 2.523000 (0x48c1)
+  DUT    = 0x3816 (0.510742)
+  GOLDEN = 0.511296
+  ERROR = 0.000554
+  ERROR RATE = 0.001083
+PASS at 451
+  a      = 3.604000 (0x44f9)
+  b      = 4.852000 (0xb462)
+  DUT    = 0x39e8 (0.738281)
+  GOLDEN = 0.742786
+  ERROR = 0.004505
+  ERROR RATE = 0.006065
+PASS at 452
+  a      = 9.070000 (0x480b)
+  b      = 9.504000 (0xc8b6)
+  DUT    = 0x3b9f (0.952637)
+  GOLDEN = 0.954335
+  ERROR = 0.001698
+  ERROR RATE = 0.001780
+PASS at 453
+  a      = 4.971000 (0x37c7)
+  b      = -0.274000 (0xbf54)
+  DUT    = 0xcc88 (-18.125000)
+  GOLDEN = -18.142336
+  ERROR = 0.017336
+  ERROR RATE = 0.000956
+PASS at 454
+  a      = 8.084000 (0xc05a)
+  b      = -9.420000 (0x4832)
+  DUT    = 0xbae0 (-0.859375)
+  GOLDEN = -0.858174
+  ERROR = 0.001201
+  ERROR RATE = 0.001399
+PASS at 455
+  a      = 0.486000 (0x434d)
+  b      = -1.832000 (0xc5f8)
+  DUT    = 0xb439 (-0.263916)
+  GOLDEN = -0.265284
+  ERROR = 0.001368
+  ERROR RATE = 0.005156
+PASS at 456
+  a      = -2.176000 (0xc42f)
+  b      = 8.393000 (0x3cc8)
+  DUT    = 0xb422 (-0.258301)
+  GOLDEN = -0.259264
+  ERROR = 0.000963
+  ERROR RATE = 0.003714
+PASS at 457
+  a      = 3.651000 (0xc543)
+  b      = -5.969000 (0xc170)
+  DUT    = 0xb8dc (-0.607422)
+  GOLDEN = -0.611660
+  ERROR = 0.004238
+  ERROR RATE = 0.006929
+PASS at 458
+  a      = -4.183000 (0xc43b)
+  b      = 1.195000 (0x482f)
+  DUT    = 0xc2f3 (-3.474609)
+  GOLDEN = -3.500418
+  ERROR = 0.025809
+  ERROR RATE = 0.007373
+PASS at 459
+  a      = -5.261000 (0xbf00)
+  b      = -2.718000 (0x45b4)
+  DUT    = 0x3fb4 (1.925781)
+  GOLDEN = 1.935614
+  ERROR = 0.009833
+  ERROR RATE = 0.005080
+PASS at 460
+  a      = -4.231000 (0x3d66)
+  b      = 8.366000 (0x32b8)
+  DUT    = 0xb80b (-0.505371)
+  GOLDEN = -0.505738
+  ERROR = 0.000366
+  ERROR RATE = 0.000725
+PASS at 461
+  a      = -1.750000 (0xc528)
+  b      = 5.704000 (0xc8c0)
+  DUT    = 0xb4ea (-0.307129)
+  GOLDEN = -0.306802
+  ERROR = 0.000327
+  ERROR RATE = 0.001065
+PASS at 462
+  a      = 1.350000 (0xc82f)
+  b      = 0.210000 (0xc7fe)
+  DUT    = 0x465f (6.371094)
+  GOLDEN = 6.428571
+  ERROR = 0.057478
+  ERROR RATE = 0.008941
+PASS at 463
+  a      = -5.156000 (0x460a)
+  b      = -9.498000 (0x39a2)
+  DUT    = 0x3857 (0.542480)
+  GOLDEN = 0.542851
+  ERROR = 0.000371
+  ERROR RATE = 0.000683
+PASS at 464
+  a      = -8.369000 (0xbfbb)
+  b      = -7.991000 (0x3919)
+  DUT    = 0x3c28 (1.039062)
+  GOLDEN = 1.047303
+  ERROR = 0.008241
+  ERROR RATE = 0.007869
+PASS at 465
+  a      = 6.038000 (0x4872)
+  b      = 0.704000 (0x4515)
+  DUT    = 0x4845 (8.539062)
+  GOLDEN = 8.576705
+  ERROR = 0.037642
+  ERROR RATE = 0.004389
+PASS at 466
+  a      = -1.933000 (0x373b)
+  b      = 0.637000 (0x430e)
+  DUT    = 0xc209 (-3.017578)
+  GOLDEN = -3.034537
+  ERROR = 0.016959
+  ERROR RATE = 0.005589
+PASS at 467
+  a      = 8.888000 (0xc572)
+  b      = 5.083000 (0xb89e)
+  DUT    = 0x3efd (1.747070)
+  GOLDEN = 1.748574
+  ERROR = 0.001503
+  ERROR RATE = 0.000860
+PASS at 468
+  a      = 0.452000 (0x4709)
+  b      = 3.528000 (0xc33f)
+  DUT    = 0x3016 (0.127686)
+  GOLDEN = 0.128118
+  ERROR = 0.000432
+  ERROR RATE = 0.003375
+PASS at 469
+  a      = -5.446000 (0x42c8)
+  b      = -0.577000 (0x3c58)
+  DUT    = 0x48bb (9.460938)
+  GOLDEN = 9.438475
+  ERROR = 0.022463
+  ERROR RATE = 0.002380
+PASS at 470
+  a      = 7.037000 (0x44a9)
+  b      = -3.623000 (0xc7a5)
+  DUT    = 0xbfc9 (-1.946289)
+  GOLDEN = -1.942313
+  ERROR = 0.003976
+  ERROR RATE = 0.002047
+PASS at 471
+  a      = 3.390000 (0x48cb)
+  b      = 1.086000 (0x453e)
+  DUT    = 0x423c (3.117188)
+  GOLDEN = 3.121547
+  ERROR = 0.004359
+  ERROR RATE = 0.001397
+PASS at 472
+  a      = 4.659000 (0xb779)
+  b      = -7.646000 (0xc888)
+  DUT    = 0xb8dc (-0.607422)
+  GOLDEN = -0.609338
+  ERROR = 0.001916
+  ERROR RATE = 0.003145
+PASS at 473
+  a      = 9.583000 (0xb96f)
+  b      = 5.244000 (0x3c3d)
+  DUT    = 0x3f4c (1.824219)
+  GOLDEN = 1.827422
+  ERROR = 0.003203
+  ERROR RATE = 0.001753
+PASS at 474
+  a      = -0.467000 (0xc640)
+  b      = -9.059000 (0x434a)
+  DUT    = 0x2a95 (0.051422)
+  GOLDEN = 0.051551
+  ERROR = 0.000129
+  ERROR RATE = 0.002499
+PASS at 475
+  a      = -0.679000 (0x4720)
+  b      = 1.060000 (0xaed9)
+  DUT    = 0xb91b (-0.638184)
+  GOLDEN = -0.640566
+  ERROR = 0.002382
+  ERROR RATE = 0.003719
+PASS at 476
+  a      = -6.249000 (0x453d)
+  b      = 3.644000 (0xc0ac)
+  DUT    = 0xbed6 (-1.708984)
+  GOLDEN = -1.714874
+  ERROR = 0.005889
+  ERROR RATE = 0.003434
+PASS at 477
+  a      = 7.126000 (0x46d7)
+  b      = -0.107000 (0xc8e7)
+  DUT    = 0xd428 (-66.500000)
+  GOLDEN = -66.598131
+  ERROR = 0.098131
+  ERROR RATE = 0.001473
+PASS at 478
+  a      = 5.239000 (0xc873)
+  b      = -2.336000 (0x41a8)
+  DUT    = 0xc07b (-2.240234)
+  GOLDEN = -2.242723
+  ERROR = 0.002488
+  ERROR RATE = 0.001109
+PASS at 479
+  a      = 6.840000 (0xc348)
+  b      = -9.805000 (0xc42c)
+  DUT    = 0xb991 (-0.695801)
+  GOLDEN = -0.697603
+  ERROR = 0.001802
+  ERROR RATE = 0.002584
+PASS at 480
+  a      = -8.900000 (0x477b)
+  b      = 2.829000 (0xbbe3)
+  DUT    = 0xc245 (-3.134766)
+  GOLDEN = -3.145988
+  ERROR = 0.011222
+  ERROR RATE = 0.003567
+PASS at 481
+  a      = -3.641000 (0x40ae)
+  b      = -4.172000 (0xb97f)
+  DUT    = 0x3afd (0.873535)
+  GOLDEN = 0.872723
+  ERROR = 0.000812
+  ERROR RATE = 0.000931
+PASS at 482
+  a      = 7.480000 (0xc4dd)
+  b      = -0.986000 (0x3e75)
+  DUT    = 0xc794 (-7.578125)
+  GOLDEN = -7.586207
+  ERROR = 0.008082
+  ERROR RATE = 0.001065
+PASS at 483
+  a      = 2.340000 (0x3e45)
+  b      = -0.687000 (0x42c1)
+  DUT    = 0xc2cd (-3.400391)
+  GOLDEN = -3.406114
+  ERROR = 0.005723
+  ERROR RATE = 0.001680
+PASS at 484
+  a      = -4.864000 (0xc464)
+  b      = 1.614000 (0x444f)
+  DUT    = 0xc201 (-3.001953)
+  GOLDEN = -3.013631
+  ERROR = 0.011678
+  ERROR RATE = 0.003875
+PASS at 485
+  a      = 1.567000 (0x48df)
+  b      = 3.377000 (0xc720)
+  DUT    = 0x3760 (0.460938)
+  GOLDEN = 0.464021
+  ERROR = 0.003084
+  ERROR RATE = 0.006646
+PASS at 486
+  a      = -4.390000 (0xc76a)
+  b      = 4.309000 (0xc4d3)
+  DUT    = 0xbc16 (-1.021484)
+  GOLDEN = -1.018798
+  ERROR = 0.002687
+  ERROR RATE = 0.002637
+PASS at 487
+  a      = 9.740000 (0xc3b7)
+  b      = -7.125000 (0x3ece)
+  DUT    = 0xbd6b (-1.354492)
+  GOLDEN = -1.367018
+  ERROR = 0.012525
+  ERROR RATE = 0.009163
+PASS at 488
+  a      = -7.414000 (0x439a)
+  b      = -4.824000 (0x3afc)
+  DUT    = 0x3e23 (1.534180)
+  GOLDEN = 1.536899
+  ERROR = 0.002719
+  ERROR RATE = 0.001769
+PASS at 489
+  a      = -3.857000 (0x4872)
+  b      = 1.701000 (0xbd81)
+  DUT    = 0xc088 (-2.265625)
+  GOLDEN = -2.267490
+  ERROR = 0.001865
+  ERROR RATE = 0.000822
+PASS at 490
+  a      = 3.800000 (0xc3ac)
+  b      = 0.873000 (0x4515)
+  DUT    = 0x4457 (4.339844)
+  GOLDEN = 4.352806
+  ERROR = 0.012963
+  ERROR RATE = 0.002978
+PASS at 491
+  a      = 8.890000 (0xc787)
+  b      = -1.376000 (0x480f)
+  DUT    = 0xc671 (-6.441406)
+  GOLDEN = -6.460756
+  ERROR = 0.019350
+  ERROR RATE = 0.002995
+PASS at 492
+  a      = -3.835000 (0x45bc)
+  b      = 5.083000 (0xc6cb)
+  DUT    = 0xba09 (-0.754395)
+  GOLDEN = -0.754476
+  ERROR = 0.000081
+  ERROR RATE = 0.000108
+PASS at 493
+  a      = -7.528000 (0x485c)
+  b      = 8.120000 (0xc8ae)
+  DUT    = 0xbb6a (-0.926758)
+  GOLDEN = -0.927094
+  ERROR = 0.000336
+  ERROR RATE = 0.000362
+PASS at 494
+  a      = 5.733000 (0xc524)
+  b      = -6.793000 (0xc811)
+  DUT    = 0xbaba (-0.840820)
+  GOLDEN = -0.843957
+  ERROR = 0.003137
+  ERROR RATE = 0.003717
+PASS at 495
+  a      = 8.719000 (0x3ef6)
+  b      = -9.360000 (0xc6b3)
+  DUT    = 0xbb75 (-0.932129)
+  GOLDEN = -0.931517
+  ERROR = 0.000612
+  ERROR RATE = 0.000657
+PASS at 496
+  a      = -5.142000 (0xc8ff)
+  b      = -8.129000 (0x46d7)
+  DUT    = 0x3906 (0.627930)
+  GOLDEN = 0.632550
+  ERROR = 0.004620
+  ERROR RATE = 0.007304
+PASS at 497
+  a      = 1.740000 (0xb99c)
+  b      = -6.698000 (0x44b7)
+  DUT    = 0xb422 (-0.258301)
+  GOLDEN = -0.259779
+  ERROR = 0.001478
+  ERROR RATE = 0.005690
+PASS at 498
+  a      = -9.996000 (0x4864)
+  b      = 6.839000 (0x3a89)
+  DUT    = 0xbdd0 (-1.453125)
+  GOLDEN = -1.461617
+  ERROR = 0.008492
+  ERROR RATE = 0.005810
+PASS at 499
+  a      = -0.701000 (0xc8ea)
+  b      = 4.714000 (0x41c5)
+  DUT    = 0xb0c2 (-0.148682)
+  GOLDEN = -0.148706
+  ERROR = 0.000024
+  ERROR RATE = 0.000164
+PASS at 500
+  a      = 8.781000 (0xc41c)
+  b      = 0.817000 (0x3a5a)
+  DUT    = 0x495c (10.718750)
+  GOLDEN = 10.747858
+  ERROR = 0.029108
+  ERROR RATE = 0.002708
+PASS at 501
+  a      = -9.827000 (0xbfbf)
+  b      = 2.884000 (0xc53f)
+  DUT    = 0xc2cd (-3.400391)
+  GOLDEN = -3.407420
+  ERROR = 0.007030
+  ERROR RATE = 0.002063
+PASS at 502
+  a      = -4.109000 (0xad60)
+  b      = 0.794000 (0xc82f)
+  DUT    = 0xc529 (-5.160156)
+  GOLDEN = -5.175063
+  ERROR = 0.014907
+  ERROR RATE = 0.002880
+PASS at 503
+  a      = -1.937000 (0x40da)
+  b      = -5.248000 (0xba2b)
+  DUT    = 0x35e8 (0.369141)
+  GOLDEN = 0.369093
+  ERROR = 0.000048
+  ERROR RATE = 0.000129
+PASS at 504
+  a      = -0.084000 (0x4035)
+  b      = -8.366000 (0x473c)
+  DUT    = 0x2129 (0.010078)
+  GOLDEN = 0.010041
+  ERROR = 0.000038
+  ERROR RATE = 0.003764
+PASS at 505
+  a      = 2.425000 (0x3b08)
+  b      = -0.771000 (0x4774)
+  DUT    = 0xc245 (-3.134766)
+  GOLDEN = -3.145266
+  ERROR = 0.010500
+  ERROR RATE = 0.003338
+PASS at 506
+  a      = 2.104000 (0x4545)
+  b      = 7.234000 (0xc5e6)
+  DUT    = 0x34a1 (0.289307)
+  GOLDEN = 0.290849
+  ERROR = 0.001542
+  ERROR RATE = 0.005302
+PASS at 507
+  a      = 0.879000 (0x4524)
+  b      = 7.454000 (0x3f58)
+  DUT    = 0x2f8a (0.117798)
+  GOLDEN = 0.117923
+  ERROR = 0.000125
+  ERROR RATE = 0.001063
+PASS at 508
+  a      = 5.270000 (0x39f4)
+  b      = -5.897000 (0x459e)
+  DUT    = 0xbb24 (-0.892578)
+  GOLDEN = -0.893675
+  ERROR = 0.001097
+  ERROR RATE = 0.001227
+PASS at 509
+  a      = 5.141000 (0x4394)
+  b      = 1.836000 (0x3c22)
+  DUT    = 0x4191 (2.783203)
+  GOLDEN = 2.800109
+  ERROR = 0.016906
+  ERROR RATE = 0.006038
+PASS at 510
+  a      = 0.744000 (0x47e4)
+  b      = 5.616000 (0x4730)
+  DUT    = 0x303f (0.132690)
+  GOLDEN = 0.132479
+  ERROR = 0.000212
+  ERROR RATE = 0.001599
+PASS at 511
+  a      = 3.789000 (0x3744)
+  b      = 1.033000 (0x3b96)
+  DUT    = 0x4356 (3.667969)
+  GOLDEN = 3.667957
+  ERROR = 0.000011
+  ERROR RATE = 0.000003
+PASS at 512
+  a      = 7.890000 (0x3ce2)
+  b      = 7.186000 (0x4175)
+  DUT    = 0x3c5d (1.090820)
+  GOLDEN = 1.097968
+  ERROR = 0.007148
+  ERROR RATE = 0.006510
+PASS at 513
+  a      = 0.454000 (0x4887)
+  b      = 0.948000 (0x4173)
+  DUT    = 0x37a9 (0.478760)
+  GOLDEN = 0.478903
+  ERROR = 0.000143
+  ERROR RATE = 0.000299
+PASS at 514
+  a      = 1.221000 (0x4484)
+  b      = 2.728000 (0x44a9)
+  DUT    = 0x3724 (0.446289)
+  GOLDEN = 0.447581
+  ERROR = 0.001292
+  ERROR RATE = 0.002886
+PASS at 515
+  a      = 9.058000 (0xc627)
+  b      = 2.724000 (0x4487)
+  DUT    = 0x429e (3.308594)
+  GOLDEN = 3.325257
+  ERROR = 0.016663
+  ERROR RATE = 0.005011
+PASS at 516
+  a      = 4.516000 (0xbf91)
+  b      = 4.659000 (0x4142)
+  DUT    = 0x3bb4 (0.962891)
+  GOLDEN = 0.969307
+  ERROR = 0.006416
+  ERROR RATE = 0.006619
+PASS at 517
+  a      = -6.154000 (0xbd37)
+  b      = 4.526000 (0xc891)
+  DUT    = 0xbd6b (-1.354492)
+  GOLDEN = -1.359700
+  ERROR = 0.005207
+  ERROR RATE = 0.003830
+PASS at 518
+  a      = -1.892000 (0x46c1)
+  b      = 2.628000 (0x48d0)
+  DUT    = 0xb9c0 (-0.718750)
+  GOLDEN = -0.719939
+  ERROR = 0.001189
+  ERROR RATE = 0.001652
+PASS at 519
+  a      = -1.304000 (0xc74d)
+  b      = -9.132000 (0xc3ec)
+  DUT    = 0x3088 (0.141602)
+  GOLDEN = 0.142795
+  ERROR = 0.001193
+  ERROR RATE = 0.008355
+PASS at 520
+  a      = 6.755000 (0x44d7)
+  b      = 9.627000 (0xc193)
+  DUT    = 0x3999 (0.699707)
+  GOLDEN = 0.701672
+  ERROR = 0.001965
+  ERROR RATE = 0.002801
+PASS at 521
+  a      = -7.299000 (0xc85a)
+  b      = -3.961000 (0xc494)
+  DUT    = 0x3f56 (1.833984)
+  GOLDEN = 1.842716
+  ERROR = 0.008732
+  ERROR RATE = 0.004739
+PASS at 522
+  a      = 4.841000 (0x4512)
+  b      = -2.787000 (0xc619)
+  DUT    = 0xbee9 (-1.727539)
+  GOLDEN = -1.736993
+  ERROR = 0.009454
+  ERROR RATE = 0.005443
+PASS at 523
+  a      = -8.700000 (0x3b0e)
+  b      = -4.579000 (0x401a)
+  DUT    = 0x3f9f (1.905273)
+  GOLDEN = 1.899978
+  ERROR = 0.005295
+  ERROR RATE = 0.002787
+PASS at 524
+  a      = 5.072000 (0x418f)
+  b      = -6.098000 (0xc8dd)
+  DUT    = 0xba9e (-0.827148)
+  GOLDEN = -0.831748
+  ERROR = 0.004600
+  ERROR RATE = 0.005530
+PASS at 525
+  a      = 0.882000 (0xbe1f)
+  b      = 2.050000 (0xc8cf)
+  DUT    = 0x36d6 (0.427246)
+  GOLDEN = 0.430244
+  ERROR = 0.002998
+  ERROR RATE = 0.006968
+PASS at 526
+  a      = 2.780000 (0xb8cb)
+  b      = -9.728000 (0x3968)
+  DUT    = 0xb48e (-0.284668)
+  GOLDEN = -0.285773
+  ERROR = 0.001105
+  ERROR RATE = 0.003867
+PASS at 527
+  a      = -1.530000 (0x4813)
+  b      = -9.617000 (0xc892)
+  DUT    = 0x3114 (0.158691)
+  GOLDEN = 0.159093
+  ERROR = 0.000402
+  ERROR RATE = 0.002526
+PASS at 528
+  a      = -0.599000 (0x4859)
+  b      = 0.676000 (0x46f9)
+  DUT    = 0xbb10 (-0.882812)
+  GOLDEN = -0.886095
+  ERROR = 0.003282
+  ERROR RATE = 0.003704
+PASS at 529
+  a      = 8.148000 (0x4840)
+  b      = -9.143000 (0x3ebe)
+  DUT    = 0xbb1a (-0.887695)
+  GOLDEN = -0.891174
+  ERROR = 0.003478
+  ERROR RATE = 0.003903
+PASS at 530
+  a      = 8.695000 (0x465a)
+  b      = 6.972000 (0xc0d7)
+  DUT    = 0x3cf8 (1.242188)
+  GOLDEN = 1.247131
+  ERROR = 0.004944
+  ERROR RATE = 0.003964
+PASS at 531
+  a      = 8.497000 (0xc8c1)
+  b      = 1.686000 (0x44bf)
+  DUT    = 0x450c (5.046875)
+  GOLDEN = 5.039739
+  ERROR = 0.007136
+  ERROR RATE = 0.001416
+PASS at 532
+  a      = 6.350000 (0xc88f)
+  b      = -2.420000 (0x42d3)
+  DUT    = 0xc146 (-2.636719)
+  GOLDEN = -2.623967
+  ERROR = 0.012752
+  ERROR RATE = 0.004860
+PASS at 533
+  a      = -9.509000 (0x47a0)
+  b      = 4.745000 (0x4529)
+  DUT    = 0xc006 (-2.011719)
+  GOLDEN = -2.004004
+  ERROR = 0.007715
+  ERROR RATE = 0.003850
+PASS at 534
+  a      = -9.117000 (0xc803)
+  b      = 3.412000 (0x4809)
+  DUT    = 0xc14d (-2.650391)
+  GOLDEN = -2.672040
+  ERROR = 0.021649
+  ERROR RATE = 0.008102
+PASS at 535
+  a      = 7.624000 (0x48b7)
+  b      = 5.159000 (0xc519)
+  DUT    = 0x3de8 (1.476562)
+  GOLDEN = 1.477806
+  ERROR = 0.001243
+  ERROR RATE = 0.000841
+PASS at 536
+  a      = -8.026000 (0xc070)
+  b      = 8.073000 (0xbdf9)
+  DUT    = 0xbbea (-0.989258)
+  GOLDEN = -0.994178
+  ERROR = 0.004920
+  ERROR RATE = 0.004949
+PASS at 537
+  a      = 9.432000 (0x44c9)
+  b      = -5.097000 (0xc8c3)
+  DUT    = 0xbf56 (-1.833984)
+  GOLDEN = -1.850500
+  ERROR = 0.016516
+  ERROR RATE = 0.008925
+PASS at 538
+  a      = -2.219000 (0x40ee)
+  b      = -1.493000 (0x3d71)
+  DUT    = 0x3df0 (1.484375)
+  GOLDEN = 1.486269
+  ERROR = 0.001894
+  ERROR RATE = 0.001275
+PASS at 539
+  a      = 4.786000 (0xc3ec)
+  b      = -9.525000 (0x46f6)
+  DUT    = 0xb806 (-0.502930)
+  GOLDEN = -0.502467
+  ERROR = 0.000462
+  ERROR RATE = 0.000920
+PASS at 540
+  a      = 2.464000 (0xb49c)
+  b      = 1.360000 (0x272b)
+  DUT    = 0x3f38 (1.804688)
+  GOLDEN = 1.811765
+  ERROR = 0.007077
+  ERROR RATE = 0.003906
+PASS at 541
+  a      = -3.961000 (0xc8cf)
+  b      = 6.959000 (0xc4ff)
+  DUT    = 0xb88e (-0.569336)
+  GOLDEN = -0.569191
+  ERROR = 0.000145
+  ERROR RATE = 0.000255
+PASS at 542
+  a      = -0.288000 (0x2981)
+  b      = 0.028000 (0xb817)
+  DUT    = 0xc922 (-10.265625)
+  GOLDEN = -10.285714
+  ERROR = 0.020089
+  ERROR RATE = 0.001953
+PASS at 543
+  a      = -9.621000 (0xc6bf)
+  b      = -4.996000 (0x45ed)
+  DUT    = 0x3fb4 (1.925781)
+  GOLDEN = 1.925741
+  ERROR = 0.000041
+  ERROR RATE = 0.000021
+PASS at 544
+  a      = 0.043000 (0xbb96)
+  b      = -0.511000 (0x4894)
+  DUT    = 0xad63 (-0.084167)
+  GOLDEN = -0.084149
+  ERROR = 0.000019
+  ERROR RATE = 0.000223
+PASS at 545
+  a      = -6.748000 (0xb544)
+  b      = 5.926000 (0xc731)
+  DUT    = 0xbc88 (-1.132812)
+  GOLDEN = -1.138711
+  ERROR = 0.005898
+  ERROR RATE = 0.005180
+PASS at 546
+  a      = -0.948000 (0x4064)
+  b      = 9.160000 (0x3eb5)
+  DUT    = 0xae9e (-0.103394)
+  GOLDEN = -0.103493
+  ERROR = 0.000100
+  ERROR RATE = 0.000965
+PASS at 547
+  a      = -0.329000 (0x47ca)
+  b      = -7.192000 (0xc845)
+  DUT    = 0x29d8 (0.045654)
+  GOLDEN = 0.045745
+  ERROR = 0.000091
+  ERROR RATE = 0.001989
+PASS at 548
+  a      = 2.196000 (0x3e4d)
+  b      = 1.677000 (0x41db)
+  DUT    = 0x3d37 (1.303711)
+  GOLDEN = 1.309481
+  ERROR = 0.005770
+  ERROR RATE = 0.004407
+PASS at 549
+  a      = 7.791000 (0xbf28)
+  b      = -8.538000 (0xc01e)
+  DUT    = 0xbb4c (-0.912109)
+  GOLDEN = -0.912509
+  ERROR = 0.000399
+  ERROR RATE = 0.000438
+PASS at 550
+  a      = 1.575000 (0xc463)
+  b      = 2.928000 (0xc56f)
+  DUT    = 0x384b (0.536621)
+  GOLDEN = 0.537910
+  ERROR = 0.001289
+  ERROR RATE = 0.002396
+PASS at 551
+  a      = -1.789000 (0x4894)
+  b      = -2.058000 (0x407d)
+  DUT    = 0x3afd (0.873535)
+  GOLDEN = 0.869291
+  ERROR = 0.004245
+  ERROR RATE = 0.004883
+PASS at 552
+  a      = -4.386000 (0x41ca)
+  b      = -5.435000 (0x4474)
+  DUT    = 0x3a71 (0.805176)
+  GOLDEN = 0.806992
+  ERROR = 0.001816
+  ERROR RATE = 0.002250
+PASS at 553
+  a      = 9.157000 (0xc7e0)
+  b      = 2.244000 (0xc603)
+  DUT    = 0x4411 (4.066406)
+  GOLDEN = 4.080660
+  ERROR = 0.014253
+  ERROR RATE = 0.003493
+PASS at 554
+  a      = 2.895000 (0x4715)
+  b      = 4.454000 (0xc27b)
+  DUT    = 0x3930 (0.648438)
+  GOLDEN = 0.649978
+  ERROR = 0.001540
+  ERROR RATE = 0.002369
+PASS at 555
+  a      = -7.876000 (0x48ef)
+  b      = -6.011000 (0x441d)
+  DUT    = 0x3d3e (1.310547)
+  GOLDEN = 1.310265
+  ERROR = 0.000282
+  ERROR RATE = 0.000215
+PASS at 556
+  a      = 7.081000 (0xc0d8)
+  b      = -3.240000 (0x34a8)
+  DUT    = 0xc05d (-2.181641)
+  GOLDEN = -2.185494
+  ERROR = 0.003853
+  ERROR RATE = 0.001763
+PASS at 557
+  a      = 9.868000 (0xbd5c)
+  b      = 4.113000 (0xc598)
+  DUT    = 0x40c8 (2.390625)
+  GOLDEN = 2.399222
+  ERROR = 0.008597
+  ERROR RATE = 0.003583
+PASS at 558
+  a      = -2.421000 (0xc059)
+  b      = 0.291000 (0x40cf)
+  DUT    = 0xc828 (-8.312500)
+  GOLDEN = -8.319588
+  ERROR = 0.007088
+  ERROR RATE = 0.000852
+PASS at 559
+  a      = -1.340000 (0xc856)
+  b      = -5.592000 (0xc747)
+  DUT    = 0x339f (0.238159)
+  GOLDEN = 0.239628
+  ERROR = 0.001469
+  ERROR RATE = 0.006130
+PASS at 560
+  a      = -2.173000 (0x4695)
+  b      = 2.404000 (0xb9b0)
+  DUT    = 0xbb42 (-0.907227)
+  GOLDEN = -0.903910
+  ERROR = 0.003316
+  ERROR RATE = 0.003669
+PASS at 561
+  a      = -8.672000 (0x44b3)
+  b      = -7.276000 (0x46c6)
+  DUT    = 0x3cc2 (1.189453)
+  GOLDEN = 1.191864
+  ERROR = 0.002411
+  ERROR RATE = 0.002022
+PASS at 562
+  a      = 6.583000 (0x35f0)
+  b      = -0.711000 (0xc89f)
+  DUT    = 0xc89b (-9.210938)
+  GOLDEN = -9.258790
+  ERROR = 0.047853
+  ERROR RATE = 0.005168
+PASS at 563
+  a      = 4.700000 (0x43b6)
+  b      = 6.773000 (0xc6c5)
+  DUT    = 0x3989 (0.691895)
+  GOLDEN = 0.693932
+  ERROR = 0.002037
+  ERROR RATE = 0.002936
+PASS at 564
+  a      = 0.371000 (0x45f3)
+  b      = -9.243000 (0xc409)
+  DUT    = 0xa929 (-0.040314)
+  GOLDEN = -0.040138
+  ERROR = 0.000175
+  ERROR RATE = 0.004366
+PASS at 565
+  a      = 3.856000 (0xc47a)
+  b      = -6.771000 (0xc6bc)
+  DUT    = 0xb88e (-0.569336)
+  GOLDEN = -0.569488
+  ERROR = 0.000152
+  ERROR RATE = 0.000266
+PASS at 566
+  a      = 5.948000 (0xc8c3)
+  b      = -4.035000 (0x4695)
+  DUT    = 0xbde0 (-1.468750)
+  GOLDEN = -1.474102
+  ERROR = 0.005352
+  ERROR RATE = 0.003630
+PASS at 567
+  a      = -4.478000 (0xc448)
+  b      = -6.736000 (0x41a0)
+  DUT    = 0x394d (0.662598)
+  GOLDEN = 0.664786
+  ERROR = 0.002189
+  ERROR RATE = 0.003292
+PASS at 568
+  a      = -9.524000 (0x44c3)
+  b      = 6.583000 (0x4116)
+  DUT    = 0xbdc8 (-1.445312)
+  GOLDEN = -1.446757
+  ERROR = 0.001444
+  ERROR RATE = 0.000998
+PASS at 569
+  a      = -4.281000 (0x456b)
+  b      = 2.812000 (0x4287)
+  DUT    = 0xbe12 (-1.517578)
+  GOLDEN = -1.522404
+  ERROR = 0.004826
+  ERROR RATE = 0.003170
+PASS at 570
+  a      = 4.762000 (0xc774)
+  b      = 2.543000 (0x48d2)
+  DUT    = 0x3f7f (1.874023)
+  GOLDEN = 1.872591
+  ERROR = 0.001432
+  ERROR RATE = 0.000765
+PASS at 571
+  a      = 5.418000 (0x3e50)
+  b      = 3.264000 (0x42f1)
+  DUT    = 0x3ea8 (1.664062)
+  GOLDEN = 1.659926
+  ERROR = 0.004136
+  ERROR RATE = 0.002492
+PASS at 572
+  a      = -7.455000 (0x42e4)
+  b      = 9.639000 (0x46a5)
+  DUT    = 0xba2b (-0.770996)
+  GOLDEN = -0.773420
+  ERROR = 0.002424
+  ERROR RATE = 0.003135
+PASS at 573
+  a      = 1.578000 (0x4213)
+  b      = 3.470000 (0x4866)
+  DUT    = 0x3742 (0.453613)
+  GOLDEN = 0.454755
+  ERROR = 0.001142
+  ERROR RATE = 0.002511
+PASS at 574
+  a      = 3.446000 (0x47f5)
+  b      = 6.643000 (0x463e)
+  DUT    = 0x3822 (0.516602)
+  GOLDEN = 0.518742
+  ERROR = 0.002140
+  ERROR RATE = 0.004125
+PASS at 575
+  a      = 3.037000 (0x40a3)
+  b      = 8.794000 (0x47e5)
+  DUT    = 0x3589 (0.345947)
+  GOLDEN = 0.345349
+  ERROR = 0.000598
+  ERROR RATE = 0.001732
+PASS at 576
+  a      = 7.958000 (0x4536)
+  b      = 6.244000 (0x48d4)
+  DUT    = 0x3d1b (1.276367)
+  GOLDEN = 1.274504
+  ERROR = 0.001864
+  ERROR RATE = 0.001462
+PASS at 577
+  a      = 2.318000 (0x3f87)
+  b      = 7.895000 (0x4429)
+  DUT    = 0x34ae (0.292480)
+  GOLDEN = 0.293604
+  ERROR = 0.001123
+  ERROR RATE = 0.003825
+PASS at 578
+  a      = 5.212000 (0x4465)
+  b      = 9.656000 (0xc754)
+  DUT    = 0x384b (0.536621)
+  GOLDEN = 0.539768
+  ERROR = 0.003147
+  ERROR RATE = 0.005830
+PASS at 579
+  a      = 1.882000 (0x4412)
+  b      = 4.160000 (0xc0db)
+  DUT    = 0x3738 (0.451172)
+  GOLDEN = 0.452404
+  ERROR = 0.001232
+  ERROR RATE = 0.002723
+PASS at 580
+  a      = 4.395000 (0x445d)
+  b      = -7.330000 (0xc773)
+  DUT    = 0xb8c8 (-0.597656)
+  GOLDEN = -0.599591
+  ERROR = 0.001934
+  ERROR RATE = 0.003226
+PASS at 581
+  a      = 4.072000 (0xb4dd)
+  b      = -2.428000 (0x4282)
+  DUT    = 0xbeb1 (-1.672852)
+  GOLDEN = -1.677100
+  ERROR = 0.004249
+  ERROR RATE = 0.002533
+PASS at 582
+  a      = 4.362000 (0x40ae)
+  b      = -7.448000 (0xc234)
+  DUT    = 0xb8a8 (-0.582031)
+  GOLDEN = -0.585661
+  ERROR = 0.003629
+  ERROR RATE = 0.006197
+PASS at 583
+  a      = -0.304000 (0xc291)
+  b      = 3.253000 (0x4750)
+  DUT    = 0xadf0 (-0.092773)
+  GOLDEN = -0.093452
+  ERROR = 0.000679
+  ERROR RATE = 0.007263
+PASS at 584
+  a      = 2.339000 (0xc8e1)
+  b      = -3.101000 (0xc49e)
+  DUT    = 0xba01 (-0.750488)
+  GOLDEN = -0.754273
+  ERROR = 0.003785
+  ERROR RATE = 0.005017
+PASS at 585
+  a      = -3.283000 (0xc8bc)
+  b      = 7.311000 (0x3d7b)
+  DUT    = 0xb72e (-0.448730)
+  GOLDEN = -0.449049
+  ERROR = 0.000319
+  ERROR RATE = 0.000710
+PASS at 586
+  a      = -9.761000 (0xc207)
+  b      = -4.618000 (0x44fb)
+  DUT    = 0x403f (2.123047)
+  GOLDEN = 2.113686
+  ERROR = 0.009361
+  ERROR RATE = 0.004429
+PASS at 587
+  a      = -9.471000 (0x38fa)
+  b      = 1.370000 (0x446c)
+  DUT    = 0xc6e0 (-6.875000)
+  GOLDEN = -6.913139
+  ERROR = 0.038139
+  ERROR RATE = 0.005517
+PASS at 588
+  a      = -3.014000 (0xc50b)
+  b      = 4.980000 (0xb1f4)
+  DUT    = 0xb8cf (-0.601074)
+  GOLDEN = -0.605221
+  ERROR = 0.004147
+  ERROR RATE = 0.006851
+PASS at 589
+  a      = 0.622000 (0xb7d3)
+  b      = 4.422000 (0xbd57)
+  DUT    = 0x3082 (0.140869)
+  GOLDEN = 0.140660
+  ERROR = 0.000209
+  ERROR RATE = 0.001484
+PASS at 590
+  a      = -5.044000 (0x3a39)
+  b      = -0.186000 (0x478d)
+  DUT    = 0x4ec4 (27.062500)
+  GOLDEN = 27.118280
+  ERROR = 0.055780
+  ERROR RATE = 0.002057
+PASS at 591
+  a      = -0.489000 (0xc52f)
+  b      = -1.335000 (0x48c1)
+  DUT    = 0x35e0 (0.367188)
+  GOLDEN = 0.366292
+  ERROR = 0.000895
+  ERROR RATE = 0.002444
+PASS at 592
+  a      = 0.778000 (0x476f)
+  b      = 7.552000 (0x459d)
+  DUT    = 0x2e95 (0.102844)
+  GOLDEN = 0.103019
+  ERROR = 0.000175
+  ERROR RATE = 0.001697
+PASS at 593
+  a      = -5.185000 (0x4853)
+  b      = 9.505000 (0x44ad)
+  DUT    = 0xb857 (-0.542480)
+  GOLDEN = -0.545502
+  ERROR = 0.003022
+  ERROR RATE = 0.005540
+PASS at 594
+  a      = 7.432000 (0xc844)
+  b      = 5.615000 (0xbc94)
+  DUT    = 0x3d46 (1.318359)
+  GOLDEN = 1.323598
+  ERROR = 0.005238
+  ERROR RATE = 0.003957
+PASS at 595
+  a      = 8.648000 (0x3f0f)
+  b      = 4.676000 (0xbe92)
+  DUT    = 0x3f60 (1.843750)
+  GOLDEN = 1.849444
+  ERROR = 0.005694
+  ERROR RATE = 0.003079
+PASS at 596
+  a      = -8.530000 (0x46c9)
+  b      = -1.145000 (0x43a7)
+  DUT    = 0x4775 (7.457031)
+  GOLDEN = 7.449782
+  ERROR = 0.007250
+  ERROR RATE = 0.000973
+PASS at 597
+  a      = 1.765000 (0x41dd)
+  b      = -1.643000 (0xc73b)
+  DUT    = 0xbc45 (-1.067383)
+  GOLDEN = -1.074254
+  ERROR = 0.006872
+  ERROR RATE = 0.006397
+PASS at 598
+  a      = 6.786000 (0x4128)
+  b      = 3.826000 (0x4858)
+  DUT    = 0x3f1a (1.775391)
+  GOLDEN = 1.773654
+  ERROR = 0.001737
+  ERROR RATE = 0.000979
+PASS at 599
+  a      = 2.931000 (0xbac7)
+  b      = -7.230000 (0xc7ad)
+  DUT    = 0xb67a (-0.404785)
+  GOLDEN = -0.405394
+  ERROR = 0.000609
+  ERROR RATE = 0.001502
+PASS at 600
+  a      = 2.579000 (0xc55b)
+  b      = 8.684000 (0x4710)
+  DUT    = 0x34bb (0.295654)
+  GOLDEN = 0.296983
+  ERROR = 0.001329
+  ERROR RATE = 0.004474
+PASS at 601
+  a      = -0.847000 (0xc82f)
+  b      = -7.675000 (0x45b9)
+  DUT    = 0x2f06 (0.109741)
+  GOLDEN = 0.110358
+  ERROR = 0.000617
+  ERROR RATE = 0.005592
+PASS at 602
+  a      = -5.355000 (0x3e0e)
+  b      = 7.064000 (0xc828)
+  DUT    = 0xba09 (-0.754395)
+  GOLDEN = -0.758069
+  ERROR = 0.003675
+  ERROR RATE = 0.004847
+PASS at 603
+  a      = -8.369000 (0x4087)
+  b      = 5.724000 (0xc82c)
+  DUT    = 0xbdd0 (-1.453125)
+  GOLDEN = -1.462089
+  ERROR = 0.008964
+  ERROR RATE = 0.006131
+PASS at 604
+  a      = 1.514000 (0x48c4)
+  b      = -8.311000 (0xc833)
+  DUT    = 0xb1c8 (-0.180664)
+  GOLDEN = -0.182168
+  ERROR = 0.001504
+  ERROR RATE = 0.008257
+PASS at 605
+  a      = 2.263000 (0xb989)
+  b      = -8.344000 (0x43e8)
+  DUT    = 0xb451 (-0.269775)
+  GOLDEN = -0.271213
+  ERROR = 0.001437
+  ERROR RATE = 0.005300
+PASS at 606
+  a      = 9.528000 (0xc56e)
+  b      = -8.397000 (0xc82f)
+  DUT    = 0xbc88 (-1.132812)
+  GOLDEN = -1.134691
+  ERROR = 0.001878
+  ERROR RATE = 0.001655
+PASS at 607
+  a      = -0.692000 (0x4250)
+  b      = 3.953000 (0xc163)
+  DUT    = 0xb199 (-0.174927)
+  GOLDEN = -0.175057
+  ERROR = 0.000130
+  ERROR RATE = 0.000744
+PASS at 608
+  a      = -5.429000 (0x421b)
+  b      = -8.364000 (0xc561)
+  DUT    = 0x3930 (0.648438)
+  GOLDEN = 0.649091
+  ERROR = 0.000654
+  ERROR RATE = 0.001007
+PASS at 609
+  a      = 3.156000 (0xc614)
+  b      = -2.694000 (0x3f46)
+  DUT    = 0xbcae (-1.169922)
+  GOLDEN = -1.171492
+  ERROR = 0.001570
+  ERROR RATE = 0.001340
+PASS at 610
+  a      = 3.052000 (0x43bc)
+  b      = -5.379000 (0x4466)
+  DUT    = 0xb888 (-0.566406)
+  GOLDEN = -0.567392
+  ERROR = 0.000985
+  ERROR RATE = 0.001737
+PASS at 611
+  a      = -6.080000 (0xc5b0)
+  b      = 1.818000 (0x48e0)
+  DUT    = 0xc2a8 (-3.328125)
+  GOLDEN = -3.344334
+  ERROR = 0.016209
+  ERROR RATE = 0.004847
+PASS at 612
+  a      = 3.867000 (0x48c1)
+  b      = 4.397000 (0xc7e3)
+  DUT    = 0x3b06 (0.877930)
+  GOLDEN = 0.879463
+  ERROR = 0.001534
+  ERROR RATE = 0.001744
+PASS at 613
+  a      = -5.686000 (0xc46e)
+  b      = 9.753000 (0xc244)
+  DUT    = 0xb8a8 (-0.582031)
+  GOLDEN = -0.583000
+  ERROR = 0.000969
+  ERROR RATE = 0.001662
+PASS at 614
+  a      = 9.508000 (0xc5da)
+  b      = -7.885000 (0x4784)
+  DUT    = 0xbccf (-1.202148)
+  GOLDEN = -1.205834
+  ERROR = 0.003685
+  ERROR RATE = 0.003056
+PASS at 615
+  a      = -4.430000 (0x4171)
+  b      = -3.132000 (0x46ed)
+  DUT    = 0x3da0 (1.406250)
+  GOLDEN = 1.414432
+  ERROR = 0.008182
+  ERROR RATE = 0.005784
+PASS at 616
+  a      = -5.853000 (0x402a)
+  b      = 7.517000 (0xbe3d)
+  DUT    = 0xba34 (-0.775391)
+  GOLDEN = -0.778635
+  ERROR = 0.003244
+  ERROR RATE = 0.004167
+PASS at 617
+  a      = 2.720000 (0xc8ea)
+  b      = 6.925000 (0x4614)
+  DUT    = 0x3645 (0.391846)
+  GOLDEN = 0.392780
+  ERROR = 0.000934
+  ERROR RATE = 0.002378
+PASS at 618
+  a      = 2.082000 (0xc8fa)
+  b      = -1.560000 (0x4221)
+  DUT    = 0xbd54 (-1.332031)
+  GOLDEN = -1.334615
+  ERROR = 0.002584
+  ERROR RATE = 0.001936
+PASS at 619
+  a      = -9.827000 (0x486a)
+  b      = 6.079000 (0xacac)
+  DUT    = 0xbe7a (-1.619141)
+  GOLDEN = -1.616549
+  ERROR = 0.002592
+  ERROR RATE = 0.001603
+PASS at 620
+  a      = -9.952000 (0x48be)
+  b      = 3.064000 (0xc87d)
+  DUT    = 0xc27a (-3.238281)
+  GOLDEN = -3.248042
+  ERROR = 0.009761
+  ERROR RATE = 0.003005
+PASS at 621
+  a      = 8.829000 (0xc4fc)
+  b      = -0.073000 (0xbf55)
+  DUT    = 0xd78a (-120.625000)
+  GOLDEN = -120.945205
+  ERROR = 0.320205
+  ERROR RATE = 0.002648
+PASS at 622
+  a      = 9.487000 (0x44e4)
+  b      = -8.976000 (0xc2ed)
+  DUT    = 0xbc39 (-1.055664)
+  GOLDEN = -1.056930
+  ERROR = 0.001266
+  ERROR RATE = 0.001197
+PASS at 623
+  a      = -4.986000 (0xb842)
+  b      = -1.833000 (0x470e)
+  DUT    = 0x416b (2.708984)
+  GOLDEN = 2.720131
+  ERROR = 0.011147
+  ERROR RATE = 0.004098
+PASS at 624
+  a      = 4.892000 (0xc47d)
+  b      = -3.462000 (0x28dd)
+  DUT    = 0xbda0 (-1.406250)
+  GOLDEN = -1.413056
+  ERROR = 0.006806
+  ERROR RATE = 0.004817
+PASS at 625
+  a      = -0.532000 (0x4432)
+  b      = 7.055000 (0x3ae3)
+  DUT    = 0xacd6 (-0.075562)
+  GOLDEN = -0.075408
+  ERROR = 0.000154
+  ERROR RATE = 0.002042
+PASS at 626
+  a      = -4.489000 (0xb50a)
+  b      = 0.038000 (0x47c6)
+  DUT    = 0xd760 (-118.000000)
+  GOLDEN = -118.131579
+  ERROR = 0.131579
+  ERROR RATE = 0.001114
+PASS at 627
+  a      = 4.197000 (0xc504)
+  b      = 0.861000 (0x48a6)
+  DUT    = 0x44dc (4.859375)
+  GOLDEN = 4.874564
+  ERROR = 0.015189
+  ERROR RATE = 0.003116
+PASS at 628
+  a      = -0.315000 (0xc68f)
+  b      = 7.772000 (0xc096)
+  DUT    = 0xa930 (-0.040527)
+  GOLDEN = -0.040530
+  ERROR = 0.000003
+  ERROR RATE = 0.000068
+PASS at 629
+  a      = -5.017000 (0xc173)
+  b      = 9.294000 (0xc8ad)
+  DUT    = 0xb851 (-0.539551)
+  GOLDEN = -0.539811
+  ERROR = 0.000260
+  ERROR RATE = 0.000481
+PASS at 630
+  a      = -6.557000 (0x3d6e)
+  b      = -2.292000 (0xc29b)
+  DUT    = 0x41b8 (2.859375)
+  GOLDEN = 2.860820
+  ERROR = 0.001445
+  ERROR RATE = 0.000505
+PASS at 631
+  a      = -2.724000 (0x45ae)
+  b      = -9.354000 (0x45cf)
+  DUT    = 0x34a8 (0.291016)
+  GOLDEN = 0.291212
+  ERROR = 0.000197
+  ERROR RATE = 0.000675
+PASS at 632
+  a      = 1.357000 (0x40dd)
+  b      = -3.303000 (0x4322)
+  DUT    = 0xb68c (-0.409180)
+  GOLDEN = -0.410839
+  ERROR = 0.001659
+  ERROR RATE = 0.004038
+PASS at 633
+  a      = 5.680000 (0x4438)
+  b      = 5.810000 (0xc7da)
+  DUT    = 0x3bd4 (0.978516)
+  GOLDEN = 0.977625
+  ERROR = 0.000891
+  ERROR RATE = 0.000911
+PASS at 634
+  a      = 2.431000 (0x3b7f)
+  b      = 3.566000 (0x48bf)
+  DUT    = 0x396b (0.677246)
+  GOLDEN = 0.681716
+  ERROR = 0.004470
+  ERROR RATE = 0.006557
+PASS at 635
+  a      = 4.218000 (0x4897)
+  b      = -7.853000 (0x4071)
+  DUT    = 0xb84b (-0.536621)
+  GOLDEN = -0.537120
+  ERROR = 0.000498
+  ERROR RATE = 0.000928
+PASS at 636
+  a      = 0.937000 (0x41aa)
+  b      = 9.496000 (0x4350)
+  DUT    = 0x2e4e (0.098511)
+  GOLDEN = 0.098673
+  ERROR = 0.000162
+  ERROR RATE = 0.001646
+PASS at 637
+  a      = 9.180000 (0x3c64)
+  b      = 2.220000 (0x4873)
+  DUT    = 0x441c (4.109375)
+  GOLDEN = 4.135135
+  ERROR = 0.025760
+  ERROR RATE = 0.006230
+PASS at 638
+  a      = 2.833000 (0x45fa)
+  b      = 3.657000 (0x3971)
+  DUT    = 0x3a2b (0.770996)
+  GOLDEN = 0.774679
+  ERROR = 0.003683
+  ERROR RATE = 0.004754
+PASS at 639
+  a      = 1.098000 (0x46d1)
+  b      = 8.898000 (0x2c19)
+  DUT    = 0x2fdf (0.122986)
+  GOLDEN = 0.123399
+  ERROR = 0.000413
+  ERROR RATE = 0.003344
+PASS at 640
+  a      = 5.978000 (0x3825)
+  b      = 0.680000 (0x4821)
+  DUT    = 0x4863 (8.773438)
+  GOLDEN = 8.791176
+  ERROR = 0.017739
+  ERROR RATE = 0.002018
+PASS at 641
+  a      = 6.817000 (0x46ad)
+  b      = 0.064000 (0x4432)
+  DUT    = 0x56a8 (106.500000)
+  GOLDEN = 106.515625
+  ERROR = 0.015625
+  ERROR RATE = 0.000147
+PASS at 642
+  a      = 0.518000 (0xc56b)
+  b      = 8.256000 (0x3b0e)
+  DUT    = 0x2c00 (0.062500)
+  GOLDEN = 0.062742
+  ERROR = 0.000242
+  ERROR RATE = 0.003861
+PASS at 643
+  a      = 6.676000 (0xc2f4)
+  b      = 4.195000 (0x3ff8)
+  DUT    = 0x3e57 (1.584961)
+  GOLDEN = 1.591418
+  ERROR = 0.006457
+  ERROR RATE = 0.004058
+PASS at 644
+  a      = -5.418000 (0xc087)
+  b      = 0.882000 (0xa9a2)
+  DUT    = 0xc623 (-6.136719)
+  GOLDEN = -6.142857
+  ERROR = 0.006138
+  ERROR RATE = 0.000999
+PASS at 645
+  a      = -3.476000 (0x482f)
+  b      = 1.992000 (0x4362)
+  DUT    = 0xbef3 (-1.737305)
+  GOLDEN = -1.744980
+  ERROR = 0.007675
+  ERROR RATE = 0.004398
+PASS at 646
+  a      = -2.264000 (0xc297)
+  b      = -0.044000 (0xc56e)
+  DUT    = 0x525f (50.968750)
+  GOLDEN = 51.454545
+  ERROR = 0.485795
+  ERROR RATE = 0.009441
+PASS at 647
+  a      = 8.367000 (0x2df4)
+  b      = 3.691000 (0xc8a9)
+  DUT    = 0x4082 (2.253906)
+  GOLDEN = 2.266865
+  ERROR = 0.012959
+  ERROR RATE = 0.005717
+PASS at 648
+  a      = -3.295000 (0xc89b)
+  b      = -5.429000 (0xc8e5)
+  DUT    = 0x38d6 (0.604492)
+  GOLDEN = 0.606926
+  ERROR = 0.002434
+  ERROR RATE = 0.004010
+PASS at 649
+  a      = 0.093000 (0x4081)
+  b      = -9.319000 (0xbc4c)
+  DUT    = 0xa11b (-0.009972)
+  GOLDEN = -0.009980
+  ERROR = 0.000008
+  ERROR RATE = 0.000801
+PASS at 650
+  a      = -9.208000 (0x4445)
+  b      = -9.787000 (0x4893)
+  DUT    = 0x3b8a (0.942383)
+  GOLDEN = 0.940840
+  ERROR = 0.001543
+  ERROR RATE = 0.001640
+PASS at 651
+  a      = 2.252000 (0x482d)
+  b      = -1.074000 (0xc854)
+  DUT    = 0xc033 (-2.099609)
+  GOLDEN = -2.096834
+  ERROR = 0.002775
+  ERROR RATE = 0.001323
+PASS at 652
+  a      = 4.270000 (0xc8bc)
+  b      = 9.146000 (0xc3c3)
+  DUT    = 0x3775 (0.466064)
+  GOLDEN = 0.466871
+  ERROR = 0.000806
+  ERROR RATE = 0.001727
+PASS at 653
+  a      = 8.352000 (0xc668)
+  b      = -8.656000 (0x41c7)
+  DUT    = 0xbbb4 (-0.962891)
+  GOLDEN = -0.964880
+  ERROR = 0.001989
+  ERROR RATE = 0.002062
+PASS at 654
+  a      = -9.466000 (0x4467)
+  b      = -3.881000 (0xbf47)
+  DUT    = 0x40dc (2.429688)
+  GOLDEN = 2.439062
+  ERROR = 0.009375
+  ERROR RATE = 0.003844
+PASS at 655
+  a      = -6.407000 (0x3d5b)
+  b      = 2.888000 (0x418f)
+  DUT    = 0xc075 (-2.228516)
+  GOLDEN = -2.218490
+  ERROR = 0.010025
+  ERROR RATE = 0.004519
+PASS at 656
+  a      = 4.404000 (0x442e)
+  b      = -1.819000 (0x44f0)
+  DUT    = 0xc0cf (-2.404297)
+  GOLDEN = -2.421111
+  ERROR = 0.016814
+  ERROR RATE = 0.006945
+PASS at 657
+  a      = 1.339000 (0x482e)
+  b      = 2.780000 (0xc3f0)
+  DUT    = 0x37b4 (0.481445)
+  GOLDEN = 0.481655
+  ERROR = 0.000209
+  ERROR RATE = 0.000435
+PASS at 658
+  a      = 4.181000 (0xbd7e)
+  b      = 4.938000 (0x40c5)
+  DUT    = 0x3aba (0.840820)
+  GOLDEN = 0.846699
+  ERROR = 0.005879
+  ERROR RATE = 0.006943
+PASS at 659
+  a      = 8.362000 (0xc8aa)
+  b      = -3.968000 (0x4851)
+  DUT    = 0xc02d (-2.087891)
+  GOLDEN = -2.107359
+  ERROR = 0.019468
+  ERROR RATE = 0.009238
+PASS at 660
+  a      = -1.373000 (0x434a)
+  b      = 2.385000 (0x4777)
+  DUT    = 0xb89b (-0.575684)
+  GOLDEN = -0.575681
+  ERROR = 0.000002
+  ERROR RATE = 0.000004
+PASS at 661
+  a      = -9.329000 (0xc7c9)
+  b      = 8.632000 (0x399c)
+  DUT    = 0xbc51 (-1.079102)
+  GOLDEN = -1.080746
+  ERROR = 0.001644
+  ERROR RATE = 0.001522
+PASS at 662
+  a      = 3.644000 (0x4787)
+  b      = 7.463000 (0xc514)
+  DUT    = 0x37d4 (0.489258)
+  GOLDEN = 0.488275
+  ERROR = 0.000982
+  ERROR RATE = 0.002012
+PASS at 663
+  a      = -7.786000 (0xc4ad)
+  b      = 0.701000 (0xc8b9)
+  DUT    = 0xc991 (-11.132812)
+  GOLDEN = -11.106990
+  ERROR = 0.025822
+  ERROR RATE = 0.002325
+PASS at 664
+  a      = 7.528000 (0x4024)
+  b      = -5.077000 (0xc082)
+  DUT    = 0xbde8 (-1.476562)
+  GOLDEN = -1.482765
+  ERROR = 0.006203
+  ERROR RATE = 0.004183
+PASS at 665
+  a      = -4.675000 (0x4666)
+  b      = -9.449000 (0x48af)
+  DUT    = 0x37df (0.491943)
+  GOLDEN = 0.494761
+  ERROR = 0.002818
+  ERROR RATE = 0.005696
+PASS at 666
+  a      = 2.070000 (0xc821)
+  b      = -2.253000 (0x4333)
+  DUT    = 0xbb4c (-0.912109)
+  GOLDEN = -0.918775
+  ERROR = 0.006666
+  ERROR RATE = 0.007255
+PASS at 667
+  a      = 6.400000 (0xc2a4)
+  b      = 9.364000 (0x45d6)
+  DUT    = 0x397a (0.684570)
+  GOLDEN = 0.683469
+  ERROR = 0.001102
+  ERROR RATE = 0.001612
+PASS at 668
+  a      = -8.261000 (0xc541)
+  b      = 3.599000 (0xc6ea)
+  DUT    = 0xc094 (-2.289062)
+  GOLDEN = -2.295360
+  ERROR = 0.006297
+  ERROR RATE = 0.002744
+PASS at 669
+  a      = -3.320000 (0x451a)
+  b      = 5.836000 (0xc4e4)
+  DUT    = 0xb88e (-0.569336)
+  GOLDEN = -0.568883
+  ERROR = 0.000453
+  ERROR RATE = 0.000797
+PASS at 670
+  a      = -5.253000 (0xc6ed)
+  b      = -6.916000 (0x48ac)
+  DUT    = 0x3a12 (0.758789)
+  GOLDEN = 0.759543
+  ERROR = 0.000754
+  ERROR RATE = 0.000993
+PASS at 671
+  a      = 5.103000 (0xc1e3)
+  b      = -4.891000 (0x471f)
+  DUT    = 0xbc2d (-1.043945)
+  GOLDEN = -1.043345
+  ERROR = 0.000600
+  ERROR RATE = 0.000575
+PASS at 672
+  a      = -6.924000 (0xc46e)
+  b      = 9.346000 (0xb47b)
+  DUT    = 0xb9e8 (-0.738281)
+  GOLDEN = -0.740852
+  ERROR = 0.002570
+  ERROR RATE = 0.003470
+PASS at 673
+  a      = -2.944000 (0x3d81)
+  b      = 7.120000 (0x47a8)
+  DUT    = 0xb69e (-0.413574)
+  GOLDEN = -0.413483
+  ERROR = 0.000091
+  ERROR RATE = 0.000220
+PASS at 674
+  a      = -4.429000 (0x3302)
+  b      = -0.280000 (0xc7ea)
+  DUT    = 0x4bdf (15.742188)
+  GOLDEN = 15.817857
+  ERROR = 0.075670
+  ERROR RATE = 0.004784
+PASS at 675
+  a      = 1.376000 (0x4806)
+  b      = 7.657000 (0x47d1)
+  DUT    = 0x31b8 (0.178711)
+  GOLDEN = 0.179705
+  ERROR = 0.000994
+  ERROR RATE = 0.005531
+PASS at 676
+  a      = 0.219000 (0xc81f)
+  b      = -7.914000 (0xc498)
+  DUT    = 0xa710 (-0.027588)
+  GOLDEN = -0.027672
+  ERROR = 0.000085
+  ERROR RATE = 0.003057
+PASS at 677
+  a      = 8.043000 (0xbedf)
+  b      = 7.816000 (0xc741)
+  DUT    = 0x3c16 (1.021484)
+  GOLDEN = 1.029043
+  ERROR = 0.007559
+  ERROR RATE = 0.007345
+PASS at 678
+  a      = -8.245000 (0x41c1)
+  b      = -4.594000 (0x487a)
+  DUT    = 0x3f1a (1.775391)
+  GOLDEN = 1.794732
+  ERROR = 0.019342
+  ERROR RATE = 0.010777
+PASS at 679
+  a      = -1.718000 (0x42a1)
+  b      = -7.255000 (0x4743)
+  DUT    = 0x338a (0.235596)
+  GOLDEN = 0.236802
+  ERROR = 0.001207
+  ERROR RATE = 0.005095
+PASS at 680
+  a      = 2.877000 (0xba1d)
+  b      = 8.956000 (0xc724)
+  DUT    = 0x3522 (0.320801)
+  GOLDEN = 0.321237
+  ERROR = 0.000436
+  ERROR RATE = 0.001358
+PASS at 681
+  a      = 3.315000 (0x4522)
+  b      = 7.262000 (0xc498)
+  DUT    = 0x374c (0.456055)
+  GOLDEN = 0.456486
+  ERROR = 0.000431
+  ERROR RATE = 0.000944
+PASS at 682
+  a      = -0.764000 (0x48d7)
+  b      = -7.139000 (0x3931)
+  DUT    = 0x2ed6 (0.106812)
+  GOLDEN = 0.107018
+  ERROR = 0.000206
+  ERROR RATE = 0.001927
+PASS at 683
+  a      = 5.133000 (0xc739)
+  b      = -4.592000 (0x470f)
+  DUT    = 0xbc75 (-1.114258)
+  GOLDEN = -1.117814
+  ERROR = 0.003556
+  ERROR RATE = 0.003181
+PASS at 684
+  a      = 9.676000 (0xc8b6)
+  b      = 0.649000 (0xbed5)
+  DUT    = 0x4b6a (14.828125)
+  GOLDEN = 14.909091
+  ERROR = 0.080966
+  ERROR RATE = 0.005431
+PASS at 685
+  a      = -7.221000 (0xc566)
+  b      = 7.059000 (0x47dc)
+  DUT    = 0xbc16 (-1.021484)
+  GOLDEN = -1.022949
+  ERROR = 0.001465
+  ERROR RATE = 0.001432
+PASS at 686
+  a      = -9.420000 (0xbcd9)
+  b      = -1.708000 (0xc044)
+  DUT    = 0x457a (5.476562)
+  GOLDEN = 5.515222
+  ERROR = 0.038660
+  ERROR RATE = 0.007010
+PASS at 687
+  a      = -5.397000 (0x4224)
+  b      = 7.860000 (0xc422)
+  DUT    = 0xb97a (-0.684570)
+  GOLDEN = -0.686641
+  ERROR = 0.002071
+  ERROR RATE = 0.003016
+PASS at 688
+  a      = -1.212000 (0x48fd)
+  b      = -2.132000 (0x47eb)
+  DUT    = 0x388e (0.569336)
+  GOLDEN = 0.568480
+  ERROR = 0.000856
+  ERROR RATE = 0.001505
+PASS at 689
+  a      = 3.071000 (0x485a)
+  b      = -4.131000 (0xc022)
+  DUT    = 0xb9f0 (-0.742188)
+  GOLDEN = -0.743404
+  ERROR = 0.001216
+  ERROR RATE = 0.001636
+PASS at 690
+  a      = 9.976000 (0x485d)
+  b      = 7.917000 (0xc677)
+  DUT    = 0x3d06 (1.255859)
+  GOLDEN = 1.260073
+  ERROR = 0.004214
+  ERROR RATE = 0.003344
+PASS at 691
+  a      = 8.703000 (0x40e5)
+  b      = -2.067000 (0xbac7)
+  DUT    = 0xc433 (-4.199219)
+  GOLDEN = -4.210450
+  ERROR = 0.011231
+  ERROR RATE = 0.002667
+PASS at 692
+  a      = 8.728000 (0xc280)
+  b      = -6.463000 (0xc5a2)
+  DUT    = 0xbd63 (-1.346680)
+  GOLDEN = -1.350456
+  ERROR = 0.003777
+  ERROR RATE = 0.002797
+PASS at 693
+  a      = 2.448000 (0xb89c)
+  b      = -0.847000 (0x48ca)
+  DUT    = 0xc1c0 (-2.875000)
+  GOLDEN = -2.890201
+  ERROR = 0.015201
+  ERROR RATE = 0.005259
+PASS at 694
+  a      = -3.250000 (0xc434)
+  b      = -5.632000 (0x3fe3)
+  DUT    = 0x389b (0.575684)
+  GOLDEN = 0.577060
+  ERROR = 0.001376
+  ERROR RATE = 0.002385
+PASS at 695
+  a      = -0.576000 (0x4036)
+  b      = 9.579000 (0x3c38)
+  DUT    = 0xaba9 (-0.059845)
+  GOLDEN = -0.060132
+  ERROR = 0.000287
+  ERROR RATE = 0.004766
+PASS at 696
+  a      = -4.205000 (0x489b)
+  b      = 1.972000 (0x45d4)
+  DUT    = 0xc03f (-2.123047)
+  GOLDEN = -2.132353
+  ERROR = 0.009306
+  ERROR RATE = 0.004364
+PASS at 697
+  a      = 2.106000 (0xc1ed)
+  b      = 1.055000 (0x4806)
+  DUT    = 0x3fea (1.978516)
+  GOLDEN = 1.996209
+  ERROR = 0.017693
+  ERROR RATE = 0.008863
+PASS at 698
+  a      = 9.210000 (0x4826)
+  b      = 5.828000 (0x48ec)
+  DUT    = 0x3e4e (1.576172)
+  GOLDEN = 1.580302
+  ERROR = 0.004130
+  ERROR RATE = 0.002613
+PASS at 699
+  a      = -2.963000 (0x44d1)
+  b      = 8.043000 (0x441a)
+  DUT    = 0xb5e8 (-0.369141)
+  GOLDEN = -0.368395
+  ERROR = 0.000746
+  ERROR RATE = 0.002024
+PASS at 700
+  a      = 8.294000 (0x45d2)
+  b      = 9.842000 (0x4713)
+  DUT    = 0x3ab1 (0.836426)
+  GOLDEN = 0.842715
+  ERROR = 0.006289
+  ERROR RATE = 0.007463
+PASS at 701
+  a      = 4.818000 (0x4447)
+  b      = 4.103000 (0x419e)
+  DUT    = 0x3cae (1.169922)
+  GOLDEN = 1.174263
+  ERROR = 0.004341
+  ERROR RATE = 0.003697
+PASS at 702
+  a      = 5.821000 (0x4792)
+  b      = 7.074000 (0x3da5)
+  DUT    = 0x3a95 (0.822754)
+  GOLDEN = 0.822872
+  ERROR = 0.000119
+  ERROR RATE = 0.000144
+PASS at 703
+  a      = 4.278000 (0x48b9)
+  b      = 2.808000 (0x4826)
+  DUT    = 0x3e12 (1.517578)
+  GOLDEN = 1.523504
+  ERROR = 0.005926
+  ERROR RATE = 0.003890
+PASS at 704
+  a      = 7.570000 (0x40f9)
+  b      = 1.411000 (0x4537)
+  DUT    = 0x455c (5.359375)
+  GOLDEN = 5.364989
+  ERROR = 0.005614
+  ERROR RATE = 0.001046
+PASS at 705
+  a      = 9.444000 (0x40a1)
+  b      = 8.300000 (0xbe9a)
+  DUT    = 0x3c8e (1.138672)
+  GOLDEN = 1.137831
+  ERROR = 0.000841
+  ERROR RATE = 0.000739
+PASS at 706
+  a      = 2.486000 (0x3e73)
+  b      = 5.216000 (0xbddf)
+  DUT    = 0x37a9 (0.478760)
+  GOLDEN = 0.476610
+  ERROR = 0.002149
+  ERROR RATE = 0.004510
+PASS at 707
+  a      = 2.315000 (0x422c)
+  b      = -1.650000 (0xc57f)
+  DUT    = 0xbd99 (-1.399414)
+  GOLDEN = -1.403030
+  ERROR = 0.003616
+  ERROR RATE = 0.002577
+PASS at 708
+  a      = 1.612000 (0xc160)
+  b      = -1.468000 (0x48db)
+  DUT    = 0xbc63 (-1.096680)
+  GOLDEN = -1.098093
+  ERROR = 0.001413
+  ERROR RATE = 0.001287
+PASS at 709
+  a      = 3.086000 (0x2d50)
+  b      = -5.496000 (0xc8c4)
+  DUT    = 0xb87b (-0.560059)
+  GOLDEN = -0.561499
+  ERROR = 0.001441
+  ERROR RATE = 0.002566
+PASS at 710
+  a      = -2.688000 (0xb093)
+  b      = 9.713000 (0x3d01)
+  DUT    = 0xb46f (-0.277100)
+  GOLDEN = -0.276743
+  ERROR = 0.000357
+  ERROR RATE = 0.001290
+PASS at 711
+  a      = 0.083000 (0xc0d8)
+  b      = -9.529000 (0xc7bc)
+  DUT    = 0xa075 (-0.008705)
+  GOLDEN = -0.008710
+  ERROR = 0.000005
+  ERROR RATE = 0.000587
+PASS at 712
+  a      = -0.143000 (0xa5e3)
+  b      = 1.251000 (0x453d)
+  DUT    = 0xaf4c (-0.114014)
+  GOLDEN = -0.114309
+  ERROR = 0.000295
+  ERROR RATE = 0.002580
+PASS at 713
+  a      = -2.421000 (0xb702)
+  b      = -7.734000 (0x4775)
+  DUT    = 0x3506 (0.313965)
+  GOLDEN = 0.313033
+  ERROR = 0.000931
+  ERROR RATE = 0.002976
+PASS at 714
+  a      = -0.023000 (0x44a9)
+  b      = 5.238000 (0x47a4)
+  DUT    = 0x9c7b (-0.004375)
+  GOLDEN = -0.004391
+  ERROR = 0.000016
+  ERROR RATE = 0.003537
+PASS at 715
+  a      = -0.438000 (0xc830)
+  b      = 7.456000 (0xc5fa)
+  DUT    = 0xab7f (-0.058563)
+  GOLDEN = -0.058745
+  ERROR = 0.000181
+  ERROR RATE = 0.003088
+PASS at 716
+  a      = 4.662000 (0xc10f)
+  b      = 7.642000 (0xc685)
+  DUT    = 0x38dc (0.607422)
+  GOLDEN = 0.610050
+  ERROR = 0.002628
+  ERROR RATE = 0.004308
+PASS at 717
+  a      = -8.372000 (0x4891)
+  b      = -5.978000 (0x349c)
+  DUT    = 0x3d99 (1.399414)
+  GOLDEN = 1.400468
+  ERROR = 0.001054
+  ERROR RATE = 0.000753
+PASS at 718
+  a      = -2.529000 (0xc869)
+  b      = -6.519000 (0x4875)
+  DUT    = 0x362b (0.385498)
+  GOLDEN = 0.387943
+  ERROR = 0.002445
+  ERROR RATE = 0.006302
+PASS at 719
+  a      = 9.134000 (0x4654)
+  b      = 0.288000 (0x3e9b)
+  DUT    = 0x4fea (31.656250)
+  GOLDEN = 31.715278
+  ERROR = 0.059028
+  ERROR RATE = 0.001861
+PASS at 720
+  a      = -8.821000 (0x485c)
+  b      = 8.917000 (0x489a)
+  DUT    = 0xbbea (-0.989258)
+  GOLDEN = -0.989234
+  ERROR = 0.000024
+  ERROR RATE = 0.000024
+PASS at 721
+  a      = 6.328000 (0xc0f5)
+  b      = 1.651000 (0xc148)
+  DUT    = 0x43a9 (3.830078)
+  GOLDEN = 3.832829
+  ERROR = 0.002750
+  ERROR RATE = 0.000718
+PASS at 722
+  a      = 8.716000 (0x4420)
+  b      = 9.200000 (0xbbcd)
+  DUT    = 0x3b8a (0.942383)
+  GOLDEN = 0.947391
+  ERROR = 0.005008
+  ERROR RATE = 0.005287
+PASS at 723
+  a      = -2.478000 (0x42bb)
+  b      = -2.641000 (0x3804)
+  DUT    = 0x3b75 (0.932129)
+  GOLDEN = 0.938281
+  ERROR = 0.006152
+  ERROR RATE = 0.006557
+PASS at 724
+  a      = 4.125000 (0x4576)
+  b      = -0.975000 (0xc0f5)
+  DUT    = 0xc439 (-4.222656)
+  GOLDEN = -4.230769
+  ERROR = 0.008113
+  ERROR RATE = 0.001918
+PASS at 725
+  a      = 3.366000 (0x4518)
+  b      = 0.502000 (0x46bb)
+  DUT    = 0x46b1 (6.691406)
+  GOLDEN = 6.705179
+  ERROR = 0.013773
+  ERROR RATE = 0.002054
+PASS at 726
+  a      = 5.459000 (0xba7d)
+  b      = -2.478000 (0xc41d)
+  DUT    = 0xc063 (-2.193359)
+  GOLDEN = -2.202986
+  ERROR = 0.009627
+  ERROR RATE = 0.004370
+PASS at 727
+  a      = 5.095000 (0xbcfd)
+  b      = 6.732000 (0x42f8)
+  DUT    = 0x3a09 (0.754395)
+  GOLDEN = 0.756833
+  ERROR = 0.002439
+  ERROR RATE = 0.003222
+PASS at 728
+  a      = -0.811000 (0xc88e)
+  b      = -4.115000 (0x3958)
+  DUT    = 0x324e (0.197021)
+  GOLDEN = 0.197084
+  ERROR = 0.000062
+  ERROR RATE = 0.000316
+PASS at 729
+  a      = -1.247000 (0x425d)
+  b      = 3.484000 (0xc863)
+  DUT    = 0xb5b0 (-0.355469)
+  GOLDEN = -0.357922
+  ERROR = 0.002453
+  ERROR RATE = 0.006854
+PASS at 730
+  a      = -9.113000 (0x45d1)
+  b      = 0.668000 (0xc881)
+  DUT    = 0xcac4 (-13.531250)
+  GOLDEN = -13.642216
+  ERROR = 0.110966
+  ERROR RATE = 0.008134
+PASS at 731
+  a      = 3.182000 (0x45a0)
+  b      = -8.771000 (0xc3fe)
+  DUT    = 0xb5c8 (-0.361328)
+  GOLDEN = -0.362786
+  ERROR = 0.001458
+  ERROR RATE = 0.004020
+PASS at 732
+  a      = 5.815000 (0xc7e4)
+  b      = -9.008000 (0x48bf)
+  DUT    = 0xb929 (-0.645020)
+  GOLDEN = -0.645537
+  ERROR = 0.000518
+  ERROR RATE = 0.000802
+PASS at 733
+  a      = 5.624000 (0xc2fa)
+  b      = -3.997000 (0xc8d9)
+  DUT    = 0xbda0 (-1.406250)
+  GOLDEN = -1.407055
+  ERROR = 0.000805
+  ERROR RATE = 0.000572
+PASS at 734
+  a      = -7.892000 (0x472b)
+  b      = 9.493000 (0xc550)
+  DUT    = 0xbaa8 (-0.832031)
+  GOLDEN = -0.831349
+  ERROR = 0.000682
+  ERROR RATE = 0.000820
+PASS at 735
+  a      = -3.489000 (0x4884)
+  b      = -9.692000 (0xc6c6)
+  DUT    = 0x35c0 (0.359375)
+  GOLDEN = 0.359988
+  ERROR = 0.000613
+  ERROR RATE = 0.001702
+PASS at 736
+  a      = 7.168000 (0xb85a)
+  b      = -5.314000 (0x3e5c)
+  DUT    = 0xbd63 (-1.346680)
+  GOLDEN = -1.348890
+  ERROR = 0.002210
+  ERROR RATE = 0.001638
+PASS at 737
+  a      = 9.028000 (0x3f53)
+  b      = -6.775000 (0x4427)
+  DUT    = 0xbd54 (-1.332031)
+  GOLDEN = -1.332546
+  ERROR = 0.000515
+  ERROR RATE = 0.000386
+PASS at 738
+  a      = -0.544000 (0xbaf6)
+  b      = 1.590000 (0x4827)
+  DUT    = 0xb57a (-0.342285)
+  GOLDEN = -0.342138
+  ERROR = 0.000147
+  ERROR RATE = 0.000429
+PASS at 739
+  a      = 1.831000 (0x468e)
+  b      = 4.153000 (0xc2ec)
+  DUT    = 0x3710 (0.441406)
+  GOLDEN = 0.440886
+  ERROR = 0.000520
+  ERROR RATE = 0.001180
+PASS at 740
+  a      = -0.870000 (0xc1de)
+  b      = 8.301000 (0xc842)
+  DUT    = 0xaeba (-0.105103)
+  GOLDEN = -0.104807
+  ERROR = 0.000296
+  ERROR RATE = 0.002823
+PASS at 741
+  a      = 6.556000 (0xbcf7)
+  b      = -3.461000 (0x428a)
+  DUT    = 0xbf8a (-1.884766)
+  GOLDEN = -1.894250
+  ERROR = 0.009485
+  ERROR RATE = 0.005007
+PASS at 742
+  a      = -2.934000 (0x483c)
+  b      = -8.512000 (0x4019)
+  DUT    = 0x357a (0.342285)
+  GOLDEN = 0.344690
+  ERROR = 0.002405
+  ERROR RATE = 0.006976
+PASS at 743
+  a      = -1.241000 (0x4634)
+  b      = 3.269000 (0xc850)
+  DUT    = 0xb609 (-0.377197)
+  GOLDEN = -0.379627
+  ERROR = 0.002430
+  ERROR RATE = 0.006400
+PASS at 744
+  a      = 8.472000 (0xc8c6)
+  b      = 2.049000 (0x4890)
+  DUT    = 0x441c (4.109375)
+  GOLDEN = 4.134700
+  ERROR = 0.025325
+  ERROR RATE = 0.006125
+PASS at 745
+  a      = 6.202000 (0xc668)
+  b      = -8.624000 (0x48bd)
+  DUT    = 0xb9b8 (-0.714844)
+  GOLDEN = -0.719156
+  ERROR = 0.004312
+  ERROR RATE = 0.005996
+PASS at 746
+  a      = -9.547000 (0x46ce)
+  b      = 9.123000 (0xba17)
+  DUT    = 0xbc28 (-1.039062)
+  GOLDEN = -1.046476
+  ERROR = 0.007413
+  ERROR RATE = 0.007084
+PASS at 747
+  a      = -6.408000 (0x44bc)
+  b      = 9.480000 (0xb419)
+  DUT    = 0xb96b (-0.677246)
+  GOLDEN = -0.675949
+  ERROR = 0.001297
+  ERROR RATE = 0.001918
+PASS at 748
+  a      = 6.805000 (0xc255)
+  b      = -0.761000 (0xbe16)
+  DUT    = 0xc875 (-8.914062)
+  GOLDEN = -8.942181
+  ERROR = 0.028119
+  ERROR RATE = 0.003145
+PASS at 749
+  a      = 4.735000 (0x4594)
+  b      = -0.256000 (0xc8ee)
+  DUT    = 0xcc9b (-18.421875)
+  GOLDEN = -18.496094
+  ERROR = 0.074219
+  ERROR RATE = 0.004013
+PASS at 750
+  a      = -3.166000 (0xc198)
+  b      = -1.521000 (0x488c)
+  DUT    = 0x4028 (2.078125)
+  GOLDEN = 2.081525
+  ERROR = 0.003400
+  ERROR RATE = 0.001634
+PASS at 751
+  a      = 5.580000 (0xc250)
+  b      = -9.858000 (0x4270)
+  DUT    = 0xb888 (-0.566406)
+  GOLDEN = -0.566038
+  ERROR = 0.000369
+  ERROR RATE = 0.000651
+PASS at 752
+  a      = -2.796000 (0x46af)
+  b      = 9.095000 (0x4888)
+  DUT    = 0xb4ea (-0.307129)
+  GOLDEN = -0.307422
+  ERROR = 0.000293
+  ERROR RATE = 0.000952
+PASS at 753
+  a      = -3.157000 (0xc79e)
+  b      = 3.218000 (0x4840)
+  DUT    = 0xbbd4 (-0.978516)
+  GOLDEN = -0.981044
+  ERROR = 0.002529
+  ERROR RATE = 0.002577
+PASS at 754
+  a      = 6.685000 (0xc545)
+  b      = 9.065000 (0x46da)
+  DUT    = 0x39e0 (0.734375)
+  GOLDEN = 0.737452
+  ERROR = 0.003077
+  ERROR RATE = 0.004172
+PASS at 755
+  a      = -7.619000 (0xc633)
+  b      = 8.500000 (0xc8f3)
+  DUT    = 0xbb24 (-0.892578)
+  GOLDEN = -0.896353
+  ERROR = 0.003775
+  ERROR RATE = 0.004211
+PASS at 756
+  a      = -5.269000 (0xc59f)
+  b      = 6.850000 (0xc4c6)
+  DUT    = 0xba23 (-0.767090)
+  GOLDEN = -0.769197
+  ERROR = 0.002107
+  ERROR RATE = 0.002740
+PASS at 757
+  a      = -6.201000 (0x46d5)
+  b      = -9.896000 (0xc5ff)
+  DUT    = 0x38ff (0.624512)
+  GOLDEN = 0.626617
+  ERROR = 0.002105
+  ERROR RATE = 0.003359
+PASS at 758
+  a      = -5.620000 (0x4818)
+  b      = -4.774000 (0x46fa)
+  DUT    = 0x3cb5 (1.176758)
+  GOLDEN = 1.177210
+  ERROR = 0.000452
+  ERROR RATE = 0.000384
+PASS at 759
+  a      = 6.833000 (0x406a)
+  b      = -5.995000 (0x3191)
+  DUT    = 0xbc8e (-1.138672)
+  GOLDEN = -1.139783
+  ERROR = 0.001111
+  ERROR RATE = 0.000975
+PASS at 760
+  a      = 8.184000 (0x3814)
+  b      = 6.978000 (0xc80e)
+  DUT    = 0x3cae (1.169922)
+  GOLDEN = 1.172829
+  ERROR = 0.002907
+  ERROR RATE = 0.002479
+PASS at 761
+  a      = 2.207000 (0x3cda)
+  b      = 0.174000 (0x45d0)
+  DUT    = 0x4a57 (12.679688)
+  GOLDEN = 12.683908
+  ERROR = 0.004221
+  ERROR RATE = 0.000333
+PASS at 762
+  a      = 0.510000 (0x40ee)
+  b      = -8.113000 (0x4725)
+  DUT    = 0xac06 (-0.062866)
+  GOLDEN = -0.062862
+  ERROR = 0.000004
+  ERROR RATE = 0.000066
+PASS at 763
+  a      = 1.213000 (0x489e)
+  b      = 5.812000 (0x3f03)
+  DUT    = 0x32a8 (0.208008)
+  GOLDEN = 0.208706
+  ERROR = 0.000698
+  ERROR RATE = 0.003346
+PASS at 764
+  a      = 2.464000 (0x48cb)
+  b      = 7.144000 (0x47d3)
+  DUT    = 0x3581 (0.343994)
+  GOLDEN = 0.344905
+  ERROR = 0.000911
+  ERROR RATE = 0.002640
+PASS at 765
+  a      = 9.237000 (0x339e)
+  b      = 1.753000 (0x41f2)
+  DUT    = 0x453e (5.242188)
+  GOLDEN = 5.269253
+  ERROR = 0.027065
+  ERROR RATE = 0.005136
+PASS at 766
+  a      = 9.586000 (0x3812)
+  b      = 7.826000 (0x4708)
+  DUT    = 0x3ce3 (1.221680)
+  GOLDEN = 1.224891
+  ERROR = 0.003212
+  ERROR RATE = 0.002622
+PASS at 767
+  a      = 0.238000 (0x40d2)
+  b      = 2.972000 (0x487a)
+  DUT    = 0x2d1b (0.079773)
+  GOLDEN = 0.080081
+  ERROR = 0.000308
+  ERROR RATE = 0.003844
+PASS at 768
+  a      = 0.509000 (0x4728)
+  b      = 7.032000 (0x4834)
+  DUT    = 0x2c9b (0.071960)
+  GOLDEN = 0.072383
+  ERROR = 0.000423
+  ERROR RATE = 0.005843
+PASS at 769
+  a      = 2.410000 (0xc6aa)
+  b      = 8.956000 (0x3e2b)
+  DUT    = 0x344b (0.268311)
+  GOLDEN = 0.269093
+  ERROR = 0.000783
+  ERROR RATE = 0.002909
+PASS at 770
+  a      = 7.156000 (0xbeee)
+  b      = 8.403000 (0x4810)
+  DUT    = 0x3acd (0.850098)
+  GOLDEN = 0.851601
+  ERROR = 0.001503
+  ERROR RATE = 0.001765
+PASS at 771
+  a      = -6.666000 (0xc2cd)
+  b      = 1.542000 (0xc146)
+  DUT    = 0xc451 (-4.316406)
+  GOLDEN = -4.322957
+  ERROR = 0.006551
+  ERROR RATE = 0.001515
+PASS at 772
+  a      = -1.732000 (0x45b5)
+  b      = 8.124000 (0x3fa9)
+  DUT    = 0xb2cd (-0.212524)
+  GOLDEN = -0.213195
+  ERROR = 0.000671
+  ERROR RATE = 0.003148
+PASS at 773
+  a      = -3.400000 (0xc868)
+  b      = -2.636000 (0xb8be)
+  DUT    = 0x3d29 (1.290039)
+  GOLDEN = 1.289833
+  ERROR = 0.000206
+  ERROR RATE = 0.000160
+PASS at 774
+  a      = 5.707000 (0x4550)
+  b      = 1.915000 (0xc8fd)
+  DUT    = 0x41f0 (2.968750)
+  GOLDEN = 2.980157
+  ERROR = 0.011407
+  ERROR RATE = 0.003828
+PASS at 775
+  a      = -8.811000 (0xc70f)
+  b      = -0.593000 (0xc4ff)
+  DUT    = 0x4b75 (14.914062)
+  GOLDEN = 14.858347
+  ERROR = 0.055715
+  ERROR RATE = 0.003750
+PASS at 776
+  a      = 5.313000 (0x45c9)
+  b      = -9.979000 (0xc89a)
+  DUT    = 0xb845 (-0.533691)
+  GOLDEN = -0.532418
+  ERROR = 0.001273
+  ERROR RATE = 0.002392
+PASS at 777
+  a      = -7.060000 (0x4820)
+  b      = -4.995000 (0x47ec)
+  DUT    = 0x3da8 (1.414062)
+  GOLDEN = 1.413413
+  ERROR = 0.000649
+  ERROR RATE = 0.000459
+PASS at 778
+  a      = 5.784000 (0x48ec)
+  b      = -9.202000 (0xc277)
+  DUT    = 0xb906 (-0.627930)
+  GOLDEN = -0.628559
+  ERROR = 0.000629
+  ERROR RATE = 0.001001
+PASS at 779
+  a      = 8.250000 (0xc407)
+  b      = 7.922000 (0xb81b)
+  DUT    = 0x3c28 (1.039062)
+  GOLDEN = 1.041404
+  ERROR = 0.002341
+  ERROR RATE = 0.002248
+PASS at 780
+  a      = 9.844000 (0xc54e)
+  b      = -3.232000 (0x485e)
+  DUT    = 0xc212 (-3.035156)
+  GOLDEN = -3.045792
+  ERROR = 0.010636
+  ERROR RATE = 0.003492
+PASS at 781
+  a      = -4.026000 (0x479b)
+  b      = -0.513000 (0xc7ef)
+  DUT    = 0x47c9 (7.785156)
+  GOLDEN = 7.847953
+  ERROR = 0.062797
+  ERROR RATE = 0.008002
+PASS at 782
+  a      = -5.303000 (0x45b2)
+  b      = 8.732000 (0x414e)
+  DUT    = 0xb8dc (-0.607422)
+  GOLDEN = -0.607306
+  ERROR = 0.000115
+  ERROR RATE = 0.000190
+PASS at 783
+  a      = 7.604000 (0x444c)
+  b      = -7.935000 (0x4497)
+  DUT    = 0xbba9 (-0.957520)
+  GOLDEN = -0.958286
+  ERROR = 0.000767
+  ERROR RATE = 0.000800
+PASS at 784
+  a      = 5.695000 (0x47ac)
+  b      = 2.652000 (0xc8d2)
+  DUT    = 0x404b (2.146484)
+  GOLDEN = 2.147436
+  ERROR = 0.000952
+  ERROR RATE = 0.000443
+PASS at 785
+  a      = 4.297000 (0xc121)
+  b      = 4.590000 (0x4648)
+  DUT    = 0x3b7f (0.937012)
+  GOLDEN = 0.936166
+  ERROR = 0.000846
+  ERROR RATE = 0.000904
+PASS at 786
+  a      = 7.670000 (0xc42e)
+  b      = -9.644000 (0x4068)
+  DUT    = 0xba57 (-0.792480)
+  GOLDEN = -0.795313
+  ERROR = 0.002833
+  ERROR RATE = 0.003562
+PASS at 787
+  a      = -2.565000 (0x44e5)
+  b      = 6.281000 (0x3d36)
+  DUT    = 0xb683 (-0.406982)
+  GOLDEN = -0.408374
+  ERROR = 0.001392
+  ERROR RATE = 0.003409
+PASS at 788
+  a      = -4.181000 (0xc4d3)
+  b      = 2.204000 (0x405b)
+  DUT    = 0xbf8a (-1.884766)
+  GOLDEN = -1.897005
+  ERROR = 0.012240
+  ERROR RATE = 0.006452
+PASS at 789
+  a      = 4.896000 (0x3604)
+  b      = 1.303000 (0xc527)
+  DUT    = 0x437f (3.748047)
+  GOLDEN = 3.757483
+  ERROR = 0.009436
+  ERROR RATE = 0.002511
+PASS at 790
+  a      = -4.826000 (0xc767)
+  b      = 2.177000 (0xc29e)
+  DUT    = 0xc069 (-2.205078)
+  GOLDEN = -2.216812
+  ERROR = 0.011734
+  ERROR RATE = 0.005293
+PASS at 791
+  a      = 0.376000 (0x4307)
+  b      = -5.153000 (0xc2cb)
+  DUT    = 0xacae (-0.073120)
+  GOLDEN = -0.072967
+  ERROR = 0.000153
+  ERROR RATE = 0.002096
+PASS at 792
+  a      = -7.403000 (0x483f)
+  b      = -3.309000 (0x488e)
+  DUT    = 0x4075 (2.228516)
+  GOLDEN = 2.237232
+  ERROR = 0.008716
+  ERROR RATE = 0.003896
+PASS at 793
+  a      = 3.514000 (0xc7df)
+  b      = -3.397000 (0x48d9)
+  DUT    = 0xbc1c (-1.027344)
+  GOLDEN = -1.034442
+  ERROR = 0.007098
+  ERROR RATE = 0.006862
+PASS at 794
+  a      = 8.496000 (0xc823)
+  b      = 9.112000 (0x48bc)
+  DUT    = 0x3b6a (0.926758)
+  GOLDEN = 0.932397
+  ERROR = 0.005639
+  ERROR RATE = 0.006048
+PASS at 795
+  a      = -7.873000 (0xc82c)
+  b      = 9.695000 (0xc8c5)
+  DUT    = 0xba7a (-0.809570)
+  GOLDEN = -0.812068
+  ERROR = 0.002498
+  ERROR RATE = 0.003076
+PASS at 796
+  a      = -8.272000 (0x4453)
+  b      = 9.468000 (0xc77f)
+  DUT    = 0xbafd (-0.873535)
+  GOLDEN = -0.873680
+  ERROR = 0.000145
+  ERROR RATE = 0.000166
+PASS at 797
+  a      = -8.341000 (0xb287)
+  b      = -9.540000 (0x47a9)
+  DUT    = 0x3afd (0.873535)
+  GOLDEN = 0.874319
+  ERROR = 0.000784
+  ERROR RATE = 0.000896
+PASS at 798
+  a      = 4.323000 (0xaee9)
+  b      = -7.495000 (0x3fb6)
+  DUT    = 0xb89b (-0.575684)
+  GOLDEN = -0.576785
+  ERROR = 0.001101
+  ERROR RATE = 0.001909
+PASS at 799
+  a      = -0.204000 (0xb89e)
+  b      = 7.662000 (0xc3cb)
+  DUT    = 0xa6c4 (-0.026428)
+  GOLDEN = -0.026625
+  ERROR = 0.000197
+  ERROR RATE = 0.007387
+PASS at 800
+  a      = -0.108000 (0x4244)
+  b      = 1.928000 (0x45bc)
+  DUT    = 0xab2e (-0.056091)
+  GOLDEN = -0.056017
+  ERROR = 0.000075
+  ERROR RATE = 0.001334
+PASS at 801
+  a      = -0.577000 (0x4399)
+  b      = -3.896000 (0xc4cf)
+  DUT    = 0x30b5 (0.147095)
+  GOLDEN = 0.148101
+  ERROR = 0.001006
+  ERROR RATE = 0.006792
+PASS at 802
+  a      = 3.132000 (0x3f3a)
+  b      = 5.733000 (0x46bc)
+  DUT    = 0x385d (0.545410)
+  GOLDEN = 0.546311
+  ERROR = 0.000901
+  ERROR RATE = 0.001649
+PASS at 803
+  a      = 3.799000 (0xc4e9)
+  b      = -4.810000 (0xc872)
+  DUT    = 0xba57 (-0.792480)
+  GOLDEN = -0.789813
+  ERROR = 0.002668
+  ERROR RATE = 0.003377
+PASS at 804
+  a      = 1.807000 (0xc6d3)
+  b      = 6.736000 (0xc6a5)
+  DUT    = 0x344b (0.268311)
+  GOLDEN = 0.268260
+  ERROR = 0.000050
+  ERROR RATE = 0.000188
+PASS at 805
+  a      = -4.909000 (0x3fa3)
+  b      = -8.890000 (0x44ce)
+  DUT    = 0x3869 (0.551270)
+  GOLDEN = 0.552193
+  ERROR = 0.000924
+  ERROR RATE = 0.001673
+PASS at 806
+  a      = -6.826000 (0x4337)
+  b      = -6.643000 (0x41d6)
+  DUT    = 0x3c1c (1.027344)
+  GOLDEN = 1.027548
+  ERROR = 0.000204
+  ERROR RATE = 0.000199
+PASS at 807
+  a      = 1.909000 (0xbdd7)
+  b      = 4.804000 (0xc6b3)
+  DUT    = 0x365f (0.398193)
+  GOLDEN = 0.397377
+  ERROR = 0.000816
+  ERROR RATE = 0.002054
+PASS at 808
+  a      = 3.607000 (0x3e78)
+  b      = 2.918000 (0xc87c)
+  DUT    = 0x3cf1 (1.235352)
+  GOLDEN = 1.236121
+  ERROR = 0.000769
+  ERROR RATE = 0.000622
+PASS at 809
+  a      = -1.460000 (0x48b0)
+  b      = -6.699000 (0x4869)
+  DUT    = 0x32f3 (0.217163)
+  GOLDEN = 0.217943
+  ERROR = 0.000780
+  ERROR RATE = 0.003578
+PASS at 810
+  a      = 1.617000 (0xbe8c)
+  b      = -8.968000 (0x46c5)
+  DUT    = 0xb1c8 (-0.180664)
+  GOLDEN = -0.180308
+  ERROR = 0.000356
+  ERROR RATE = 0.001976
+PASS at 811
+  a      = 9.372000 (0xbf58)
+  b      = 8.817000 (0xc158)
+  DUT    = 0x3c3f (1.061523)
+  GOLDEN = 1.062947
+  ERROR = 0.001423
+  ERROR RATE = 0.001339
+PASS at 812
+  a      = -1.637000 (0xc394)
+  b      = 6.771000 (0x4528)
+  DUT    = 0xb3b4 (-0.240723)
+  GOLDEN = -0.241766
+  ERROR = 0.001044
+  ERROR RATE = 0.004317
+PASS at 813
+  a      = -1.836000 (0xc88c)
+  b      = -2.672000 (0xc8e3)
+  DUT    = 0x397a (0.684570)
+  GOLDEN = 0.687126
+  ERROR = 0.002555
+  ERROR RATE = 0.003719
+PASS at 814
+  a      = -3.789000 (0x48dc)
+  b      = 5.156000 (0xc4dd)
+  DUT    = 0xb9d8 (-0.730469)
+  GOLDEN = -0.734872
+  ERROR = 0.004403
+  ERROR RATE = 0.005992
+PASS at 815
+  a      = -9.096000 (0x473c)
+  b      = -9.772000 (0x4807)
+  DUT    = 0x3b6a (0.926758)
+  GOLDEN = 0.930823
+  ERROR = 0.004065
+  ERROR RATE = 0.004367
+PASS at 816
+  a      = 9.719000 (0x4006)
+  b      = -4.863000 (0xc03f)
+  DUT    = 0xc000 (-2.000000)
+  GOLDEN = -1.998561
+  ERROR = 0.001439
+  ERROR RATE = 0.000720
+PASS at 817
+  a      = 7.236000 (0x45f0)
+  b      = 8.053000 (0xc11c)
+  DUT    = 0x3b38 (0.902344)
+  GOLDEN = 0.898547
+  ERROR = 0.003797
+  ERROR RATE = 0.004225
+PASS at 818
+  a      = 2.011000 (0x45cc)
+  b      = -2.123000 (0xc7de)
+  DUT    = 0xbb94 (-0.947266)
+  GOLDEN = -0.947244
+  ERROR = 0.000021
+  ERROR RATE = 0.000022
+PASS at 819
+  a      = 5.936000 (0xc78f)
+  b      = -2.555000 (0xb5a2)
+  DUT    = 0xc0a8 (-2.328125)
+  GOLDEN = -2.323288
+  ERROR = 0.004837
+  ERROR RATE = 0.002082
+PASS at 820
+  a      = 5.796000 (0xc7ce)
+  b      = -7.867000 (0x3dc2)
+  DUT    = 0xb9e0 (-0.734375)
+  GOLDEN = -0.736748
+  ERROR = 0.002373
+  ERROR RATE = 0.003222
+PASS at 821
+  a      = -7.558000 (0xc887)
+  b      = -0.352000 (0x471a)
+  DUT    = 0x4d54 (21.312500)
+  GOLDEN = 21.471591
+  ERROR = 0.159091
+  ERROR RATE = 0.007409
+PASS at 822
+  a      = -7.804000 (0x40ea)
+  b      = 1.439000 (0x44ac)
+  DUT    = 0xc563 (-5.386719)
+  GOLDEN = -5.423211
+  ERROR = 0.036492
+  ERROR RATE = 0.006729
+PASS at 823
+  a      = -9.057000 (0x3dac)
+  b      = 7.100000 (0x4865)
+  DUT    = 0xbd14 (-1.269531)
+  GOLDEN = -1.275634
+  ERROR = 0.006103
+  ERROR RATE = 0.004784
+PASS at 824
+  a      = 2.458000 (0xc756)
+  b      = 4.671000 (0x438d)
+  DUT    = 0x3833 (0.524902)
+  GOLDEN = 0.526226
+  ERROR = 0.001323
+  ERROR RATE = 0.002515
+PASS at 825
+  a      = 1.418000 (0x48fc)
+  b      = 8.792000 (0x487e)
+  DUT    = 0x3129 (0.161255)
+  GOLDEN = 0.161283
+  ERROR = 0.000028
+  ERROR RATE = 0.000174
+PASS at 826
+  a      = -7.335000 (0x4672)
+  b      = 3.775000 (0x4471)
+  DUT    = 0xbfbf (-1.936523)
+  GOLDEN = -1.943046
+  ERROR = 0.006523
+  ERROR RATE = 0.003357
+PASS at 827
+  a      = 9.970000 (0x48b2)
+  b      = 8.982000 (0x4036)
+  DUT    = 0x3c6f (1.108398)
+  GOLDEN = 1.109998
+  ERROR = 0.001599
+  ERROR RATE = 0.001441
+PASS at 828
+  a      = 6.446000 (0x408e)
+  b      = 4.443000 (0x44f5)
+  DUT    = 0x3dc8 (1.445312)
+  GOLDEN = 1.450822
+  ERROR = 0.005509
+  ERROR RATE = 0.003797
+PASS at 829
+  a      = 9.389000 (0x40d8)
+  b      = 2.106000 (0x32a0)
+  DUT    = 0x4475 (4.457031)
+  GOLDEN = 4.458215
+  ERROR = 0.001183
+  ERROR RATE = 0.000265
+PASS at 830
+  a      = 2.278000 (0x3ffc)
+  b      = 4.956000 (0x4889)
+  DUT    = 0x3756 (0.458496)
+  GOLDEN = 0.459645
+  ERROR = 0.001149
+  ERROR RATE = 0.002499
+PASS at 831
+  a      = 2.422000 (0x484a)
+  b      = 0.207000 (0x42e1)
+  DUT    = 0x49d8 (11.687500)
+  GOLDEN = 11.700483
+  ERROR = 0.012983
+  ERROR RATE = 0.001110
+PASS at 832
+  a      = 1.996000 (0x451d)
+  b      = 9.072000 (0xbd62)
+  DUT    = 0x3306 (0.219482)
+  GOLDEN = 0.220018
+  ERROR = 0.000535
+  ERROR RATE = 0.002433
+PASS at 833
+  a      = 8.578000 (0x31a2)
+  b      = 3.440000 (0xc881)
+  DUT    = 0x40f8 (2.484375)
+  GOLDEN = 2.493605
+  ERROR = 0.009230
+  ERROR RATE = 0.003701
+PASS at 834
+  a      = 5.115000 (0x47b7)
+  b      = -1.346000 (0xc8b3)
+  DUT    = 0xc394 (-3.789062)
+  GOLDEN = -3.800149
+  ERROR = 0.011086
+  ERROR RATE = 0.002917
+PASS at 835
+  a      = 0.176000 (0xc8f0)
+  b      = -9.004000 (0x3e43)
+  DUT    = 0xa4ff (-0.019516)
+  GOLDEN = -0.019547
+  ERROR = 0.000031
+  ERROR RATE = 0.001580
+PASS at 836
+  a      = 7.714000 (0x3dd6)
+  b      = -9.400000 (0xbf51)
+  DUT    = 0xba8c (-0.818359)
+  GOLDEN = -0.820638
+  ERROR = 0.002279
+  ERROR RATE = 0.002777
+PASS at 837
+  a      = -9.872000 (0xc026)
+  b      = 1.565000 (0x4876)
+  DUT    = 0xc64e (-6.304688)
+  GOLDEN = -6.307987
+  ERROR = 0.003300
+  ERROR RATE = 0.000523
+PASS at 838
+  a      = 1.459000 (0xc711)
+  b      = -1.829000 (0xc4de)
+  DUT    = 0xba57 (-0.792480)
+  GOLDEN = -0.797704
+  ERROR = 0.005223
+  ERROR RATE = 0.006548
+PASS at 839
+  a      = -2.075000 (0xc6d9)
+  b      = 8.919000 (0x4561)
+  DUT    = 0xb36a (-0.231689)
+  GOLDEN = -0.232649
+  ERROR = 0.000960
+  ERROR RATE = 0.004126
+PASS at 840
+  a      = -7.065000 (0xbe3b)
+  b      = -4.866000 (0x4037)
+  DUT    = 0x3dd0 (1.453125)
+  GOLDEN = 1.451911
+  ERROR = 0.001214
+  ERROR RATE = 0.000836
+PASS at 841
+  a      = -6.847000 (0x46bc)
+  b      = 5.378000 (0x3d7f)
+  DUT    = 0xbd14 (-1.269531)
+  GOLDEN = -1.273150
+  ERROR = 0.003619
+  ERROR RATE = 0.002842
+PASS at 842
+  a      = -1.558000 (0xc416)
+  b      = 2.108000 (0xbdbc)
+  DUT    = 0xb9f0 (-0.742188)
+  GOLDEN = -0.739089
+  ERROR = 0.003098
+  ERROR RATE = 0.004192
+PASS at 843
+  a      = 6.734000 (0xc8ad)
+  b      = 1.374000 (0xbf43)
+  DUT    = 0x44ea (4.914062)
+  GOLDEN = 4.901019
+  ERROR = 0.013044
+  ERROR RATE = 0.002661
+PASS at 844
+  a      = -4.084000 (0x40c6)
+  b      = -1.434000 (0x38dd)
+  DUT    = 0x41a8 (2.828125)
+  GOLDEN = 2.847978
+  ERROR = 0.019853
+  ERROR RATE = 0.006971
+PASS at 845
+  a      = -9.353000 (0xc42f)
+  b      = -1.815000 (0x3e1e)
+  DUT    = 0x4522 (5.132812)
+  GOLDEN = 5.153168
+  ERROR = 0.020356
+  ERROR RATE = 0.003950
+PASS at 846
+  a      = 2.386000 (0x480f)
+  b      = 0.608000 (0x3c0f)
+  DUT    = 0x43d4 (3.914062)
+  GOLDEN = 3.924342
+  ERROR = 0.010280
+  ERROR RATE = 0.002619
+PASS at 847
+  a      = -4.185000 (0x48a6)
+  b      = 1.529000 (0x47ef)
+  DUT    = 0xc172 (-2.722656)
+  GOLDEN = -2.737083
+  ERROR = 0.014427
+  ERROR RATE = 0.005271
+PASS at 848
+  a      = 8.120000 (0xc763)
+  b      = 1.015000 (0xc863)
+  DUT    = 0x4800 (8.000000)
+  GOLDEN = 8.000000
+  ERROR = -0.000000
+  ERROR RATE = -0.000000
+PASS at 849
+  a      = 9.296000 (0x47d8)
+  b      = 7.932000 (0xc6ce)
+  DUT    = 0x3ca8 (1.164062)
+  GOLDEN = 1.171962
+  ERROR = 0.007899
+  ERROR RATE = 0.006740
+PASS at 850
+  a      = -7.386000 (0x4005)
+  b      = -8.777000 (0x449e)
+  DUT    = 0x3aba (0.840820)
+  GOLDEN = 0.841518
+  ERROR = 0.000697
+  ERROR RATE = 0.000829
+PASS at 851
+  a      = 7.845000 (0x4852)
+  b      = -6.803000 (0xc7ca)
+  DUT    = 0xbc9b (-1.151367)
+  GOLDEN = -1.153168
+  ERROR = 0.001801
+  ERROR RATE = 0.001561
+PASS at 852
+  a      = 2.010000 (0x42b6)
+  b      = 4.618000 (0x426d)
+  DUT    = 0x36f3 (0.434326)
+  GOLDEN = 0.435253
+  ERROR = 0.000927
+  ERROR RATE = 0.002130
+PASS at 853
+  a      = 8.643000 (0xc813)
+  b      = -7.790000 (0xc55b)
+  DUT    = 0xbc6f (-1.108398)
+  GOLDEN = -1.109499
+  ERROR = 0.001101
+  ERROR RATE = 0.000992
+PASS at 854
+  a      = 3.355000 (0xc8e2)
+  b      = 3.212000 (0x481f)
+  DUT    = 0x3c28 (1.039062)
+  GOLDEN = 1.044521
+  ERROR = 0.005458
+  ERROR RATE = 0.005225
+PASS at 855
+  a      = -8.151000 (0xc08c)
+  b      = -5.355000 (0x4630)
+  DUT    = 0x3e12 (1.517578)
+  GOLDEN = 1.522129
+  ERROR = 0.004551
+  ERROR RATE = 0.002990
+PASS at 856
+  a      = -9.763000 (0x44de)
+  b      = 8.240000 (0xc4b0)
+  DUT    = 0xbcc2 (-1.189453)
+  GOLDEN = -1.184830
+  ERROR = 0.004623
+  ERROR RATE = 0.003902
+PASS at 857
+  a      = -2.273000 (0x39d1)
+  b      = 6.188000 (0xbf85)
+  DUT    = 0xb5d8 (-0.365234)
+  GOLDEN = -0.367324
+  ERROR = 0.002089
+  ERROR RATE = 0.005688
+PASS at 858
+  a      = 4.866000 (0x3ea0)
+  b      = -4.687000 (0xc88b)
+  DUT    = 0xbc22 (-1.033203)
+  GOLDEN = -1.038191
+  ERROR = 0.004988
+  ERROR RATE = 0.004804
+PASS at 859
+  a      = 0.727000 (0xbf0e)
+  b      = -1.880000 (0x47fa)
+  DUT    = 0xb62b (-0.385498)
+  GOLDEN = -0.386702
+  ERROR = 0.001204
+  ERROR RATE = 0.003114
+PASS at 860
+  a      = 1.656000 (0xc3c5)
+  b      = -9.085000 (0xc7d6)
+  DUT    = 0xb1d8 (-0.182617)
+  GOLDEN = -0.182278
+  ERROR = 0.000339
+  ERROR RATE = 0.001858
+PASS at 861
+  a      = -1.764000 (0x39db)
+  b      = 7.977000 (0xc774)
+  DUT    = 0xb306 (-0.219482)
+  GOLDEN = -0.221136
+  ERROR = 0.001653
+  ERROR RATE = 0.007477
+PASS at 862
+  a      = -3.885000 (0x3fba)
+  b      = -7.836000 (0xc501)
+  DUT    = 0x37ea (0.494629)
+  GOLDEN = 0.495789
+  ERROR = 0.001160
+  ERROR RATE = 0.002339
+PASS at 863
+  a      = 0.732000 (0xc8be)
+  b      = -7.454000 (0x48fe)
+  DUT    = 0xae45 (-0.097961)
+  GOLDEN = -0.098202
+  ERROR = 0.000241
+  ERROR RATE = 0.002453
+PASS at 864
+  a      = 1.932000 (0x4815)
+  b      = -5.003000 (0x46ca)
+  DUT    = 0xb62b (-0.385498)
+  GOLDEN = -0.386168
+  ERROR = 0.000670
+  ERROR RATE = 0.001736
+PASS at 865
+  a      = -9.488000 (0xb0cd)
+  b      = 9.986000 (0x456d)
+  DUT    = 0xbb94 (-0.947266)
+  GOLDEN = -0.950130
+  ERROR = 0.002865
+  ERROR RATE = 0.003015
+PASS at 866
+  a      = 8.163000 (0x4478)
+  b      = 6.789000 (0xc459)
+  DUT    = 0x3cc8 (1.195312)
+  GOLDEN = 1.202386
+  ERROR = 0.007074
+  ERROR RATE = 0.005883
+PASS at 867
+  a      = -0.150000 (0xc558)
+  b      = 5.425000 (0xc6ff)
+  DUT    = 0xa710 (-0.027588)
+  GOLDEN = -0.027650
+  ERROR = 0.000062
+  ERROR RATE = 0.002238
+PASS at 868
+  a      = 4.468000 (0xc82c)
+  b      = -4.349000 (0x41a0)
+  DUT    = 0xbc1c (-1.027344)
+  GOLDEN = -1.027363
+  ERROR = 0.000019
+  ERROR RATE = 0.000018
+PASS at 869
+  a      = -5.342000 (0x4779)
+  b      = -6.996000 (0x4119)
+  DUT    = 0x3a23 (0.767090)
+  GOLDEN = 0.763579
+  ERROR = 0.003511
+  ERROR RATE = 0.004598
+PASS at 870
+  a      = -8.341000 (0x43b7)
+  b      = 2.813000 (0xc685)
+  DUT    = 0xc1e8 (-2.953125)
+  GOLDEN = -2.965162
+  ERROR = 0.012037
+  ERROR RATE = 0.004059
+PASS at 871
+  a      = 7.472000 (0xc7e0)
+  b      = 2.549000 (0x48ec)
+  DUT    = 0x41d8 (2.921875)
+  GOLDEN = 2.931346
+  ERROR = 0.009471
+  ERROR RATE = 0.003231
+PASS at 872
+  a      = 3.858000 (0xba46)
+  b      = -6.520000 (0x48b5)
+  DUT    = 0xb8bb (-0.591309)
+  GOLDEN = -0.591718
+  ERROR = 0.000409
+  ERROR RATE = 0.000692
+PASS at 873
+  a      = -7.875000 (0x43a4)
+  b      = 9.847000 (0xc863)
+  DUT    = 0xba68 (-0.800781)
+  GOLDEN = -0.799736
+  ERROR = 0.001045
+  ERROR RATE = 0.001307
+PASS at 874
+  a      = -0.784000 (0x4404)
+  b      = 9.416000 (0xc5b6)
+  DUT    = 0xad54 (-0.083252)
+  GOLDEN = -0.083263
+  ERROR = 0.000011
+  ERROR RATE = 0.000127
+PASS at 875
+  a      = 3.821000 (0xc775)
+  b      = -8.777000 (0xc4e4)
+  DUT    = 0xb6f3 (-0.434326)
+  GOLDEN = -0.435342
+  ERROR = 0.001016
+  ERROR RATE = 0.002334
+PASS at 876
+  a      = 4.015000 (0x415e)
+  b      = -5.712000 (0xc7b2)
+  DUT    = 0xb9a0 (-0.703125)
+  GOLDEN = -0.702906
+  ERROR = 0.000219
+  ERROR RATE = 0.000311
+PASS at 877
+  a      = -7.458000 (0xc8b5)
+  b      = -4.889000 (0x395e)
+  DUT    = 0x3e1a (1.525391)
+  GOLDEN = 1.525465
+  ERROR = 0.000075
+  ERROR RATE = 0.000049
+PASS at 878
+  a      = 2.684000 (0xc8c5)
+  b      = -7.694000 (0x46f9)
+  DUT    = 0xb589 (-0.345947)
+  GOLDEN = -0.348843
+  ERROR = 0.002896
+  ERROR RATE = 0.008302
+PASS at 879
+  a      = -9.412000 (0x3e7c)
+  b      = 0.671000 (0x3dd8)
+  DUT    = 0xcafd (-13.976562)
+  GOLDEN = -14.026826
+  ERROR = 0.050263
+  ERROR RATE = 0.003583
+PASS at 880
+  a      = -9.537000 (0xc0ba)
+  b      = 6.974000 (0x44d8)
+  DUT    = 0xbd72 (-1.361328)
+  GOLDEN = -1.367508
+  ERROR = 0.006180
+  ERROR RATE = 0.004519
+PASS at 881
+  a      = 1.621000 (0xc6c1)
+  b      = 1.461000 (0x3fa4)
+  DUT    = 0x3c69 (1.102539)
+  GOLDEN = 1.109514
+  ERROR = 0.006975
+  ERROR RATE = 0.006287
+PASS at 882
+  a      = -2.363000 (0xc772)
+  b      = 4.844000 (0xc7d6)
+  DUT    = 0xb7c9 (-0.486572)
+  GOLDEN = -0.487820
+  ERROR = 0.001248
+  ERROR RATE = 0.002558
+PASS at 883
+  a      = -6.753000 (0xbdc7)
+  b      = 1.910000 (0xc5c3)
+  DUT    = 0xc310 (-3.531250)
+  GOLDEN = -3.535602
+  ERROR = 0.004352
+  ERROR RATE = 0.001231
+PASS at 884
+  a      = -7.445000 (0x3885)
+  b      = -7.836000 (0xc589)
+  DUT    = 0x3b94 (0.947266)
+  GOLDEN = 0.950102
+  ERROR = 0.002836
+  ERROR RATE = 0.002985
+PASS at 885
+  a      = -1.444000 (0x4385)
+  b      = -5.762000 (0x3d42)
+  DUT    = 0x3400 (0.250000)
+  GOLDEN = 0.250607
+  ERROR = 0.000607
+  ERROR RATE = 0.002424
+PASS at 886
+  a      = 0.565000 (0x48d1)
+  b      = -5.535000 (0x44b8)
+  DUT    = 0xae7a (-0.101196)
+  GOLDEN = -0.102078
+  ERROR = 0.000881
+  ERROR RATE = 0.008635
+PASS at 887
+  a      = 3.760000 (0x44ea)
+  b      = 1.314000 (0xc61a)
+  DUT    = 0x41b0 (2.843750)
+  GOLDEN = 2.861492
+  ERROR = 0.017742
+  ERROR RATE = 0.006200
+PASS at 888
+  a      = 9.631000 (0x4554)
+  b      = 4.718000 (0x3625)
+  DUT    = 0x4011 (2.033203)
+  GOLDEN = 2.041331
+  ERROR = 0.008128
+  ERROR RATE = 0.003982
+PASS at 889
+  a      = 4.914000 (0x3e5a)
+  b      = -6.101000 (0x473c)
+  DUT    = 0xba71 (-0.805176)
+  GOLDEN = -0.805442
+  ERROR = 0.000266
+  ERROR RATE = 0.000330
+PASS at 890
+  a      = 5.329000 (0x47fa)
+  b      = 0.384000 (0x3f97)
+  DUT    = 0x4ae9 (13.820312)
+  GOLDEN = 13.877604
+  ERROR = 0.057292
+  ERROR RATE = 0.004128
+PASS at 891
+  a      = 1.588000 (0x3754)
+  b      = 7.236000 (0x3cdf)
+  DUT    = 0x3306 (0.219482)
+  GOLDEN = 0.219458
+  ERROR = 0.000024
+  ERROR RATE = 0.000110
+PASS at 892
+  a      = 7.977000 (0x4236)
+  b      = 1.897000 (0x4835)
+  DUT    = 0x4433 (4.199219)
+  GOLDEN = 4.205061
+  ERROR = 0.005842
+  ERROR RATE = 0.001389
+PASS at 893
+  a      = 0.458000 (0x41d8)
+  b      = 1.218000 (0x4408)
+  DUT    = 0x3609 (0.377197)
+  GOLDEN = 0.376026
+  ERROR = 0.001171
+  ERROR RATE = 0.003114
+PASS at 894
+  a      = 3.106000 (0x4574)
+  b      = 8.416000 (0x3e7f)
+  DUT    = 0x35e8 (0.369141)
+  GOLDEN = 0.369059
+  ERROR = 0.000082
+  ERROR RATE = 0.000221
+PASS at 895
+  a      = 2.921000 (0x4183)
+  b      = 4.032000 (0x483c)
+  DUT    = 0x39c8 (0.722656)
+  GOLDEN = 0.724454
+  ERROR = 0.001798
+  ERROR RATE = 0.002482
+PASS at 896
+  a      = 5.454000 (0xba7b)
+  b      = 1.624000 (0x484f)
+  DUT    = 0x42ba (3.363281)
+  GOLDEN = 3.358374
+  ERROR = 0.004907
+  ERROR RATE = 0.001461
+PASS at 897
+  a      = 2.756000 (0xc4ce)
+  b      = 8.467000 (0x45d7)
+  DUT    = 0x3530 (0.324219)
+  GOLDEN = 0.325499
+  ERROR = 0.001280
+  ERROR RATE = 0.003933
+PASS at 898
+  a      = -0.810000 (0xbfa6)
+  b      = 8.618000 (0xc790)
+  DUT    = 0xae09 (-0.094299)
+  GOLDEN = -0.093989
+  ERROR = 0.000310
+  ERROR RATE = 0.003298
+PASS at 899
+  a      = -4.804000 (0x4828)
+  b      = 5.840000 (0x4857)
+  DUT    = 0xba95 (-0.822754)
+  GOLDEN = -0.822603
+  ERROR = 0.000151
+  ERROR RATE = 0.000184
+PASS at 900
+  a      = -1.912000 (0xc133)
+  b      = -7.564000 (0xc6f1)
+  DUT    = 0x3406 (0.251465)
+  GOLDEN = 0.252776
+  ERROR = 0.001311
+  ERROR RATE = 0.005188
+PASS at 901
+  a      = 8.311000 (0x3533)
+  b      = 8.683000 (0xbc8a)
+  DUT    = 0x3bb4 (0.962891)
+  GOLDEN = 0.957158
+  ERROR = 0.005733
+  ERROR RATE = 0.005990
+PASS at 902
+  a      = -2.599000 (0xc81d)
+  b      = -6.941000 (0xc070)
+  DUT    = 0x35f9 (0.373291)
+  GOLDEN = 0.374442
+  ERROR = 0.001151
+  ERROR RATE = 0.003073
+PASS at 903
+  a      = 0.325000 (0x4667)
+  b      = -1.135000 (0xc8ee)
+  DUT    = 0xb494 (-0.286133)
+  GOLDEN = -0.286344
+  ERROR = 0.000211
+  ERROR RATE = 0.000736
+PASS at 904
+  a      = -8.224000 (0x4422)
+  b      = -2.219000 (0x3e3f)
+  DUT    = 0x4360 (3.687500)
+  GOLDEN = 3.706174
+  ERROR = 0.018674
+  ERROR RATE = 0.005039
+PASS at 905
+  a      = 6.404000 (0x4811)
+  b      = -9.858000 (0xbe14)
+  DUT    = 0xb930 (-0.648438)
+  GOLDEN = -0.649625
+  ERROR = 0.001187
+  ERROR RATE = 0.001827
+PASS at 906
+  a      = 4.134000 (0xbf87)
+  b      = 1.562000 (0xc78c)
+  DUT    = 0x414d (2.650391)
+  GOLDEN = 2.646607
+  ERROR = 0.003784
+  ERROR RATE = 0.001430
+PASS at 907
+  a      = 8.136000 (0xc1c6)
+  b      = -1.520000 (0x44bc)
+  DUT    = 0xc55c (-5.359375)
+  GOLDEN = -5.352632
+  ERROR = 0.006743
+  ERROR RATE = 0.001260
+PASS at 908
+  a      = -1.882000 (0x41a4)
+  b      = -7.545000 (0xc73c)
+  DUT    = 0x33f5 (0.248657)
+  GOLDEN = 0.249437
+  ERROR = 0.000779
+  ERROR RATE = 0.003125
+PASS at 909
+  a      = -2.887000 (0x440d)
+  b      = 4.736000 (0x4536)
+  DUT    = 0xb8dc (-0.607422)
+  GOLDEN = -0.609586
+  ERROR = 0.002164
+  ERROR RATE = 0.003550
+PASS at 910
+  a      = 2.820000 (0x46f5)
+  b      = -7.235000 (0x41fd)
+  DUT    = 0xb63c (-0.389648)
+  GOLDEN = -0.389772
+  ERROR = 0.000124
+  ERROR RATE = 0.000317
+PASS at 911
+  a      = 4.051000 (0x4894)
+  b      = 5.212000 (0xc644)
+  DUT    = 0x3a34 (0.775391)
+  GOLDEN = 0.777245
+  ERROR = 0.001854
+  ERROR RATE = 0.002386
+PASS at 912
+  a      = 6.957000 (0xc76c)
+  b      = 2.994000 (0x47cb)
+  DUT    = 0x40a1 (2.314453)
+  GOLDEN = 2.323647
+  ERROR = 0.009194
+  ERROR RATE = 0.003957
+PASS at 913
+  a      = 9.154000 (0xc067)
+  b      = -6.264000 (0x4564)
+  DUT    = 0xbdd0 (-1.453125)
+  GOLDEN = -1.461367
+  ERROR = 0.008242
+  ERROR RATE = 0.005640
+PASS at 914
+  a      = -7.421000 (0x3ecd)
+  b      = 7.793000 (0x4874)
+  DUT    = 0xbb94 (-0.947266)
+  GOLDEN = -0.952265
+  ERROR = 0.004999
+  ERROR RATE = 0.005250
+PASS at 915
+  a      = -2.201000 (0xc7a8)
+  b      = 5.392000 (0x4432)
+  DUT    = 0xb683 (-0.406982)
+  GOLDEN = -0.408197
+  ERROR = 0.001215
+  ERROR RATE = 0.002976
+PASS at 916
+  a      = 1.700000 (0x31e3)
+  b      = 8.903000 (0xc3de)
+  DUT    = 0x321a (0.190674)
+  GOLDEN = 0.190947
+  ERROR = 0.000273
+  ERROR RATE = 0.001430
+PASS at 917
+  a      = -7.658000 (0xc5c7)
+  b      = 4.197000 (0xc596)
+  DUT    = 0xbf4c (-1.824219)
+  GOLDEN = -1.824637
+  ERROR = 0.000418
+  ERROR RATE = 0.000229
+PASS at 918
+  a      = 0.184000 (0x4753)
+  b      = -3.933000 (0xc439)
+  DUT    = 0xa9f9 (-0.046661)
+  GOLDEN = -0.046784
+  ERROR = 0.000122
+  ERROR RATE = 0.002613
+PASS at 919
+  a      = -5.779000 (0x2e25)
+  b      = -5.585000 (0x4810)
+  DUT    = 0x3c22 (1.033203)
+  GOLDEN = 1.034736
+  ERROR = 0.001533
+  ERROR RATE = 0.001481
+PASS at 920
+  a      = 7.326000 (0xc410)
+  b      = -4.221000 (0x4276)
+  DUT    = 0xbee9 (-1.727539)
+  GOLDEN = -1.735608
+  ERROR = 0.008069
+  ERROR RATE = 0.004649
+PASS at 921
+  a      = 0.096000 (0xc6e3)
+  b      = 8.124000 (0x47ef)
+  DUT    = 0x2201 (0.011726)
+  GOLDEN = 0.011817
+  ERROR = 0.000090
+  ERROR RATE = 0.007655
+PASS at 922
+  a      = -4.061000 (0xc41e)
+  b      = 3.231000 (0xbdd7)
+  DUT    = 0xbd0c (-1.261719)
+  GOLDEN = -1.256886
+  ERROR = 0.004832
+  ERROR RATE = 0.003845
+PASS at 923
+  a      = -6.888000 (0x4741)
+  b      = 7.932000 (0xc4a9)
+  DUT    = 0xbaf3 (-0.868652)
+  GOLDEN = -0.868381
+  ERROR = 0.000271
+  ERROR RATE = 0.000312
+PASS at 924
+  a      = -4.117000 (0xc285)
+  b      = -1.460000 (0x421a)
+  DUT    = 0x41a0 (2.812500)
+  GOLDEN = 2.819863
+  ERROR = 0.007363
+  ERROR RATE = 0.002611
+PASS at 925
+  a      = 7.255000 (0xc112)
+  b      = -4.659000 (0x481f)
+  DUT    = 0xbe34 (-1.550781)
+  GOLDEN = -1.557201
+  ERROR = 0.006420
+  ERROR RATE = 0.004123
+PASS at 926
+  a      = -3.260000 (0xc1c5)
+  b      = 3.050000 (0xc4b2)
+  DUT    = 0xbc3f (-1.061523)
+  GOLDEN = -1.068852
+  ERROR = 0.007329
+  ERROR RATE = 0.006857
+PASS at 927
+  a      = -2.536000 (0x45c5)
+  b      = 8.240000 (0x4354)
+  DUT    = 0xb4f1 (-0.308838)
+  GOLDEN = -0.307767
+  ERROR = 0.001071
+  ERROR RATE = 0.003480
+PASS at 928
+  a      = -2.885000 (0x487b)
+  b      = -4.696000 (0xc47d)
+  DUT    = 0x38e3 (0.610840)
+  GOLDEN = 0.614353
+  ERROR = 0.003513
+  ERROR RATE = 0.005718
+PASS at 929
+  a      = 5.768000 (0x3fe2)
+  b      = 3.665000 (0x3f12)
+  DUT    = 0x3e45 (1.567383)
+  GOLDEN = 1.573806
+  ERROR = 0.006423
+  ERROR RATE = 0.004081
+PASS at 930
+  a      = 8.963000 (0xc4e7)
+  b      = -4.490000 (0xc82f)
+  DUT    = 0xc000 (-2.000000)
+  GOLDEN = -1.996214
+  ERROR = 0.003786
+  ERROR RATE = 0.001897
+PASS at 931
+  a      = 1.971000 (0xc199)
+  b      = 1.768000 (0xc116)
+  DUT    = 0x3c75 (1.114258)
+  GOLDEN = 1.114819
+  ERROR = 0.000561
+  ERROR RATE = 0.000503
+PASS at 932
+  a      = -4.901000 (0x46d0)
+  b      = -8.370000 (0x48a7)
+  DUT    = 0x38ae (0.584961)
+  GOLDEN = 0.585544
+  ERROR = 0.000583
+  ERROR RATE = 0.000995
+PASS at 933
+  a      = -2.798000 (0x4726)
+  b      = -2.543000 (0x4414)
+  DUT    = 0x3c69 (1.102539)
+  GOLDEN = 1.100275
+  ERROR = 0.002264
+  ERROR RATE = 0.002057
+PASS at 934
+  a      = 6.813000 (0xc86e)
+  b      = 9.308000 (0xc827)
+  DUT    = 0x39e0 (0.734375)
+  GOLDEN = 0.731951
+  ERROR = 0.002424
+  ERROR RATE = 0.003312
+PASS at 935
+  a      = 7.147000 (0x3d55)
+  b      = 4.078000 (0xc158)
+  DUT    = 0x3efd (1.747070)
+  GOLDEN = 1.752575
+  ERROR = 0.005504
+  ERROR RATE = 0.003141
+PASS at 936
+  a      = -8.860000 (0x4428)
+  b      = -8.307000 (0x4496)
+  DUT    = 0x3c45 (1.067383)
+  GOLDEN = 1.066570
+  ERROR = 0.000812
+  ERROR RATE = 0.000762
+PASS at 937
+  a      = 1.333000 (0xc80d)
+  b      = -2.672000 (0x4411)
+  DUT    = 0xb7ea (-0.494629)
+  GOLDEN = -0.498877
+  ERROR = 0.004248
+  ERROR RATE = 0.008516
+PASS at 938
+  a      = 4.156000 (0xb979)
+  b      = 4.585000 (0xc7bf)
+  DUT    = 0x3b42 (0.907227)
+  GOLDEN = 0.906434
+  ERROR = 0.000793
+  ERROR RATE = 0.000874
+PASS at 939
+  a      = -8.101000 (0xc82e)
+  b      = 4.067000 (0x455d)
+  DUT    = 0xbfea (-1.978516)
+  GOLDEN = -1.991886
+  ERROR = 0.013370
+  ERROR RATE = 0.006712
+PASS at 940
+  a      = -0.684000 (0xc6d2)
+  b      = -7.748000 (0xc840)
+  DUT    = 0x2da8 (0.088379)
+  GOLDEN = 0.088281
+  ERROR = 0.000098
+  ERROR RATE = 0.001111
+PASS at 941
+  a      = -8.357000 (0x48d5)
+  b      = 5.364000 (0xc87a)
+  DUT    = 0xbe34 (-1.550781)
+  GOLDEN = -1.557979
+  ERROR = 0.007198
+  ERROR RATE = 0.004620
+PASS at 942
+  a      = -6.820000 (0x48b6)
+  b      = -8.500000 (0x29c3)
+  DUT    = 0x3a68 (0.800781)
+  GOLDEN = 0.802353
+  ERROR = 0.001572
+  ERROR RATE = 0.001959
+PASS at 943
+  a      = 9.663000 (0x4389)
+  b      = -8.955000 (0xbfb1)
+  DUT    = 0xbc4b (-1.073242)
+  GOLDEN = -1.079062
+  ERROR = 0.005820
+  ERROR RATE = 0.005393
+PASS at 944
+  a      = 9.424000 (0x44d7)
+  b      = 0.045000 (0xc699)
+  DUT    = 0x5a83 (208.375000)
+  GOLDEN = 209.422222
+  ERROR = 1.047222
+  ERROR RATE = 0.005001
+PASS at 945
+  a      = 3.767000 (0x42d5)
+  b      = -1.923000 (0xc3a9)
+  DUT    = 0xbfd4 (-1.957031)
+  GOLDEN = -1.958918
+  ERROR = 0.001887
+  ERROR RATE = 0.000963
+PASS at 946
+  a      = 4.840000 (0xc1e0)
+  b      = -6.599000 (0xc873)
+  DUT    = 0xb9d0 (-0.726562)
+  GOLDEN = -0.733444
+  ERROR = 0.006882
+  ERROR RATE = 0.009383
+PASS at 947
+  a      = 3.416000 (0xbd9a)
+  b      = -3.831000 (0x46a5)
+  DUT    = 0xbb1a (-0.887695)
+  GOLDEN = -0.891673
+  ERROR = 0.003978
+  ERROR RATE = 0.004461
+PASS at 948
+  a      = -2.938000 (0xc325)
+  b      = -8.896000 (0x44c2)
+  DUT    = 0x3546 (0.329590)
+  GOLDEN = 0.330261
+  ERROR = 0.000671
+  ERROR RATE = 0.002032
+PASS at 949
+  a      = -1.400000 (0x4857)
+  b      = 6.643000 (0x4008)
+  DUT    = 0xb2ba (-0.210205)
+  GOLDEN = -0.210748
+  ERROR = 0.000543
+  ERROR RATE = 0.002577
+PASS at 950
+  a      = -3.573000 (0x48b1)
+  b      = 4.756000 (0x3fdb)
+  DUT    = 0xb9f9 (-0.746582)
+  GOLDEN = -0.751262
+  ERROR = 0.004680
+  ERROR RATE = 0.006229
+PASS at 951
+  a      = 8.682000 (0xc84b)
+  b      = 2.015000 (0x39e9)
+  DUT    = 0x4445 (4.269531)
+  GOLDEN = 4.308685
+  ERROR = 0.039154
+  ERROR RATE = 0.009087
+PASS at 952
+  a      = 9.386000 (0x3caa)
+  b      = 1.964000 (0x40ca)
+  DUT    = 0x44c2 (4.757812)
+  GOLDEN = 4.779022
+  ERROR = 0.021210
+  ERROR RATE = 0.004438
+PASS at 953
+  a      = -8.587000 (0x4511)
+  b      = 0.739000 (0x44c0)
+  DUT    = 0xc9c8 (-11.562500)
+  GOLDEN = -11.619756
+  ERROR = 0.057256
+  ERROR RATE = 0.004928
+PASS at 954
+  a      = 1.166000 (0x4439)
+  b      = 2.394000 (0x450b)
+  DUT    = 0x37c9 (0.486572)
+  GOLDEN = 0.487051
+  ERROR = 0.000479
+  ERROR RATE = 0.000983
+PASS at 955
+  a      = 5.066000 (0x4174)
+  b      = 4.751000 (0x4493)
+  DUT    = 0x3c3f (1.061523)
+  GOLDEN = 1.066302
+  ERROR = 0.004778
+  ERROR RATE = 0.004481
+PASS at 956
+  a      = 4.221000 (0x48b1)
+  b      = 5.042000 (0x4878)
+  DUT    = 0x3ab1 (0.836426)
+  GOLDEN = 0.837168
+  ERROR = 0.000742
+  ERROR RATE = 0.000886
+PASS at 957
+  a      = 2.726000 (0x4426)
+  b      = 4.576000 (0x3f0e)
+  DUT    = 0x38c2 (0.594727)
+  GOLDEN = 0.595717
+  ERROR = 0.000990
+  ERROR RATE = 0.001662
+PASS at 958
+  a      = 9.386000 (0x4061)
+  b      = 8.939000 (0x4652)
+  DUT    = 0x3c2d (1.043945)
+  GOLDEN = 1.050006
+  ERROR = 0.006060
+  ERROR RATE = 0.005772
+PASS at 959
+  a      = 4.148000 (0x46ec)
+  b      = 1.764000 (0xb85e)
+  DUT    = 0x40ae (2.339844)
+  GOLDEN = 2.351474
+  ERROR = 0.011630
+  ERROR RATE = 0.004946
+PASS at 960
+  a      = 2.190000 (0x472c)
+  b      = 6.320000 (0xbf37)
+  DUT    = 0x3589 (0.345947)
+  GOLDEN = 0.346519
+  ERROR = 0.000572
+  ERROR RATE = 0.001650
+PASS at 961
+  a      = 6.923000 (0x3c2f)
+  b      = -0.546000 (0xc5e9)
+  DUT    = 0xca57 (-12.679688)
+  GOLDEN = -12.679487
+  ERROR = 0.000200
+  ERROR RATE = 0.000016
+PASS at 962
+  a      = 7.172000 (0xbea8)
+  b      = -1.804000 (0x4504)
+  DUT    = 0xc3f5 (-3.978516)
+  GOLDEN = -3.975610
+  ERROR = 0.002906
+  ERROR RATE = 0.000731
+PASS at 963
+  a      = 1.046000 (0x483a)
+  b      = -5.912000 (0xc344)
+  DUT    = 0xb1a0 (-0.175781)
+  GOLDEN = -0.176928
+  ERROR = 0.001147
+  ERROR RATE = 0.006483
+PASS at 964
+  a      = -1.664000 (0xc500)
+  b      = 5.017000 (0x4726)
+  DUT    = 0xb54d (-0.331299)
+  GOLDEN = -0.331672
+  ERROR = 0.000373
+  ERROR RATE = 0.001126
+PASS at 965
+  a      = 8.451000 (0xb40c)
+  b      = -3.633000 (0xc645)
+  DUT    = 0xc0a8 (-2.328125)
+  GOLDEN = -2.326177
+  ERROR = 0.001948
+  ERROR RATE = 0.000838
+PASS at 966
+  a      = -4.999000 (0xc7d1)
+  b      = 7.147000 (0x42e0)
+  DUT    = 0xb999 (-0.699707)
+  GOLDEN = -0.699454
+  ERROR = 0.000253
+  ERROR RATE = 0.000361
+PASS at 967
+  a      = -0.253000 (0xc12a)
+  b      = -6.270000 (0x4379)
+  DUT    = 0x2929 (0.040314)
+  GOLDEN = 0.040351
+  ERROR = 0.000037
+  ERROR RATE = 0.000921
+PASS at 968
+  a      = -7.815000 (0x3e0a)
+  b      = 3.438000 (0x4267)
+  DUT    = 0xc088 (-2.265625)
+  GOLDEN = -2.273124
+  ERROR = 0.007499
+  ERROR RATE = 0.003299
+PASS at 969
+  a      = -2.582000 (0xc279)
+  b      = 3.736000 (0xc4e8)
+  DUT    = 0xb981 (-0.687988)
+  GOLDEN = -0.691113
+  ERROR = 0.003125
+  ERROR RATE = 0.004522
+PASS at 970
+  a      = 1.510000 (0xc86d)
+  b      = 3.202000 (0xc531)
+  DUT    = 0x378a (0.471191)
+  GOLDEN = 0.471580
+  ERROR = 0.000389
+  ERROR RATE = 0.000825
+PASS at 971
+  a      = -3.236000 (0x4576)
+  b      = -4.906000 (0x425e)
+  DUT    = 0x3946 (0.659180)
+  GOLDEN = 0.659600
+  ERROR = 0.000421
+  ERROR RATE = 0.000638
+PASS at 972
+  a      = -8.849000 (0xc84f)
+  b      = -5.191000 (0x488d)
+  DUT    = 0x3ec4 (1.691406)
+  GOLDEN = 1.704681
+  ERROR = 0.013275
+  ERROR RATE = 0.007787
+PASS at 973
+  a      = 5.462000 (0x4872)
+  b      = 3.184000 (0x3c65)
+  DUT    = 0x3ed6 (1.708984)
+  GOLDEN = 1.715452
+  ERROR = 0.006468
+  ERROR RATE = 0.003770
+PASS at 974
+  a      = -8.621000 (0x4886)
+  b      = 9.101000 (0x444c)
+  DUT    = 0xbb8a (-0.942383)
+  GOLDEN = -0.947259
+  ERROR = 0.004876
+  ERROR RATE = 0.005147
+PASS at 975
+  a      = 8.888000 (0xc86b)
+  b      = 1.099000 (0xc813)
+  DUT    = 0x480b (8.085938)
+  GOLDEN = 8.087352
+  ERROR = 0.001415
+  ERROR RATE = 0.000175
+PASS at 976
+  a      = 9.044000 (0x3fcc)
+  b      = 4.296000 (0xc842)
+  DUT    = 0x4033 (2.099609)
+  GOLDEN = 2.105214
+  ERROR = 0.005605
+  ERROR RATE = 0.002662
+PASS at 977
+  a      = -8.838000 (0x4431)
+  b      = -8.145000 (0x3d7f)
+  DUT    = 0x3c57 (1.084961)
+  GOLDEN = 1.085083
+  ERROR = 0.000122
+  ERROR RATE = 0.000112
+PASS at 978
+  a      = 1.949000 (0x48e4)
+  b      = -8.519000 (0xc8d1)
+  DUT    = 0xb34c (-0.228027)
+  GOLDEN = -0.228783
+  ERROR = 0.000755
+  ERROR RATE = 0.003302
+PASS at 979
+  a      = 4.190000 (0x48a2)
+  b      = 1.374000 (0x41a0)
+  DUT    = 0x421a (3.050781)
+  GOLDEN = 3.049491
+  ERROR = 0.001291
+  ERROR RATE = 0.000423
+PASS at 980
+  a      = 9.779000 (0xc335)
+  b      = -9.630000 (0xc2db)
+  DUT    = 0xbc0b (-1.010742)
+  GOLDEN = -1.015472
+  ERROR = 0.004730
+  ERROR RATE = 0.004658
+PASS at 981
+  a      = 9.263000 (0xc817)
+  b      = 2.812000 (0x46a5)
+  DUT    = 0x428c (3.273438)
+  GOLDEN = 3.294097
+  ERROR = 0.020659
+  ERROR RATE = 0.006272
+PASS at 982
+  a      = -3.603000 (0xc88c)
+  b      = -3.427000 (0x436a)
+  DUT    = 0x3c33 (1.049805)
+  GOLDEN = 1.051357
+  ERROR = 0.001552
+  ERROR RATE = 0.001476
+PASS at 983
+  a      = -8.183000 (0x4882)
+  b      = 6.644000 (0xbf16)
+  DUT    = 0xbce3 (-1.221680)
+  GOLDEN = -1.231638
+  ERROR = 0.009958
+  ERROR RATE = 0.008085
+PASS at 984
+  a      = -9.097000 (0x46c6)
+  b      = 3.708000 (0xc38d)
+  DUT    = 0xc0e3 (-2.443359)
+  GOLDEN = -2.453344
+  ERROR = 0.009985
+  ERROR RATE = 0.004070
+PASS at 985
+  a      = 9.014000 (0x405e)
+  b      = -1.771000 (0xc451)
+  DUT    = 0xc514 (-5.078125)
+  GOLDEN = -5.089780
+  ERROR = 0.011655
+  ERROR RATE = 0.002290
+PASS at 986
+  a      = 6.775000 (0xc761)
+  b      = -3.776000 (0x4244)
+  DUT    = 0xbf24 (-1.785156)
+  GOLDEN = -1.794227
+  ERROR = 0.009070
+  ERROR RATE = 0.005055
+PASS at 987
+  a      = 2.184000 (0xc658)
+  b      = -4.317000 (0xc4e0)
+  DUT    = 0xb806 (-0.502930)
+  GOLDEN = -0.505907
+  ERROR = 0.002977
+  ERROR RATE = 0.005885
+PASS at 988
+  a      = -7.380000 (0x4123)
+  b      = 3.133000 (0xc8d2)
+  DUT    = 0xc0b5 (-2.353516)
+  GOLDEN = -2.355570
+  ERROR = 0.002054
+  ERROR RATE = 0.000872
+PASS at 989
+  a      = -6.345000 (0x4815)
+  b      = -4.876000 (0xbc18)
+  DUT    = 0x3d30 (1.296875)
+  GOLDEN = 1.301272
+  ERROR = 0.004397
+  ERROR RATE = 0.003379
+PASS at 990
+  a      = 2.568000 (0xc53b)
+  b      = -9.642000 (0x2bf0)
+  DUT    = 0xb43f (-0.265381)
+  GOLDEN = -0.266335
+  ERROR = 0.000954
+  ERROR RATE = 0.003582
+PASS at 991
+  a      = 8.164000 (0x443d)
+  b      = -1.023000 (0x486f)
+  DUT    = 0xc7ea (-7.914062)
+  GOLDEN = -7.980450
+  ERROR = 0.066387
+  ERROR RATE = 0.008319
+PASS at 992
+  a      = -5.232000 (0xc863)
+  b      = 0.062000 (0x4315)
+  DUT    = 0xd53e (-83.875000)
+  GOLDEN = -84.387097
+  ERROR = 0.512097
+  ERROR RATE = 0.006068
+PASS at 993
+  a      = 4.239000 (0x416f)
+  b      = 8.865000 (0xc484)
+  DUT    = 0x37a9 (0.478760)
+  GOLDEN = 0.478173
+  ERROR = 0.000587
+  ERROR RATE = 0.001228
+PASS at 994
+  a      = -8.774000 (0xc40a)
+  b      = 3.541000 (0xc1c7)
+  DUT    = 0xc0f1 (-2.470703)
+  GOLDEN = -2.477831
+  ERROR = 0.007128
+  ERROR RATE = 0.002877
+PASS at 995
+  a      = 2.716000 (0xc533)
+  b      = -4.517000 (0x4855)
+  DUT    = 0xb8c8 (-0.597656)
+  GOLDEN = -0.601284
+  ERROR = 0.003628
+  ERROR RATE = 0.006033
+PASS at 996
+  a      = -4.038000 (0x3266)
+  b      = -2.888000 (0x4838)
+  DUT    = 0x3d99 (1.399414)
+  GOLDEN = 1.398199
+  ERROR = 0.001215
+  ERROR RATE = 0.000869
+PASS at 997
+  a      = -5.201000 (0x48af)
+  b      = 8.661000 (0xc189)
+  DUT    = 0xb8cf (-0.601074)
+  GOLDEN = -0.600508
+  ERROR = 0.000566
+  ERROR RATE = 0.000943
+PASS at 998
+  a      = 0.200000 (0x48af)
+  b      = 8.441000 (0xc189)
+  DUT    = 0x2609 (0.023575)
+  GOLDEN = 0.023694
+  ERROR = 0.000119
+  ERROR RATE = 0.005024
+PASS at 999
+  a      = 9.370000 (0x48af)
+  b      = -2.768000 (0xc189)
+  DUT    = 0xc2ba (-3.363281)
+  GOLDEN = -3.385116
+  ERROR = 0.021834
+  ERROR RATE = 0.006450
+
+ Test Finished. Total: 1000, Failures: 0
+$finish called at time : 11440 ns : File "/home/ntnu6/Desktop/Activation Function Accelerator/log_scale_div/src/log_scale_div_tb.sv" Line 314
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'log_scale_div_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns

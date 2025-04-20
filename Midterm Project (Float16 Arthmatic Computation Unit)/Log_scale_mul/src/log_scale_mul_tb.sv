@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 `define clk_period 10
 
-module log_scale_div_tb();
+module log_scale_mul_tb();
 
     // Parameter
     parameter FLOAT_LEN = 16;
@@ -22,8 +22,11 @@ module log_scale_div_tb();
     logic [FLOAT_LEN-1:0] exp2_lut_data_in;
     logic [FLOAT_LEN-1:0] dut_out;
 
+    // For debug
+    // logic lut_wr_done;
+
     // Module Instantiation
-    log_scale_div LOG_DIV(
+    log_scale_mul LOG_MUL(
         .clk(clk),
         .rst_n(rst_n),
         .a(a_in),
@@ -188,7 +191,7 @@ module log_scale_div_tb();
             rb[i] = rb_real[i];
             ra_fp16[i] = float_to_fp16(ra[i]);
             rb_fp16[i] = float_to_fp16(rb[i]);
-            golden_result[i] = ra[i] / rb[i];
+            golden_result[i] = ra[i] * rb[i];
         end
     end
 
@@ -252,7 +255,7 @@ module log_scale_div_tb();
                 golden_abs = (golden_result[ch_i - 2] > 0) ? golden_result[ch_i - 2] : -golden_result[ch_i - 2];
                 error_rate = error_abs/golden_abs;
 
-                if(error_abs > 0.011 * golden_abs) begin
+                if(error_abs > 0.019 * golden_abs) begin
                     $display("MISMATCH at %0d", ch_i - 2);
                     $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
                     $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);

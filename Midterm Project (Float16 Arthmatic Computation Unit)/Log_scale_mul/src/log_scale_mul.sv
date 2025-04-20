@@ -10,7 +10,6 @@ module log_scale_mul (
     exp2_lut_data_in,
     // Output Signals
     result
-    // lut_wr_done
 );
 
 //---------------------------------------------------------------------
@@ -48,7 +47,7 @@ logic [FLOAT_LEN-1:0] exp2_lut [0:LUT_SIZE-1];
 logic [$clog2(LUT_SIZE):0] lut_wr_ptr;
 
 // Flag for Look Up Table write done
-logic lut_wr_done;
+// logic lut_wr_done;
 
 // ========== First Stage ==========
 // separate each part of input
@@ -148,13 +147,13 @@ always_ff @ (posedge clk or negedge rst_n) begin
 end
 
 // procedure block for handle lut_wr_done
-always_ff @ (posedge clk or negedge rst_n) begin
-    if(!rst_n) begin
-        lut_wr_done <= 1'b0;
-    end else begin
-        lut_wr_done <= (lut_wr_ptr == LUT_SIZE) ? 1'b1 : 1'b0;
-    end
-end
+// always_ff @ (posedge clk or negedge rst_n) begin
+//     if(!rst_n) begin
+//         lut_wr_done <= 1'b0;
+//     end else begin
+//         lut_wr_done <= (lut_wr_ptr == LUT_SIZE) ? 1'b1 : 1'b0;
+//     end
+// end
 
 // procedure block for handle log2_lut0
 always_ff @ (posedge clk or negedge rst_n) begin
@@ -219,7 +218,8 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         log2_mant_a <= 10'b0;
     end else begin
-        log2_mant_a <= (lut_wr_done) ? log2_lut0[log2_idx_a] : 10'b0;
+        // log2_mant_a <= (lut_wr_done) ? log2_lut0[log2_idx_a] : 10'b0;
+        log2_mant_a <= log2_lut0[log2_idx_a];
     end
 end
 
@@ -228,7 +228,8 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         log2_mant_b <= 10'b0;
     end else begin
-        log2_mant_b <= (lut_wr_done) ? log2_lut1[log2_idx_b] : 10'b0;
+        // log2_mant_b <= (lut_wr_done) ? log2_lut1[log2_idx_b] : 10'b0;
+        log2_mant_b <= log2_lut1[log2_idx_b];
     end
 end
 
@@ -276,7 +277,8 @@ always_ff @ (posedge clk or negedge rst_n) begin
     if(!rst_n) begin
         exp2_val <= 16'b0;
     end else begin
-        exp2_val <= (lut_wr_done) ? exp2_lut[exp2_idx] : 16'b0;
+        // exp2_val <= (lut_wr_done) ? exp2_lut[exp2_idx] : 16'b0;
+        exp2_val <= exp2_lut[exp2_idx];
     end
 end
 
