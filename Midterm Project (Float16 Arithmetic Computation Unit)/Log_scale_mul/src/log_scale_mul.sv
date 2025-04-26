@@ -35,6 +35,11 @@ output logic [FLOAT_LEN-1:0] result;
 //---------------------------------------------------------------------
 //   LOGIC DECLARATION
 //---------------------------------------------------------------------
+
+// input/output register for timing analysis
+logic [FLOAT_LEN-1:0] a_w, a_r, b_w, b_r;
+logic [FLOAT_LEN-1:0] result_w, result_r;
+
 // Look Up Table for Log 2 Function
 logic [MANT_LEN-1:0] log2_lut0 [0:LUT_SIZE-1];
 logic [MANT_LEN-1:0] log2_lut1 [0:LUT_SIZE-1];
@@ -132,6 +137,98 @@ logic [FLOAT_LEN-1:0] specific_result;
 //   DESIGN PART
 //---------------------------------------------------------------------
 
+// =============================================================
+// ========== Normal process path Combinational Logic===========
+// =============================================================
+
+// ========== First Stage: Unpack float16 a and b ===========
+
+// separate each part of input
+assign {sign_a_fir_w, exp_a_raw, mant_a} = a_r;
+assign {sign_b_fir_w, exp_b_raw, mant_b} = b_r;
+
+// get the read address of log2_lut0 & log2_lut0
+assign log2_idx_a = mant_a[9:3];
+assign log2_idx_b = mant_b[9:3];
+
+// get the unbiased exponent
+assign exp_a_fir_w = $signed({2'b00, exp_a_raw}) - 7'sd15;
+assign exp_b_fir_w = $signed({2'b00, exp_b_raw}) - 7'sd15;
+
+// ========== Second Stage: Compute exponent/mantissa sum and normalize ===========
+
+// pipeline for sign_a & sign_b
+assign sign_a_sec_w = sign_a_fir_r;
+assign sign_b_sec_w = sign_b_fir_r;
+
+// compute exponent/mantissa sum
+assign exp_sum = exp_a_fir_r + exp_b_fir_r;
+assign mant_sum = {2'b00, log2_mant_a} + {2'b00, log2_mant_b};
+
+// normalize the sum of exponent/mantissa
+always_comb begin
+    if(mant_sum[10]) begin
+        exp_norm_w = exp_sum + 7'sd1;
+    end else begin
+        exp_norm_w = exp_sum;
+    end
+end
+
+assign mant_norm = mant_sum[9:0];
+
+// get the index of exp2 look up
+assign exp2_idx = mant_norm[9:3];
+
+// ========== Third Stage: Exponent adjust & concatenate ===========
+
+// get the sign of the final number
+assign sign_final = sign_a_sec_r ^ sign_b_sec_r;
+
+// get the exponent of the final number
+assign exp_final = exp_norm_r + 7'sd15;
+
+// get the mantissa of the final number
+assign mant_final = exp2_val[9:0];
+
+always_comb begin
+    if(exp_final <= 0 && exp_norm_r >= -MANT_LEN) begin
+        // subnormal
+        subnormal_imp = {1'b1, mant_final};
+        subnormal_shifted = subnormal_imp >> (1 - exp_final);
+        normal_result = {sign_final, 5'h00, subnormal_shifted};
+    end else if(exp_final <= 0) begin
+        // underflow to zero
+        normal_result = {sign_final, 5'h00, 10'h000};
+    end else if(exp_final >= 30) begin
+        // overflow to inf
+        normal_result = {sign_final, 5'h1F, 10'h000};
+    end else begin
+        // normal
+        normal_result = {sign_final, exp_final[4:0], mant_final};
+    end
+end
+
+// ===========================================================
+// ========== Normal process path Pipeline Register===========
+// ===========================================================
+
+// ========== Input/Output register for timing analysis ==========
+assign a_w = a;
+assign b_w = b;
+assign result = result_r;
+
+always_ff @ (posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        a_r <= 16'h0000;
+        b_r <= 16'h0000;
+        result_r <= 16'h0000;
+    end else begin
+        a_r <= a_w;
+        b_r <= b_w;
+        result_r <= result_w;
+    end
+end
+
 // ========== Look Up Table Initialization ===========
 // procedure block for handle lut_wr_ptr
 always_ff @ (posedge clk or negedge rst_n) begin
@@ -168,20 +265,6 @@ always_ff @ (posedge clk or negedge rst_n) begin
         exp2_lut[lut_wr_ptr] <= (lut_wr_en) ? exp2_lut_data_in : exp2_lut[lut_wr_ptr];
     end
 end
-
-// ========== First Stage: Unpack float16 a and b ===========
-
-// separate each part of input
-assign {sign_a_fir_w, exp_a_raw, mant_a} = a;
-assign {sign_b_fir_w, exp_b_raw, mant_b} = b;
-
-// get the read address of log2_lut0 & log2_lut0
-assign log2_idx_a = mant_a[9:3];
-assign log2_idx_b = mant_b[9:3];
-
-// get the unbiased exponent
-assign exp_a_fir_w = $signed({2'b00, exp_a_raw}) - 7'sd15;
-assign exp_b_fir_w = $signed({2'b00, exp_b_raw}) - 7'sd15;
 
 // ********** First Stage Register: LUT Lookups & pipeline unbiased exponent **********
 
@@ -220,30 +303,6 @@ always_ff @ (posedge clk or negedge rst_n) begin
     end
 end
 
-// ========== Second Stage: Compute exponent/mantissa sum and normalize ===========
-
-// pipeline for sign_a & sign_b
-assign sign_a_sec_w = sign_a_fir_r;
-assign sign_b_sec_w = sign_b_fir_r;
-
-// compute exponent/mantissa sum
-assign exp_sum = exp_a_fir_r + exp_b_fir_r;
-assign mant_sum = {2'b00, log2_mant_a} + {2'b00, log2_mant_b};
-
-// normalize the sum of exponent/mantissa
-always_comb begin
-    if(mant_sum[10]) begin
-        exp_norm_w = exp_sum + 7'sd1;
-    end else begin
-        exp_norm_w = exp_sum;
-    end
-end
-
-assign mant_norm = mant_sum[9:0];
-
-// get the index of exp2 look up
-assign exp2_idx = mant_norm[9:3];
-
 // ********** Second Stage Register: LUT Lookups & pipeline normalized exponent/mantissa **********
 
 // procedure block for sign_a & sign_b & normalized exponent/mantissa pipeline
@@ -269,36 +328,10 @@ always_ff @ (posedge clk or negedge rst_n) begin
     end
 end
 
-// ========== Third Stage: Exponent adjust & concatenate ===========
+// ===========================================
+// ========== Specific process path===========
+// ===========================================
 
-// get the sign of the final number
-assign sign_final = sign_a_sec_r ^ sign_b_sec_r;
-
-// get the exponent of the final number
-assign exp_final = exp_norm_r + 7'sd15;
-
-// get the mantissa of the final number
-assign mant_final = exp2_val[9:0];
-
-always_comb begin
-    if(exp_final <= 0 && exp_norm_r >= -MANT_LEN) begin
-        // subnormal
-        subnormal_imp = {1'b1, mant_final};
-        subnormal_shifted = subnormal_imp >> (1 - exp_final);
-        normal_result = {sign_final, 5'h00, subnormal_shifted};
-    end else if(exp_final <= 0) begin
-        // underflow to zero
-        normal_result = {sign_final, 5'h00, 10'h000};
-    end else if(exp_final >= 30) begin
-        // overflow to inf
-        normal_result = {sign_final, 5'h1F, 10'h000};
-    end else begin
-        // normal
-        normal_result = {sign_final, exp_final[4:0], mant_final};
-    end
-end
-
-// ========== Specific Result Path ===========
 assign is_nan_a_fir_w = (exp_a_raw == 5'h1F) && (mant_a != 0);
 assign is_nan_b_fir_w = (exp_b_raw == 5'h1F) && (mant_b != 0);
 assign is_inf_a_fir_w = (exp_a_raw == 5'h1F) && (mant_a == 0);
@@ -376,6 +409,6 @@ end
 
 // &&&&&&&&&& Final Output Path &&&&&&&&&&
 
-assign result = (is_nan_a_thr_w || is_nan_b_thr_w || is_inf_a_thr_w || is_inf_b_thr_w || is_zero_a_thr_w || is_zero_b_thr_w) ? specific_result : normal_result;
+assign result_w = (is_nan_a_thr_w || is_nan_b_thr_w || is_inf_a_thr_w || is_inf_b_thr_w || is_zero_a_thr_w || is_zero_b_thr_w) ? specific_result : normal_result;
 
 endmodule

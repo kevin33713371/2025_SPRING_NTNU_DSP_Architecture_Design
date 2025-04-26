@@ -26,6 +26,14 @@ module float16_adder_tb();
         .result(dut_out)
     );
 
+    // float16_adder_nonpipe F16_ADD_NONPIP_DUT(
+    //     .clk(clk),
+    //     .rst_n(rst_n),
+    //     .a(a_in),
+    //     .b(b_in),
+    //     .result(dut_out)
+    // );
+
     //--------------------------------------------------
     //   CLK DECLARATION
     //--------------------------------------------------
@@ -208,6 +216,46 @@ module float16_adder_tb();
             // wait two cycle for pipeline output
             #(`clk_period);
             #(`clk_period);
+            #(`clk_period);
+            #(`clk_period);
+            #(`clk_period);
+            for(ch_i = 5; ch_i < NUM_TEST + 5; ch_i = ch_i + 1) begin
+                #(`clk_period);
+
+                error = fp16_to_float(dut_out) - golden_result[ch_i - 5];
+                error_abs = (error > 0) ? error : -error;
+
+                if(error_abs > 0.2) begin
+                    $display("MISMATCH at %0d", ch_i - 5);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 5], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 5], b_in);
+                    $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
+                    $display("  GOLDEN = %.6f", golden_result[ch_i - 5]);
+                    $display("  ERROR = %.6f", error_abs);
+                    fail_count++;
+                end else begin
+                    $display("PASS at %0d", ch_i - 5);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 5], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 5], b_in);
+                    $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
+                    $display("  GOLDEN = %.6f", golden_result[ch_i- 5]);
+                    $display("  ERROR = %.6f", error_abs);
+                end
+            end
+
+            #(`clk_period);
+            $display("\n Test Finished. Total: %0d, Failures: %0d", NUM_TEST, fail_count);
+        end
+    endtask
+
+    task golden_check_nonpipe;
+        begin
+            automatic int fail_count = 0;
+            shortreal error, error_abs;
+
+            // wait two cycle for pipeline output
+            #(`clk_period);
+            #(`clk_period);
             for(ch_i = 2; ch_i < NUM_TEST + 2; ch_i = ch_i + 1) begin
                 #(`clk_period);
 
@@ -227,7 +275,7 @@ module float16_adder_tb();
                     $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
                     $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
                     $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                    $display("  GOLDEN = %.6f", golden_result[ch_i- 2]);
+                    $display("  GOLDEN = %.6f", golden_result[ch_i - 2]);
                     $display("  ERROR = %.6f", error_abs);
                 end
             end
@@ -236,8 +284,6 @@ module float16_adder_tb();
             $display("\n Test Finished. Total: %0d, Failures: %0d", NUM_TEST, fail_count);
         end
     endtask
-
-
 
     // Simulation
     initial begin
@@ -264,6 +310,7 @@ module float16_adder_tb();
             end
             begin
                 golden_check;
+                // golden_check_nonpipe;
             end
         join
 

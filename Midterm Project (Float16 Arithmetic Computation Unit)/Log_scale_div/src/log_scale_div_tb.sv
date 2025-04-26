@@ -243,29 +243,31 @@ module log_scale_div_tb();
             // wait two cycle for pipeline output
             #(`clk_period);
             #(`clk_period);
-            for(ch_i = 2; ch_i < NUM_TEST + 2; ch_i = ch_i + 1) begin
+            #(`clk_period);
+            #(`clk_period);
+            for(ch_i = 4; ch_i < NUM_TEST + 4; ch_i = ch_i + 1) begin
                 #(`clk_period);
 
-                error = fp16_to_float(dut_out) - golden_result[ch_i - 2];
+                error = fp16_to_float(dut_out) - golden_result[ch_i - 4];
                 error_abs = (error > 0) ? error : -error;
-                golden_abs = (golden_result[ch_i - 2] > 0) ? golden_result[ch_i - 2] : -golden_result[ch_i - 2];
+                golden_abs = (golden_result[ch_i - 4] > 0) ? golden_result[ch_i - 4] : -golden_result[ch_i - 4];
                 error_rate = error_abs/golden_abs;
 
                 if(error_abs > 0.011 * golden_abs) begin
-                    $display("MISMATCH at %0d", ch_i - 2);
-                    $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
-                    $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
+                    $display("MISMATCH at %0d", ch_i - 4);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 4], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 4], b_in);
                     $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                    $display("  GOLDEN = %.6f", golden_result[ch_i -2]);
+                    $display("  GOLDEN = %.6f", golden_result[ch_i - 4]);
                     $display("  ERROR = %.6f", error_abs);
                     $display("  ERROR RATE = %.6f", error_rate);
                     fail_count++;
                 end else begin
-                    $display("PASS at %0d", ch_i - 2);
-                    $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
-                    $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);
+                    $display("PASS at %0d", ch_i - 4);
+                    $display("  a      = %f (0x%h)", ra[ch_i - 4], a_in);
+                    $display("  b      = %f (0x%h)", rb[ch_i - 4], b_in);
                     $display("  DUT    = 0x%h (%.6f)", dut_out, fp16_to_float(dut_out));
-                    $display("  GOLDEN = %.6f", golden_result[ch_i- 2]);
+                    $display("  GOLDEN = %.6f", golden_result[ch_i - 4]);
                     $display("  ERROR = %.6f", error_abs);
                     $display("  ERROR RATE = %.6f", error_rate);
                 end
@@ -303,9 +305,6 @@ module log_scale_div_tb();
             begin
                 write_data;
             end
-            // begin
-            //     mul_or_div_control;
-            // end
             begin
                 golden_check;
             end
