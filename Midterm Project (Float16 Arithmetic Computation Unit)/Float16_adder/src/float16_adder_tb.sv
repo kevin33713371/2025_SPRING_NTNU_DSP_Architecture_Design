@@ -262,7 +262,7 @@ module float16_adder_tb();
                 error = fp16_to_float(dut_out) - golden_result[ch_i - 2];
                 error_abs = (error > 0) ? error : -error;
 
-                if(error_abs > 0.2) begin
+                if(error_abs > 0.015625) begin
                     $display("MISMATCH at %0d", ch_i - 2);
                     $display("  a      = %f (0x%h)", ra[ch_i - 2], a_in);
                     $display("  b      = %f (0x%h)", rb[ch_i - 2], b_in);

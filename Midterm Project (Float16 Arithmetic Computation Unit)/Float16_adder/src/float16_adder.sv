@@ -85,6 +85,9 @@ logic round_up;
 logic [(MANT_LEN+1)-1:0] mant_round; // 11 bits
 
 // signal for final exponent/mantissa
+logic is_zero_res;
+logic overflow;
+logic sign_final;
 logic [(EXP_LEN+1)-1:0] exp_final_tmp;
 logic [EXP_LEN-1:0] exp_final;
 logic [MANT_LEN-1:0] mant_final;
@@ -318,12 +321,17 @@ assign round_up = ((guard_bit && round_bit) || (guard_bit && ~round_bit && stick
 assign mant_round = mant_main + round_up;
 
 // Compute final exponent/mantissa
-assign exp_final_tmp = (mant_round[10]) ? exp_norm_r + 1 : exp_norm_r;
+assign overflow = mant_round[10];
+assign exp_final_tmp = (overflow) ? exp_norm_r + 1 : exp_norm_r;
 assign exp_final = (exp_final_tmp > 6'd31) ? 5'd31 : exp_final_tmp;
-assign mant_final = (mant_round[10]) ? mant_round[10:1] : mant_round[9:0];
+assign mant_final = mant_round[9:0];
+
+// check special case a + b = 0
+assign is_zero_res = (exp_final == 5'd0 && mant_final == 10'd0);
+assign sign_final = (is_zero_res) ? 1'b0 : sign_res_sec_r;
 
 // normal result output
-assign normal_result = {sign_res_sec_r, exp_final, mant_final};
+assign normal_result = {sign_final, exp_final, mant_final};
 
 // ===========================================================
 // ========== Normal process path Pipeline Register===========
